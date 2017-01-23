@@ -56,7 +56,7 @@ hive -e "SELECT a.dt, '001', 'fl=c61&wz=1&pageid=032',
     count(DISTINCT CASE WHEN b.status = 1 THEN b.userid END) AS suuv
     FROM
     (SELECT uid, act_times, dt FROM data_sum.sum_user_act_day WHERE dt >= '20161230' AND dt < '20170113' AND product = 'mobile_cli'
-     AND act_code = 0 AND act_property ['fl'] = 'c61' AND act_property ['wz'] = '1' AND act_property ['pageid'] = '031' AND p3 = '001') a
+     AND act_code = 0 AND act_property ['fl'] = 'c61' AND act_property ['wz'] = '1' AND act_property ['pageid'] = '032' AND p3 = '001') a
     LEFT JOIN
     (SELECT userid, status FROM dm_boss.t_new_order_4_data WHERE dt >= '20161230' AND dt < '20170113' AND terminal = '130') b
     ON (a.uid = b.userid)
