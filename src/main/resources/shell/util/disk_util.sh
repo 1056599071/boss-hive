@@ -44,7 +44,7 @@ function compress_file {
     echo "开始压缩文件$1，请稍等..."
     path=$(dirname $1)
     src=${1##*/}
-    target="$path/${src%%.*}.tar.gz"
+    target="$path/${src}.tar.gz"
     tar -zcPf ${target} $1
     echo "恭喜您，压缩文件$1完成，压缩后的文件为$target"
     return 0
