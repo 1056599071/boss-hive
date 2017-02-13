@@ -33,9 +33,9 @@ public class FilterCashierUrlUDF extends UDF {
     		if(m.find())
     			return "ref=Video_" + m.group(1);
     	}else{
-    		Matcher m = Pattern.compile("ref=\\w+").matcher(url);
+    		Matcher m = Pattern.compile("(ref=.+?)&").matcher(url);
     		if(m.find())
-    			return m.group();
+    			return m.group(1);
     	}
         return null;
     }
@@ -46,7 +46,7 @@ public class FilterCashierUrlUDF extends UDF {
         System.out.println(udf.evaluate(url1));
         String url2 = "https://zhifu.le.com/tobuy/regular?ref=yhzx&from=client";
         System.out.println(udf.evaluate(url2));
-        String url3 = "https://zhifu.le.com/mz/tobuy/pro?fronturl=http%3A%2F%2Fm.letv.com%2Fvip";
+        String url3 = "https://zhifu.le.com/tobuy/pro?fronturl=http://client.pc.letv.com/play/10031776?t=p&ref=http%3A%2F%2Fclient.pc.letv.com%2Fmovie&pcVersion=7.3.2.180";
         System.out.println(udf.evaluate(url3));
     }
 }
