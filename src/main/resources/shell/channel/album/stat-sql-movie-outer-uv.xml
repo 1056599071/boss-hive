@@ -1,0 +1,31 @@
+<root>
+	<stat desc="统计站外带来影片收入">
+	    <ignore-exception>false</ignore-exception>
+            
+		<delete desc="删除当天站外带来影片收入"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_movie_outside_channel where dt=?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="导入站外带来影片收入"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/movie_outside_channel_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>\t</separator>
+            <filename>movie_outer_channel_result</filename>
+			<sql>
+			 <![CDATA[
+			        insert into t_movie_outside_channel(dt,channel,pid,payNum,uv,payMoney,movie_name) values(?,?,?,?,?,?,?)
+
+             ]]>
+			</sql>
+		</file2db>
+
+	</stat>
+</root>

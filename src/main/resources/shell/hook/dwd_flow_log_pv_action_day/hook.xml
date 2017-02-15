@@ -1,0 +1,19 @@
+<root>
+	<stat desc="埋点统计">
+	    <ignore-exception>true</ignore-exception>
+         
+		<file2db desc="导入埋点数据到db"> 
+			<datasource>letv_boss_online</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/hook_stat/dwd_flow_log_pv_action_day/data/</filepath>
+			<filedate>sdate</filedate>
+			<separator>\t</separator>
+			<filename>query_hook_data</filename>
+			<sql>
+			 <![CDATA[
+				insert into hook_stat(date,pv,uv,terminal,hook) values(?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

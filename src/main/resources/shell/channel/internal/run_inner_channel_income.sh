@@ -46,16 +46,3 @@ join
 on(t1.userid=t2.uid and t1.dt=t2.dt and t2.cur_url_ref is not null))tt2
 on(tt1.letv_cookie=tt2.letv_cookie and tt1.dt=tt2.dt))tt3
 group by tt3.dt,tt3.cur_url_ref,tt3.neworxufei" > ./data/mz_inner_channel_income.${yesterday}
-
-
-
-################################
-#1.从data_raw.tbl_pv_hour中查询uid, letv_cookie, ref （ref是UDF从cur_url中过滤出来的参数并且过滤完不为空）
-#2.从dm_boss.t_new_order_4_data中查询PC端非赠送会员的userid，money，status，neworxufei
-#3.从data_raw.tbl_pv_hour中查询PC端非登录用户uid，letv_cookie,ref
-#4.步骤2内连接步骤3得到uid，letv_cookie，ref，neworxufei，money
-#5.步骤1左连接步骤4得到ref，neworxufei，count(distinct letv_cookie)，count(distinct userid)，sum(money)
-
-
-
-
