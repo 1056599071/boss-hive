@@ -16,8 +16,8 @@ public class FilterCashierUrlUDF extends UDF {
     	if(StringUtils.isEmpty(url))
     		return null;
     	if(url.contains("from=client")){
-    		// pc 客户端用户中心
-    		return "ref=PC_ClientUserCenter";
+    		// pc 客户端
+    		return "ref=PC_Client";
     	}else if(url.equals("https://zhifu.le.com/mz/tobuy/regular")){
     		// M站 个人中心会员续费
     		return "ref=M_PersonalCenter";
@@ -33,9 +33,11 @@ public class FilterCashierUrlUDF extends UDF {
     		if(m.find())
     			return "ref=Video_" + m.group(1);
     	}else{
-    		Matcher m = Pattern.compile("(ref=.+?)&").matcher(url);
-    		if(m.find())
-    			return m.group(1);
+    		Matcher m = Pattern.compile("(ref=[\\w%.]+)").matcher(url);
+    		if(m.find()){
+    			String ref = m.group(1);
+    			return ref.length() > 128? ref.substring(0, 128): ref;
+    		}
     	}
         return null;
     }
@@ -46,7 +48,9 @@ public class FilterCashierUrlUDF extends UDF {
         System.out.println(udf.evaluate(url1));
         String url2 = "https://zhifu.le.com/tobuy/regular?ref=yhzx&from=client";
         System.out.println(udf.evaluate(url2));
-        String url3 = "https://zhifu.le.com/tobuy/pro?fronturl=http://client.pc.letv.com/play/10031776?t=p&ref=http%3A%2F%2Fclient.pc.letv.com%2Fmovie&pcVersion=7.3.2.180";
+        String url3 = "https://zhifu.le.com/tobuy/pro?fronturl=http://client.pc.letv.com/play/10031776?t=p&ref=http%3A%2F%2Fclient.pc.letv.com1231231231231231231231231231231231231231231231231231231231231231231231231231231212312312312312312312312312312312312312312312312312312312312312312%2Fmovie&pcVersion=7.3.2.180";
         System.out.println(udf.evaluate(url3));
+        String url4 = "https://zhifu.le.com/tobuy/pro?ref=ym03089#type=952";
+        System.out.println(udf.evaluate(url4));
     }
 }
