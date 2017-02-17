@@ -81,6 +81,13 @@
             <artifactId>spring-data-mongodb</artifactId>
             <version>1.9.4.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.pentaho</groupId>
+            <artifactId>pentaho-aggdesigner-algorithm</artifactId>
+            <version>5.1.5-jhyde</version>
+        </dependency>
+
     </dependencies>
 
     <build>
