@@ -4,7 +4,6 @@ source ~/.bashrc
 source ./date_util.sh
 source ./mysql_util.sh
 
-
 yesterday=`getYesterday`
 
 echo ${yesterday}
