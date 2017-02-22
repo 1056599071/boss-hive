@@ -12,5 +12,14 @@ today=`addDays ${yesterday} 5`
 
 echo ${today}
 
+ip="10.183.196.100"
+port="3306"
+user="boss_stat_w"
+password="6b9b3#2137F"
 
+insert ${ip} ${port} ${user} ${password} "boss_stat" "kxw_shell" ./test_mysql.txt
+
+load ${ip} ${port} ${user} ${password} "boss_stat" "select * from kxw_shell" ./kangxiongwei.log
+
+delete ${ip} ${port} ${user} ${password} "boss_stat" "kxw_shell" "firstname = 'zhang'"
 

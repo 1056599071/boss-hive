@@ -4,7 +4,7 @@
 #获取昨天日期，yyyyMMdd格式
 function getYesterday {
     yesterday=`date -d "1 days ago" +%Y%m%d`
-    return ${yesterday}
+    echo ${yesterday}
 }
 
 #给指定日期增加指定天数，返回yyyyMMdd格式日期
@@ -14,5 +14,5 @@ function addDays {
         exit 1
     fi
     date=`date -d "+$2 days $1" +%Y%m%d`
-    return ${date}
+    echo ${date}
 }

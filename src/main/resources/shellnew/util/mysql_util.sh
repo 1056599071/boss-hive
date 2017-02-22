@@ -25,7 +25,7 @@ function insert {
     echo "开始导入文件$7到$6表中"
     sql="LOAD DATA LOCAL INFILE '$7' INTO TABLE $6 FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'"
     echo "执行sql为${sql}"
-    mysql --default-character-set=utf8 -h $1 -P $2 -u $3 -p4 $5 -e "${sql}"
+    mysql --default-character-set=utf8 -h $1 -P $2 -u $3 -p$4 $5 -e "${sql}"
     echo "导入成功，请检查数据"
     return 0
 }
@@ -40,7 +40,7 @@ function delete {
     echo "开始删除$6表中指定条件的数据"
     sql="DELETE FROM $6 WHERE $7"
     echo "执行sql为${sql}"
-    mysql --default-character-set=utf8 -h $1 -P $2 -u $3 -p4 $5 -e "${sql}"
+    mysql --default-character-set=utf8 -h $1 -P $2 -u $3 -p$4 $5 -e "${sql}"
     echo "删除数据成功，请在$6表中检查是否正确"
     return 0
 }
