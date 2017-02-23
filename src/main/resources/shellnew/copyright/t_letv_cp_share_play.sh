@@ -52,8 +52,8 @@ function insertAlbumToHive {
 #将统计结果添加到mysql中
 function addAlbumResultToMysql {
     delete ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" "play_date = '${yesterday}'"
-    columns="album_id, play_date, terminal, subterminal, play_num, play_users, play_hours, play_times, type, config_id"
-    insert ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" ${cp_play_result} ${columns}
+    columns="album_id, play_date, terminal, subterminal, play_num, play_users, play_video, play_video_users, play_hours, play_times, type, config_id"
+    insert ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" ${cp_play_result} "${columns}"
     return 0
 }
 
