@@ -18,12 +18,15 @@ function load {
 #返回值0表示成功，1表示失败
 #注意：文件每一列必须和表每一列对应，每列之间分隔符为\t，
 function insert {
-    if [ $# != 7 ]; then
-        echo "必须输入7个参数[ip, port, username, password, database, table, file]"
+    if [ $# -lt 7 ]; then
+        echo "至少输入7个参数[ip, port, username, password, database, table, file, columns]"
         return 1
     fi
     echo "开始导入文件$7到$6表中"
     sql="LOAD DATA LOCAL INFILE '$7' INTO TABLE $6 FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'"
+    if [ $# -eq 8 ]; then
+        sql="LOAD DATA LOCAL INFILE '$7' INTO TABLE $6 FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' ($8)"
+    fi
     echo "执行sql为${sql}"
     mysql --default-character-set=utf8 -h $1 -P $2 -u $3 -p$4 $5 -e "${sql}"
     echo "导入成功，请检查数据"

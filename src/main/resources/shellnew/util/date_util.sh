@@ -19,18 +19,18 @@ function addDays {
 
 #执行某段时间范围内的指定脚本，日期格式yyyyMMdd
 function execute {
-#    if [ $# != 3 ]; then
-#        echo "必须传入三个参数[startDate,endDate,shellFile]"
-#        return 1
-#    fi
+    if [ $# != 3 ]; then
+        echo "必须传入三个参数[startDate,endDate,shellFile]"
+        return 1
+    fi
     date=`date -d "+0 day $1" +"%Y%m%d"`
     while [[ ${date} < $2 ]];
     do
         echo "开始执行${date}日的脚本"
-#        sh $3 ${date}
+        sh $3 ${date}
         date=`date -d "+1 day ${date}" +"%Y%m%d"`
     done
     return 0
 }
 
-execute
+#execute
