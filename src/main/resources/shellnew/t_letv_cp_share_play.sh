@@ -30,27 +30,30 @@ if [ "$#" -eq 1 ]; then
 fi
 #定义日志文件
 log_path=`pwd`/logs/t_letv_cp_share_config_${yesterday}.log
+#定义影片配置文件，配置好的影片信息存入改文件
+filepath=`pwd`/config/t_letv_cp_share_config_${yesterday}.txt
 #定义结果文件，将hive分析结果存入该文件
 cp_play_result=`pwd`/play/t_letv_cp_play_result_${yesterday}.txt
 
-echo "文件格式：影片ID，日期，终端，子终端，播放次数，播放人数，播放视频数，播放视频人数，播放时长，播完次数，类型，专辑配置ID" > ${log_path}
-
 #从mysql查询有效配置的影片信息，保存在文件中
 function loadAlbumConfig {
-    filepath=`pwd`/config/t_letv_cp_share_config_${yesterday}.txt
     sql="SELECT * FROM v2_cp_share_config t WHERE t.config_type in (1,3,4) AND t.begin_time <= '${yesterday}' AND t.end_time >= '${yesterday}'"
     #执行mysql命令查询数据
     load ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} ${sql} ${filepath}
+    return 0
 }
 
 #将mysql查询的结果导入到hive的t_letv_cp_share_config表中
 function insertAlbumToHive {
-    if [ "$#" != 1 ]; then
-        echo "必须输入文件路径"
-        exit 1
-    fi
-    filepath=$1
     hive -e "LOAD DATA LOCAL INPATH '${filepath}' OVERWRITE INTO TABLE dm_boss.t_letv_cp_share_config PARTITION (dt='${yesterday}')"
+    return 0
+}
+
+#将统计结果添加到mysql中
+function addAlbumResultToMysql {
+    delete ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" "play_date = '${yesterday}'"
+    insert ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" ${cp_play_result}
+    return 0
 }
 
 #查询配置专辑号
@@ -69,27 +72,75 @@ stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
 
 #计算付费分成影片播放情况
 function payAlbumPlay {
-    echo "开始计算全端付费分成数据" >> ${log_path}
-    hive -e "select a.album_id, '${yesterday}', 'all', 'all', ${stat_result}
-    from
-    ($cp_config and config_type = 1) a
-    join
-    (select m.* from
-        ($play_data and user_id > 0 and user_vip_level in (1,2)) m
-        left join
-        ($filter_channel) n
-        on (m.play_chnl = n.ch)
-    where n.ch is null) b
-    on (a.album_id = b.pid)
-    group by a.album_id" > ${cp_play_result}
-    echo "付费分成数据计算完成" >> ${log_path}
+    hive -e "select b.pid, '${yesterday}', b.prod_termn, b.prod_os, b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
+    from (${cp_config} and config_type = 1) a
+    join (select pid, prod_termn, prod_os, ${stat_result}
+    from dws.dws_flow_play_day
+    where cc = 'cn' and dt = '${yesterday}' and pid > 0 and user_id > 0 and user_vip_level in (1,2)
+    group by pid, prod_termn, prod_os) b
+    on (a.album_id = b.pid)" >> ${cp_play_result}
+
+    hive -e "select b.pid, '${yesterday}', '-2', '-2', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
+    from (${cp_config} and config_type = 1) a
+    join (select pid, ${stat_result}
+    from dws.dws_flow_play_day
+    where cc = 'cn' and dt = '${yesterday}' and pid > 0 and user_id > 0 and user_vip_level in (1,2)
+    group by pid) b
+    on (a.album_id = b.pid)" >> ${cp_play_result}
 }
 
-#执行查询函数
-payAlbumPlay
+#计算播放分成数据
+function playAlbumPlay {
+    hive -e "select a.album_id, '${yesterday}', b.prod_termn, b.prod_os, ${stat_result}, 3, a.id
+    from
+     (${cp_config} and config_type = 3) a
+    join
+     (select m.* from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null) b
+    on (a.album_id = b.pid)
+    group by a.album_id, b.prod_termn, b.prod_os;" >> ${cp_play_result}
 
-#delete ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" "play_date = '${yesterday}'"
-#insert ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "share_play_crm" ${cp_play_result}
+    hive -e "select a.album_id, '${yesterday}', '-2', '-2', ${stat_result}, 3, a.id
+    from
+     (${cp_config} and config_type = 3) a
+    join
+     (select m.* from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null) b
+    on (a.album_id = b.pid)
+    group by a.album_id" >> ${cp_play_result}
+}
 
-echo "${yesterday}日影片分成数据计算完成" >> ${log_path}
+function main {
+    echo "文件格式：影片ID，日期，终端，子终端，播放次数，播放人数，播放视频数，播放视频人数，播放时长，播完次数，类型，专辑配置ID" > ${log_path}
+    echo "开始统计${yesterday}日的影片分成数据" >> ${log_path}
+
+    #执行查询函数
+    echo "开始查询专辑配置信息" >> ${log_path}
+#    loadAlbumConfig
+    echo "专辑配置信息查询结束" >> ${log_path}
+
+    echo "开始将专辑配置信息导入到Hive中" >> ${log_path}
+#    insertAlbumToHive
+    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
+
+    #清空文件
+    echo > ${cp_play_result}
+
+    echo "开始查询付费分成数据" >> ${log_path}
+#    payAlbumPlay
+    echo "付费分成数据查询结束" >> ${log_path}
+
+    echo "开始查询播放分成数据" >> ${log_path}
+    playAlbumPlay
+    echo "播放分成数据查询结束" >> ${log_path}
+
+    echo "开始将统计结果导入到Mysql中" >> ${log_path}
+    addAlbumResultToMysql
+    echo "将统计结果导入到Mysql中结束" >> ${log_path}
+
+    echo "${yesterday}日影片分成数据统计完成" >> ${log_path}
+}
+
+#执行main方法
+main
+
+
 

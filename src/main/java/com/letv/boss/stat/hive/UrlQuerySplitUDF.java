@@ -50,6 +50,11 @@ public class UrlQuerySplitUDF extends UDF {
         System.out.println(udf.evaluate(url2));
         String url3 = "http://localhost/aaa?front=http://aaa/b.html#type=456&ref=abc";
         System.out.println(udf.evaluate(url3));
+
+
+
+        String url4 = "http://yuanxian.le.com/?ref=ym0101";
+        System.out.println(udf.evaluate(url4));
     }
 
 }
