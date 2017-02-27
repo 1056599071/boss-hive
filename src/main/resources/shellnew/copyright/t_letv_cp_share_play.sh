@@ -63,8 +63,8 @@ cp_config="SELECT id, album_id FROM dm_boss.t_letv_cp_share_config WHERE dt = '$
 #需要过滤的播放渠道
 filter_channel="SELECT ch FROM dim.dim_ch WHERE dt = '${yesterday}'"
 #播放数据
-play_data="SELECT pid,play_chnl,cv,vv,pf,app_name,pt,user_id,normal_end_flag
- FROM dws.dws_flow_play_day WHERE cc='cn' AND dt='${yesterday}' AND pid > 0 AND log_type = 'http'"
+play_data="SELECT vid,play_chnl,cv,vv,pf,app_name,pt,user_id,normal_end_flag
+ FROM dws.dws_flow_play_day WHERE cc='cn' AND dt='${yesterday}' AND vid > 0 AND log_type = 'http'"
 #统计字段
 stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
     count(DISTINCT CASE WHEN pt > 360 AND cv > 0 THEN user_id END) AS play_users,
@@ -101,20 +101,20 @@ function payAlbumPlay {
 
 #计算播放分成数据
 function playAlbumPlay {
-    sql1="select b.pid, '${yesterday}', b.terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql1="select b.vid, '${yesterday}', b.terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
      (${cp_config} and config_type = 1) a
     join
-     (select m.pid, ${terminal} AS terminal, ${stat_result}
-      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, ${terminal}) b
-    on (a.album_id = b.pid)"
+     (select m.vid, ${terminal} AS terminal, ${stat_result}
+      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid, ${terminal}) b
+    on (a.album_id = b.vid)"
 
-    sql2="select b.pid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql2="select b.vid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
      (${cp_config} and config_type = 1) a
     join
-     (select m.pid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid) b
-    on (a.album_id = b.pid)"
+     (select m.vid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid) b
+    on (a.album_id = b.vid)"
 
     print "${sql1}"
     hive -e "${sql1}" >> ${cp_play_result}
