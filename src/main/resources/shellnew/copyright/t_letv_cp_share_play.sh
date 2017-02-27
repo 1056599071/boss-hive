@@ -136,7 +136,7 @@ function main {
 #    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
 
     echo "开始删除${filepath}文件" >> ${log_path}
-    delete_file ${filepath}
+    delete_file ${cp_play_result}
     echo "删除${filepath}文件成功" >> ${log_path}
 
     echo "开始查询付费分成数据" >> ${log_path}
