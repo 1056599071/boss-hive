@@ -77,9 +77,9 @@ terminal="CASE WHEN pf = 'mc' AND app_name = '00' THEN 'mobile_app' WHEN pf = 'm
 
 #计算付费分成影片播放情况
 function payAlbumPlay {
-    sql1="select b.pid, '${yesterday}', ${terminal}, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
+    sql1="select b.pid, '${yesterday}', b.terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
     from (${cp_config} and config_type = 1) a
-    join (select pid, ${terminal}, ${stat_result}
+    join (select pid, ${terminal} AS terminal, ${stat_result}
     from dws.dws_flow_play_day
     where cc = 'cn' and dt = '${yesterday}' and pid > 0 and user_id > 0 and user_vip_level in (1,2)
     group by pid, ${terminal}) b
@@ -101,11 +101,11 @@ function payAlbumPlay {
 
 #计算播放分成数据
 function playAlbumPlay {
-    sql1="select b.pid, '${yesterday}', ${terminal} AS terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql1="select b.pid, '${yesterday}', b.terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
      (${cp_config} and config_type = 1) a
     join
-     (select m.pid, ${terminal}, ${stat_result}
+     (select m.pid, ${terminal} AS terminal, ${stat_result}
       from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, ${terminal}) b
     on (a.album_id = b.pid)"
 
