@@ -11,18 +11,18 @@ BASEDIR=`dirname $0`
 cd ${BASEDIR}
 
 #专辑配置数据库信息
-db_ip=117.121.54.241
-db_port=3839
-db_user=boss_w
-db_pass=454bce2f998e80a
-database=share
+#db_ip=117.121.54.241
+#db_port=3839
+#db_user=boss_w
+#db_pass=454bce2f998e80a
+#database=share
 
 #测试库数据库信息
-#db_ip=10.150.130.21
-#db_port=3307
-#db_user=vip_letv_test
-#db_pass=vip_letv
-#database=share
+db_ip=10.150.130.21
+db_port=3307
+db_user=vip_letv_test
+db_pass=vip_letv
+database=share
 
 yesterday=`getYesterday`
 if [ "$#" -eq 1 ]; then
@@ -62,7 +62,8 @@ cp_config="SELECT id, album_id FROM dm_boss.t_letv_cp_share_config WHERE dt = '$
 #需要过滤的播放渠道
 filter_channel="SELECT ch FROM dim.dim_ch WHERE dt = '${yesterday}'"
 #播放数据
-play_data="SELECT pid,play_chnl,cv,vv,prod_termn,prod_os,pt,user_id,normal_end_flag FROM dws.dws_flow_play_day WHERE cc='cn' AND dt='${yesterday}' AND pid > 0"
+play_data="SELECT pid,play_chnl,cv,vv,pf,app_name,pt,user_id,normal_end_flag
+ FROM dws.dws_flow_play_day WHERE cc='cn' AND dt='${yesterday}' AND pid > 0 AND log_type = 'http'"
 #统计字段
 stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
     count(DISTINCT CASE WHEN pt > 360 AND cv > 0 THEN user_id END) AS play_users,
@@ -70,6 +71,8 @@ stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
     count(DISTINCT CASE WHEN pt > 360 AND vv > 0 THEN user_id END) AS play_video_users,
     sum(CASE WHEN pt > 360 THEN pt ELSE 0 END) AS play_hours,
     sum(CASE WHEN pt > 360 AND normal_end_flag > 0 THEN 1 ELSE 0 END) AS play_times"
+#终端判定
+terminal="CASE WHEN b.pf = 'mc' AND b.app_name = '00' THEN 'mobile_app' WHEN b.pf = 'mc' AND b.app_name != '00' THEN 'mobile_others' ELSE b.pf END AS pf"
 
 #计算付费分成影片播放情况
 function payAlbumPlay {
@@ -92,30 +95,30 @@ function payAlbumPlay {
 
 #计算播放分成数据
 function playAlbumPlay {
-    sql1="select b.pid, '${yesterday}', b.prod_termn, b.prod_os, b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql1="select b.pid, '${yesterday}', ${terminal}, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
      (${cp_config} and config_type = 3) a
     join
-     (select m.pid, m.prod_termn, m.prod_os, ${stat_result}
-      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, m.prod_termn, m.prod_os) b
+     (select m.pid, m.pf, m.app_name, ${stat_result}
+      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, m.pf, m.app_name) b
     on (a.album_id = b.pid)"
 
-    sql2="select b.pid, '${yesterday}', '-2', '-2', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql2="select b.pid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
      (${cp_config} and config_type = 3) a
     join
      (select m.pid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid) b
     on (a.album_id = b.pid)"
 
-#    echo "======================执行sql========================="
-#    echo ${sql1}
-#    echo "======================================================"
+    echo "======================执行sql========================="
+    echo ${sql1}
+    echo "======================================================"
 
     hive -e "${sql1}" >> ${cp_play_result}
 
-#    echo "======================执行sql========================="
-#    echo ${sql2}
-#    echo "======================================================"
+    echo "======================执行sql========================="
+    echo ${sql2}
+    echo "======================================================"
 
     hive -e "${sql2}" >> ${cp_play_result}
 }
@@ -129,13 +132,13 @@ function main {
     loadAlbumConfig
     echo "专辑配置信息查询结束" >> ${log_path}
 
-    echo "开始将专辑配置信息导入到Hive中" >> ${log_path}
-    insertAlbumToHive
-    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
+#    echo "开始将专辑配置信息导入到Hive中" >> ${log_path}
+#    insertAlbumToHive
+#    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
 
-    echo "开始查询付费分成数据" >> ${log_path}
-    payAlbumPlay
-    echo "付费分成数据查询结束" >> ${log_path}
+#    echo "开始查询付费分成数据" >> ${log_path}
+#    payAlbumPlay
+#    echo "付费分成数据查询结束" >> ${log_path}
 
     echo "开始查询播放分成数据" >> ${log_path}
     playAlbumPlay
