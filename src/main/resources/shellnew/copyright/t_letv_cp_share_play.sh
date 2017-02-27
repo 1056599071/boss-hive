@@ -7,6 +7,7 @@
 source ~/.bashrc
 source ../util/date_util.sh
 source ../util/mysql_util.sh
+source ../util/disk_util.sh
 BASEDIR=`dirname $0`
 cd ${BASEDIR}
 
@@ -39,7 +40,7 @@ cp_play_result=`pwd`/play/t_letv_cp_play_result_${yesterday}.txt
 function loadAlbumConfig {
     sql="SELECT * FROM v2_cp_share_config t WHERE t.config_type in (1,3,4) AND t.begin_time <= '${yesterday}' AND t.end_time >= '${yesterday}'"
     #执行mysql命令查询数据
-    load ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} ${sql} ${filepath}
+    load ${db_ip} ${db_port} ${db_user} ${db_pass} ${database} "${sql}" ${filepath}
     return 0
 }
 
@@ -72,19 +73,19 @@ stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
     sum(CASE WHEN pt > 360 THEN pt ELSE 0 END) AS play_hours,
     sum(CASE WHEN pt > 360 AND normal_end_flag > 0 THEN 1 ELSE 0 END) AS play_times"
 #终端判定
-terminal="CASE WHEN b.pf = 'mc' AND b.app_name = '00' THEN 'mobile_app' WHEN b.pf = 'mc' AND b.app_name != '00' THEN 'mobile_others' ELSE b.pf END AS pf"
+terminal="CASE WHEN pf = 'mc' AND app_name = '00' THEN 'mobile_app' WHEN pf = 'mc' AND app_name != '00' THEN 'mobile_others' ELSE pf END"
 
 #计算付费分成影片播放情况
 function payAlbumPlay {
-    hive -e "select b.pid, '${yesterday}', b.prod_termn, b.prod_os, b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
+    hive -e "select b.pid, '${yesterday}', ${terminal}, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
     from (${cp_config} and config_type = 1) a
-    join (select pid, prod_termn, prod_os, ${stat_result}
+    join (select pid, ${terminal}, ${stat_result}
     from dws.dws_flow_play_day
     where cc = 'cn' and dt = '${yesterday}' and pid > 0 and user_id > 0 and user_vip_level in (1,2)
-    group by pid, prod_termn, prod_os) b
-    on (a.album_id = b.pid)" > ${cp_play_result}
+    group by pid, ${terminal}) b
+    on (a.album_id = b.pid)" >> ${cp_play_result}
 
-    hive -e "select b.pid, '${yesterday}', '-2', '-2', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
+    hive -e "select b.pid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 1, a.id
     from (${cp_config} and config_type = 1) a
     join (select pid, ${stat_result}
     from dws.dws_flow_play_day
@@ -95,17 +96,17 @@ function payAlbumPlay {
 
 #计算播放分成数据
 function playAlbumPlay {
-    sql1="select b.pid, '${yesterday}', ${terminal}, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
+    sql1="select b.pid, '${yesterday}', ${terminal} AS terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
-     (${cp_config} and config_type = 3) a
+     (${cp_config} and config_type = 1) a
     join
-     (select m.pid, m.pf, m.app_name, ${stat_result}
-      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, m.pf, m.app_name) b
+     (select m.pid, ${terminal}, ${stat_result}
+      from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid, ${terminal}) b
     on (a.album_id = b.pid)"
 
     sql2="select b.pid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
-     (${cp_config} and config_type = 3) a
+     (${cp_config} and config_type = 1) a
     join
      (select m.pid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.pid) b
     on (a.album_id = b.pid)"
@@ -136,9 +137,13 @@ function main {
 #    insertAlbumToHive
 #    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
 
-#    echo "开始查询付费分成数据" >> ${log_path}
-#    payAlbumPlay
-#    echo "付费分成数据查询结束" >> ${log_path}
+    echo "开始删除${filepath}文件" >> ${log_path}
+    delete_file ${filepath}
+    echo "删除${filepath}文件成功" >> ${log_path}
+
+    echo "开始查询付费分成数据" >> ${log_path}
+    payAlbumPlay
+    echo "付费分成数据查询结束" >> ${log_path}
 
     echo "开始查询播放分成数据" >> ${log_path}
     playAlbumPlay
