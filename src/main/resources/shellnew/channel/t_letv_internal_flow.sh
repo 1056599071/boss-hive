@@ -20,9 +20,9 @@ db_user=boss_stat_w
 db_pass=6b9b3#2137F
 db_name=boss_stat
 
-file=${BASEDIR}/data/t_letv_internal_flow_${yesterday}.txt
+file=`pwd`/data/t_letv_internal_flow_${yesterday}.txt
 
-log=${BASEDIR}/logs/t_letv_internal_flow_${yesterday}.log
+log=`pwd`/logs/t_letv_internal_flow_${yesterday}.log
 
 #引入UDF
 udf="add jar /home/zhaochunlong/shell/udf/boss-hive-1.0.jar;
