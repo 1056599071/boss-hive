@@ -29,7 +29,7 @@ on(t1.userid=t2.uid and t1.dt=t2.dt and t2.cur_url_ref is not null))tt2
 on(tt1.letv_cookie=tt2.letv_cookie and tt1.dt=tt2.dt))tt3
 group by tt3.dt,tt3.cur_url_ref,tt3.neworxufei" > ./data/pc_inner_channel_income.${yesterday}
 
-echo "开始计算${yesterday}日的内部渠道流量MSite端数据"
+echo "开始计算${yesterday}日的内部渠道流量M站数据"
 
 hive -e "add jar /home/zhaochunlong/boss_stat/common_stat/inner_channel_stat/boss-hive.jar;
          create temporary function filter_ref as 'com.letv.boss.stat.hive.FilterUrlUDF'; 
