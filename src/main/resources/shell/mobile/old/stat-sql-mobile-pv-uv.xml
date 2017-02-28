@@ -1,0 +1,128 @@
+<root>
+	<stat desc="移动端点击和曝光pv、uv">
+	        <ignore-exception>false</ignore-exception>
+            
+        <!--			
+		<delete desc="删除当日pv数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_mobile_pv_uv where stat_date=?
+			]]>
+			</sql>
+		</delete>  
+		
+		<file2db desc="导入移动端点击和曝光pv、uv到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			<charset>utf-8</charset>
+            <separator>,</separator>
+            <filename>mobile_pv_uv_name_fragid</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_mobile_pv_uv(stat_date,pv,uv,act_code,act_pageid,act_fl,act_fragid_name,act_wz,fm_flag) values(?,?,?,?,?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		
+		<delete desc="删除当日pv数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_mobile_order where stat_date=?
+			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="导入移动端点击和曝光pv、uv到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>,</separator>
+            <filename>mobile_order_name_fragid</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_mobile_order(stat_date,pay_cnt,act_code,act_pageid,act_fl,act_fragid_name,act_wz,neworxufei,fm_flag) values(?,?,?,?,?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+	    -->
+		<delete desc="删除当日fragid付费转化数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_mobile_order_result where stat_date=? and fm_flag=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="导入移动端fragid点击和曝光付费转化数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>,</separator>
+            <filename>mobile_order_fragid_result</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_mobile_order_result(stat_date,pay_cnt,neworxufei,money,pv,uv,act_code,act_pageid,act_fl,act_fragid_name,act_wz,fm_flag) values(?,?,?,?,?,?,?,?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		
+		
+		<delete desc="删除当日fragid-all付费转化数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_mobile_order_result where stat_date=? and fm_flag=0 and act_wz='mm007'
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="导入移动端fragid-all点击和曝光付费转化数据到db点击和曝光付费转化数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>,</separator>
+            <filename>mobile_order_fragid_result_all</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_mobile_order_result(stat_date,pay_cnt,neworxufei,money,pv,uv,act_code,act_pageid,act_fl,act_fragid_name,act_wz,fm_flag) values(?,?,?,?,?,?,?,?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		
+		<delete desc="删除当日name付费转化数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from t_mobile_order_result where stat_date=? and fm_flag=1
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="导入移动端name点击和曝光付费转化数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>,</separator>
+            <filename>mobile_order_name_result</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_mobile_order_result(stat_date,pay_cnt,neworxufei,money,pv,uv,act_code,act_pageid,act_fl,act_fragid_name,act_wz,fm_flag) values(?,?,?,?,?,?,?,?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		
+	</stat>
+</root>

@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
 #磁盘管理通用脚本
 
-if [ $# -ne 2 ]; then
-    echo "必须输入两个参数，第一个参数为clear|delete|compress中的一个，第二个为文件全路径"
-    exit 1
-fi
-
 #检验文件是否存在
 function exist_file {
     if [ $# -ne 1 ]; then
        echo "必须输入文件名"
-       exit 1
+       return 1
     fi
     if [ ! -f "$1" ]; then
         echo "文件$1不存在！请检查..."
-        exit 1
+        return 2
     fi
     return 0
 }
-
 
 #清理文件的方法
 function clear_file {
@@ -32,9 +26,11 @@ function clear_file {
 #删除文件的方法
 function delete_file {
     clear_file $1;
-    echo "开始删除文件$1，请稍等..."
-    rm -f "$1";
-    echo "恭喜您，删除文件$1成功！"
+    if [ $? -eq 0 ]; then
+        echo "开始删除文件$1，请稍等..."
+        rm -f "$1";
+        echo "恭喜您，删除文件$1成功！"
+    fi
     return 0
 }
 
@@ -49,20 +45,4 @@ function compress_file {
     echo "恭喜您，压缩文件$1完成，压缩后的文件为$target"
     return 0
 }
-
-case "$1" in
-   'clear')
-        clear_file $2
-        ;;
-   'delete')
-        delete_file $2
-        ;;
-   'compress')
-        compress_file $2
-        ;;
-  *)
-    echo "Usage: $0 {clear|delete|compress}"
-    exit 1
-esac
-exit 0
 

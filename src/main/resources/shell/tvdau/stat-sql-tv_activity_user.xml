@@ -1,0 +1,29 @@
+<root>
+	<stat desc="计算收银台付费率">
+	    <ignore-exception>false</ignore-exception>
+				
+		<delete desc="删除tv活跃当天数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+					delete from tv_activity_order_user where dt=?
+			]]>
+			</sql>
+	     </delete>
+		
+		<file2db desc="导入tv活跃当天数据"> 
+		<datasource>letv_order_test</datasource>
+		<filepath>/home/zhaochunlong/boss_stat/common_stat/membership_validity_30/data/</filepath>
+		<filedate>sdate</filedate>
+        <separator>, </separator>
+        <filename>tv_activity_user_result</filename>
+			<sql>
+			 <![CDATA[
+				insert into tv_activity_order_user(dt,login_num,unlogin_num,user_num,device,viplen,vipuser_num,pay_num,pay_money,allorder_num,order_num,alluser_num) values(?,?,?,?,?,?,?,?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>	
+	
+	</stat>
+</root>

@@ -1,0 +1,46 @@
+<root>
+        <stat desc="导出需要统计的电影pid，uid，活动url">
+                <db2csv desc="导出需要统计的电影pid"> 
+                        <datasource>boss_online_rec</datasource>
+                        <filepath>/home/zhaochunlong/boss_stat/common_stat/movie_user_recommand/config_data/</filepath>
+                        <filename>rec_config_pid</filename>
+                        <filedate>sdate</filedate>
+						<input-param>sdate</input-param>
+                        <sql>
+                         <![CDATA[
+                                select pid,pid1,pid2,tv_pid from recommend_config where date_format(create_time,'%Y%m%d')=? and flag=0 and pid is not null
+                        ]]>
+                        </sql>
+                </db2csv>
+				
+				<db2csv desc="导出需要统计的电影url"> 
+                        <datasource>boss_online_rec</datasource>
+                        <filepath>/home/zhaochunlong/boss_stat/common_stat/movie_user_recommand/config_data/</filepath>
+                        <filename>rec_config_url</filename>
+                        <filedate>sdate</filedate>
+						<input-param>sdate</input-param>
+						 <input-param>sdate</input-param>
+                        <sql>
+                         <![CDATA[
+                                select pid,special_begin,special_end,special_url from recommend_config where date_format(create_time,'%Y%m%d')=? and flag=0 and special_url is not null and special_url!=""
+                                union all
+                                select pid,special_begin1,special_end1,special_url1 from recommend_config where date_format(create_time,'%Y%m%d')=? and flag=0 and special_url1 is not null and special_url1!=""
+                       ]]>
+                        </sql>
+                </db2csv>
+				
+				<db2csv desc="导出需要统计的电影config_id"> 
+                        <datasource>boss_online_rec</datasource>
+                        <filepath>/home/zhaochunlong/boss_stat/common_stat/movie_user_recommand/config_data/</filepath>
+                        <filename>rec_config_configid</filename>
+                        <filedate>sdate</filedate>
+						<input-param>sdate</input-param>
+                        <sql>
+                         <![CDATA[
+                                select pid,id from recommend_config where date_format(create_time,'%Y%m%d')=? and flag=0 and pid is not null
+                        ]]>
+                        </sql>
+                </db2csv>
+				
+        </stat>
+</root>

@@ -14,7 +14,7 @@ import java.util.Map;
 public class UrlQuerySplitUDF extends UDF {
 
     /**
-     * 将url的参数全部放在map中
+     * 将url的参数全部放在map中，解析结果中如果包含?或#特殊符号，则会去掉该符号之后的字符串
      *
      * @param url
      * @return
@@ -30,7 +30,11 @@ public class UrlQuerySplitUDF extends UDF {
             for (String param : params) {
                 if (!param.contains("=")) continue;
                 int index = param.indexOf("=");
-                map.put(param.substring(0, index), param.substring(index + 1));
+                String value = param.substring(index + 1);
+                value = value.contains("?") ? value.substring(0, value.indexOf('?')) : value;
+                value = value.contains("#") ? value.substring(0, value.indexOf('#')) : value;
+                value = value.contains("/") ? value.substring(0, value.indexOf('/')) : value;
+                map.put(param.substring(0, index), value);
             }
         } catch (Exception ignored) {
 
@@ -46,6 +50,11 @@ public class UrlQuerySplitUDF extends UDF {
         System.out.println(udf.evaluate(url2));
         String url3 = "http://localhost/aaa?front=http://aaa/b.html#type=456&ref=abc";
         System.out.println(udf.evaluate(url3));
+
+
+
+        String url4 = "http://yuanxian.le.com/?ref=ym0101";
+        System.out.println(udf.evaluate(url4));
     }
 
 }
