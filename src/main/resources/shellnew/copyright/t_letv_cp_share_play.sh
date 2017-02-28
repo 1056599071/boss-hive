@@ -93,9 +93,9 @@ function payAlbumPlay {
     group by pid) b
     on (a.album_id = b.pid)"
 
-    print "${sql1}"
+    print "${sql1}" >> ${log_path}
     hive -e "${sql1}" >> ${cp_play_result}
-    print "${sql2}"
+    print "${sql2}" >> ${log_path}
     hive -e "${sql2}" >> ${cp_play_result}
 }
 
@@ -116,9 +116,9 @@ function playAlbumPlay {
      (select m.vid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid) b
     on (a.album_id = b.vid)"
 
-    print "${sql1}"
+    print "${sql1}" >> ${log_path}
     hive -e "${sql1}" >> ${cp_play_result}
-    print "${sql2}"
+    print "${sql2}" >> ${log_path}
     hive -e "${sql2}" >> ${cp_play_result}
 }
 

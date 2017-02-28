@@ -5,11 +5,11 @@
 function exist_file {
     if [ $# -ne 1 ]; then
        echo "必须输入文件名"
-       exit 1
+       return 1
     fi
     if [ ! -f "$1" ]; then
         echo "文件$1不存在！请检查..."
-        exit 1
+        return 2
     fi
     return 0
 }
@@ -25,11 +25,14 @@ function clear_file {
 
 #删除文件的方法
 function delete_file {
-    clear_file $1;
-    echo "开始删除文件$1，请稍等..."
-    rm -f "$1";
-    echo "恭喜您，删除文件$1成功！"
-    return 0
+    flag=`clear_file $1`;
+    if [ ${flag} -eq 0 ]; then
+        echo "开始删除文件$1，请稍等..."
+        rm -f "$1";
+        echo "恭喜您，删除文件$1成功！"
+        flag=0
+    fi
+    return ${flag}
 }
 
 #压缩文件的方法
