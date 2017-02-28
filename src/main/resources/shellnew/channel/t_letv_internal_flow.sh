@@ -28,7 +28,7 @@ log=`pwd`/logs/t_letv_internal_flow_${yesterday}.log
 udf="add jar /home/zhaochunlong/shell/udf/boss-hive-1.0.jar;
 create temporary function splitUrl as 'com.letv.boss.stat.hive.UrlQuerySplitUDF';"
 #新增还是续费判定条件
-nox="case when b.neworxufei in (0, 1) then b.neworxufei else -1 end AS neworxufei"
+nox="case when b.neworxufei in (0, 1) then b.neworxufei else -1 end"
 
 
 #查询http上报的ref流量
@@ -53,7 +53,7 @@ function httpRef {
     sql3="select userid, money, neworxufei from dm_boss.t_new_order_4_data
      where dt = '${yesterday}' and terminal = ${terminal} and status = 1 and orderpaytype != -1"
 
-    result="'${yesterday}', a.ref, ${nox}, '${terminal}',
+    result="'${yesterday}', a.ref, ${nox} AS neworxufei, '${terminal}',
      count(distinct a.letv_cookie) as pageUv,
      count(distinct b.userid) as payUv,
      sum(coalesce(b.money, 0)) as income"
