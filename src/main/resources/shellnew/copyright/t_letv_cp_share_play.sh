@@ -103,7 +103,7 @@ function payAlbumPlay {
 function playAlbumPlay {
     sql1="select b.vid, '${yesterday}', b.terminal, 'common', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
-     (${cp_config} and config_type = 1) a
+     (${cp_config} and config_type = 3) a
     join
      (select m.vid, ${terminal} AS terminal, ${stat_result}
       from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid, ${terminal}) b
@@ -111,7 +111,7 @@ function playAlbumPlay {
 
     sql2="select b.vid, '${yesterday}', 'all', 'all', b.play_num, b.play_users, b.play_video, b.play_video_users, b.play_hours, b.play_times, 3, a.id
     from
-     (${cp_config} and config_type = 1) a
+     (${cp_config} and config_type = 3) a
     join
      (select m.vid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid) b
     on (a.album_id = b.vid)"
@@ -136,7 +136,7 @@ function main {
 #    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
 
     echo "开始删除${filepath}文件" >> ${log_path}
-    delete_file ${cp_play_result}
+    delete_file ${cp_play_result} >> ${log_path}
     echo "删除${filepath}文件成功" >> ${log_path}
 
     echo "开始查询付费分成数据" >> ${log_path}
