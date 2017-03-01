@@ -3,6 +3,7 @@
 #创建者：亢雄伟
 #作用：站内渠道流量统计，该脚本会解析PV表中cur_url包含ref的部分
 #按照ref进行分组统计每个渠道带来的收入
+#可以指定日期查询，日期格式为yyyy-MM-dd
 
 source ~/.bash_profile;
 source ../util/date_util.sh
@@ -12,7 +13,7 @@ source ../util/disk_util.sh
 BASEDIR=`dirname $0`
 cd ${BASEDIR}
 
-yesterday=`date -d "1 days ago" +"%Y%m%d"`
+yesterday=`date -d "1 days ago" +"%Y-%m-%d"`
 
 if [ "$#" -eq 1 ]; then
     yesterday=$1
@@ -24,9 +25,9 @@ db_user=boss_stat_w
 db_pass=6b9b3#2137F
 db_name=boss_stat
 
-file=`pwd`/data/t_letv_internal_flow_${yesterday}.txt
+file=`pwd`/data/t_letv_internal_flow_${yesterday//-/}.txt
 
-log=`pwd`/logs/t_letv_internal_flow_${yesterday}.log
+log=`pwd`/logs/t_letv_internal_flow_${yesterday//-/}.log
 
 #引入UDF
 udf="add jar /home/zhaochunlong/shell/udf/boss-hive-1.0.jar;
@@ -38,11 +39,11 @@ nox="case when b.neworxufei in (0, 1) then b.neworxufei else -1 end"
 function httpRef {
     terminal=$1
     if [ ${terminal} -eq 112 ]; then
-        product=" dt = '${yesterday}' and product = 1 and cur_url != '-' and cur_url != ''"
+        product=" dt = '${yesterday//-/}' and product = 1 and cur_url != '-' and cur_url != ''"
         terminalName='PC'
     fi
     if [ ${terminal} -eq 113 ]; then
-        product=" dt = '${yesterday}' and product = 0 and p2 in ('04', '05', '06') and cur_url != '-' and cur_url != ''"
+        product=" dt = '${yesterday//-/}' and product = 0 and p2 in ('04', '05', '06') and cur_url != '-' and cur_url != ''"
         terminalName='MH5'
     fi
     #查询ref
@@ -50,9 +51,9 @@ function httpRef {
     sql2="select m.uid, m.query['ref'] as ref, m.letv_cookie from (${sql1}) m
      where m.query['ref'] is not null and m.query['ref'] not like '%http:%' and m.query['ref'] != 'click'"
     sql3="select userid, money, neworxufei from dm_boss.t_new_order_4_data
-     where dt = '${yesterday}' and terminal = ${terminal} and status = 1 and orderpaytype != -1"
+     where dt = '${yesterday//-/}' and terminal = ${terminal} and status = 1 and orderpaytype != -1"
 
-    result="'${yesterday}', a.ref, ${nox} AS neworxufei, '${terminalName}',
+    result="'${yesterday}', a.ref, 'http', ${nox} AS neworxufei, '${terminalName}',
      count(distinct a.letv_cookie) as pageUv,
      count(distinct b.userid) as payUv,
      sum(coalesce(b.money, 0)) as income"
@@ -68,11 +69,11 @@ function httpRef {
 function jssdkRef {
     terminal=$1
     if [ ${terminal} -eq 112 ]; then
-        product=" dt = '${yesterday}' and platform = 0 "
+        product=" dt = '${yesterday//-/}' and platform = 0 "
         terminalName="PC"
     fi
     if [ ${terminal} -eq 112 ]; then
-        product=" dt = '${yesterday}' and platform IN (1, 2)"
+        product=" dt = '${yesterday//-/}' and platform IN (1, 2)"
         terminalName="MH5"
     fi
     #查询ref
@@ -81,9 +82,9 @@ function jssdkRef {
      where m.query['ref'] is not null and m.query['ref'] not like '%http:%' and m.query['ref'] != 'click'"
     #查询订单
     sql3="select userid, money, neworxufei from dm_boss.t_new_order_4_data
-     where dt = '${yesterday}' and terminal = ${terminal} and status = 1 and orderpaytype != -1"
+     where dt = '${yesterday//-/}' and terminal = ${terminal} and status = 1 and orderpaytype != -1"
 
-    result="'${yesterday}', a.ref, ${nox} AS neworxufei, '${terminalName}',
+    result="'${yesterday}', a.ref, 'js_sdk', ${nox} AS neworxufei, '${terminalName}',
      count(distinct a.eid) as pageUv,
      count(distinct b.userid) as payUv,
      sum(coalesce(b.money, 0)) as income"
@@ -118,7 +119,7 @@ function main {
 
     echo "开始导入数据到mysql中" >> ${log}
     delete ${db_ip} ${db_port} ${db_user} ${db_pass} ${db_name} "t_letv_channel_flow" "dt = '${yesterday}'" >> ${log}
-    columns="dt, channel, is_new, terminal, page_uv, pay_uv, income"
+    columns="dt, channel, protocol, is_new, terminal, page_uv, pay_uv, income"
     insert ${db_ip} ${db_port} ${db_user} ${db_pass} ${db_name} "t_letv_channel_flow" "${file}" "${columns}" >> ${log}
     echo "导入到mysql中完成" >> ${log}
 }
