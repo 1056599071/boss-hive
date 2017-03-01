@@ -34,7 +34,6 @@ create temporary function splitUrl as 'com.letv.boss.stat.hive.UrlQuerySplitUDF'
 #新增还是续费判定条件
 nox="case when b.neworxufei in (0, 1) then b.neworxufei else -1 end"
 
-
 #查询http上报的ref流量
 function httpRef {
     terminal=$1
