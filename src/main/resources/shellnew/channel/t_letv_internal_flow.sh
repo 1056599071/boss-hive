@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-#站内渠道流量统计
+#创建日期：2017-02-28 14:43:00
+#创建者：亢雄伟
+#作用：站内渠道流量统计，该脚本会解析PV表中cur_url包含ref的部分
+#按照ref进行分组统计每个渠道带来的收入
+
 source ~/.bash_profile;
 source ../util/date_util.sh
 source ../util/mysql_util.sh
