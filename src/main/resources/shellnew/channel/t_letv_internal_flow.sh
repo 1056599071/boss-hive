@@ -72,7 +72,7 @@ function jssdkRef {
         product=" dt = '${yesterday//-/}' and platform = 0 "
         terminalName="PC"
     fi
-    if [ ${terminal} -eq 112 ]; then
+    if [ ${terminal} -eq 113 ]; then
         product=" dt = '${yesterday//-/}' and platform IN (1, 2)"
         terminalName="MH5"
     fi
