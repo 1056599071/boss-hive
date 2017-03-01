@@ -25,7 +25,7 @@ database=share
 #db_pass=vip_letv
 #database=share
 
-yesterday=`getYesterday`
+yesterday=`date -d "1 days ago" +%Y%m%d`
 if [ "$#" -eq 1 ]; then
    yesterday=$1
 fi
