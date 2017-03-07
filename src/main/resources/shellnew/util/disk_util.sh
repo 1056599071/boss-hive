@@ -17,9 +17,12 @@ function exist_file {
 #清理文件的方法
 function clear_file {
     exist_file $1;
-    echo "开始清理文件$1，请稍等..."
-    echo > "$1"
-    echo "恭喜您，清理文件$1完成！"
+    #文件存在时，清除文件内容
+    if [ $? -eq 0 ]; then
+        echo "开始清理文件$1，请稍等..."
+        echo > "$1"
+        echo "恭喜您，清理文件$1完成！"
+    fi
     return 0
 }
 
@@ -37,12 +40,14 @@ function delete_file {
 #压缩文件的方法
 function compress_file {
     exist_file $1;
-    echo "开始压缩文件$1，请稍等..."
-    path=$(dirname $1)
-    src=${1##*/}
-    target="$path/${src}.tar.gz"
-    tar -zcPf ${target} $1
-    echo "恭喜您，压缩文件$1完成，压缩后的文件为$target"
+    if [ $? -eq 0 ]; then
+        echo "开始压缩文件$1，请稍等..."
+        path=$(dirname $1)
+        src=${1##*/}
+        target="$path/${src}.tar.gz"
+        tar -zcPf ${target} $1
+        echo "恭喜您，压缩文件$1完成，压缩后的文件为$target"
+    fi
     return 0
 }
 
