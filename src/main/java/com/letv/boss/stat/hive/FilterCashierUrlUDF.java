@@ -18,13 +18,16 @@ public class FilterCashierUrlUDF extends UDF {
     	if(url.contains("from=client")){
     		// pc 客户端
     		return "ref=PC_Client";
-    	}else if(url.equals("https://zhifu.le.com/mz/tobuy/regular")){
+    	//}else if(url.equals("https://zhifu.le.com/mz/tobuy/regular")){
+    	}else if(url.equals("https://ibuy.le.com/v2/buy/package.html?frontUrl=")){
     		// M站 个人中心会员续费
     		return "ref=M_PersonalCenter";
-    	}else if(url.equals("https://zhifu.le.com/mz/tobuy/pro?fronturl=http%3A%2F%2Fm.letv.com%2Fvip")){
+    	//}else if(url.equals("https://zhifu.le.com/mz/tobuy/pro?fronturl=http%3A%2F%2Fm.letv.com%2Fvip")){
+    	}else if(url.equals("https://ibuy.le.com/v2/buy/package.html?vipId=9&frontUrl=&ref=")){
     		// M站 收银台切换超级影视会员收银台
     		return "ref=M_SwitchSuper";
-    	}else if(url.equals("https://zhifu.le.com/mz/tobuy/regular?fronturl=http%3A%2F%2Fm.letv.com%2Fvip")){
+    	//}else if(url.equals("https://zhifu.le.com/mz/tobuy/regular?fronturl=http%3A%2F%2Fm.letv.com%2Fvip")){
+    	}else if(url.equals("https://ibuy.le.com/v2/buy/package.html?frontUrl=&ref=")){
     		// M站 收银台切换乐次元
     		return "ref=M_SwitchCommon";
     	}else if(url.contains("%2Fvplay")){
@@ -52,5 +55,7 @@ public class FilterCashierUrlUDF extends UDF {
         System.out.println(udf.evaluate(url3));
         String url4 = "https://zhifu.le.com/tobuy/pro?ref=ym03089#type=952";
         System.out.println(udf.evaluate(url4));
+        String url5 = "https://ibuy.le.com/v2/buy/package.html?frontUrl=http%3A%2F%2Fwww.le.com%2Fptv%2Fvplay%2F27369532.html%23vid%3D27369532&ref=pfcyp&from=letv&fronturl=http%3A%2F%2Fwww.le.com%2Fptv%2Fvplay%2F27369532.html%";
+        System.out.println(udf.evaluate(url5));
     }
 }
