@@ -12,20 +12,20 @@ BASEDIR=`dirname $0`
 cd ${BASEDIR}
 
 #专辑配置数据库信息
-#db_ip=117.121.54.241
-#db_port=3839
-#db_user=boss_w
-#db_pass=454bce2f998e80a
-#database=share
-
-#测试库数据库信息
-db_ip=10.150.130.21
-db_port=3307
-db_user=vip_letv_test
-db_pass=vip_letv
+db_ip=117.121.54.241
+db_port=3839
+db_user=boss_w
+db_pass=454bce2f998e80a
 database=share
 
-yesterday=`getYesterday`
+#测试库数据库信息
+#db_ip=10.150.130.21
+#db_port=3307
+#db_user=vip_letv_test
+#db_pass=vip_letv
+#database=share
+
+yesterday=`date -d "1 days ago" +%Y%m%d`
 if [ "$#" -eq 1 ]; then
    yesterday=$1
 fi
@@ -46,7 +46,9 @@ function loadAlbumConfig {
 
 #将mysql查询的结果导入到hive的t_letv_cp_share_config表中
 function insertAlbumToHive {
-    hive -e "LOAD DATA LOCAL INPATH '${filepath}' OVERWRITE INTO TABLE dm_boss.t_letv_cp_share_config PARTITION (dt='${yesterday}')"
+    sql="LOAD DATA LOCAL INPATH '${filepath}' OVERWRITE INTO TABLE dm_boss.t_letv_cp_share_config PARTITION (dt='${yesterday}')"
+    print "${sql}"
+    hive -e "${sql}"
     return 0
 }
 
@@ -72,6 +74,13 @@ stat_result="sum(CASE WHEN pt > 360 THEN cv ELSE 0 END) AS play_num,
     count(DISTINCT CASE WHEN pt > 360 AND vv > 0 THEN user_id END) AS play_video_users,
     sum(CASE WHEN pt > 360 THEN pt ELSE 0 END) AS play_hours,
     sum(CASE WHEN pt > 360 AND normal_end_flag > 0 THEN 1 ELSE 0 END) AS play_times"
+#播放分成统计字段
+play_result="sum(COALESCE(cv, 0)) AS play_num,
+    count(DISTINCT CASE WHEN cv > 0 THEN user_id END) AS play_users,
+    sum(COALESCE(vv, 0)) AS play_video,
+    count(DISTINCT CASE WHEN vv > 0 THEN user_id END) AS play_video_users,
+    sum(COALESCE(pt, 0)) AS play_hours,
+    sum(CASE WHEN normal_end_flag > 0 THEN 1 ELSE 0 END) AS play_times"
 #终端判定
 terminal="CASE WHEN pf = 'mc' AND app_name = '00' THEN 'mobile_app' WHEN pf = 'mc' AND app_name != '00' THEN 'mobile_others' ELSE pf END"
 
@@ -93,9 +102,9 @@ function payAlbumPlay {
     group by pid) b
     on (a.album_id = b.pid)"
 
-    print "${sql1}" >> ${log_path}
+    print "${sql1}"
     hive -e "${sql1}" >> ${cp_play_result}
-    print "${sql2}" >> ${log_path}
+    print "${sql2}"
     hive -e "${sql2}" >> ${cp_play_result}
 }
 
@@ -105,7 +114,7 @@ function playAlbumPlay {
     from
      (${cp_config} and config_type = 3) a
     join
-     (select m.vid, ${terminal} AS terminal, ${stat_result}
+     (select m.vid, ${terminal} AS terminal, ${play_result}
       from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid, ${terminal}) b
     on (a.album_id = b.vid)"
 
@@ -113,12 +122,12 @@ function playAlbumPlay {
     from
      (${cp_config} and config_type = 3) a
     join
-     (select m.vid, ${stat_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid) b
+     (select m.vid, ${play_result} from (${play_data}) m left join (${filter_channel}) n on (m.play_chnl = n.ch) where n.ch is null group by m.vid) b
     on (a.album_id = b.vid)"
 
-    print "${sql1}" >> ${log_path}
+    print "${sql1}"
     hive -e "${sql1}" >> ${cp_play_result}
-    print "${sql2}" >> ${log_path}
+    print "${sql2}"
     hive -e "${sql2}" >> ${cp_play_result}
 }
 
@@ -128,27 +137,27 @@ function main {
 
     #执行查询函数
     echo "开始查询专辑配置信息" >> ${log_path}
-    loadAlbumConfig
+    loadAlbumConfig >> ${log_path}
     echo "专辑配置信息查询结束" >> ${log_path}
 
-#    echo "开始将专辑配置信息导入到Hive中" >> ${log_path}
-#    insertAlbumToHive
-#    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
+    echo "开始将专辑配置信息导入到Hive中" >> ${log_path}
+    insertAlbumToHive >> ${log_path}
+    echo "将专辑配置信息导入到Hive中结束" >> ${log_path}
 
     echo "开始删除${filepath}文件" >> ${log_path}
     delete_file ${cp_play_result} >> ${log_path}
     echo "删除${filepath}文件成功" >> ${log_path}
 
     echo "开始查询付费分成数据" >> ${log_path}
-    payAlbumPlay
+    payAlbumPlay >> ${log_path}
     echo "付费分成数据查询结束" >> ${log_path}
 
     echo "开始查询播放分成数据" >> ${log_path}
-    playAlbumPlay
+    playAlbumPlay >> ${log_path}
     echo "播放分成数据查询结束" >> ${log_path}
 
     echo "开始将统计结果导入到Mysql中" >> ${log_path}
-    addAlbumResultToMysql
+    addAlbumResultToMysql >> ${log_path}
     echo "将统计结果导入到Mysql中结束" >> ${log_path}
 
     echo "${yesterday}日影片分成数据统计完成" >> ${log_path}
