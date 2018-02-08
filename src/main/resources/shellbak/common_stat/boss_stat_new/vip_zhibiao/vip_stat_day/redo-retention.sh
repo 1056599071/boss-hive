@@ -1,0 +1,13 @@
+./run-vip-retention-user.sh 2015-10-20 2015-10-21
+./run-vip-retention-user.sh 2015-10-21 2015-10-22
+./run-vip-retention-user.sh 2015-10-22 2015-10-23
+./run-vip-retention-user.sh 2015-10-23 2015-10-24
+./run-vip-retention-user.sh 2015-10-24 2015-10-25
+./run-vip-retention-user.sh 2015-10-25 2015-10-26
+./run-vip-retention-user.sh 2015-10-26 2015-10-27
+./run-vip-retention-user.sh 2015-10-27 2015-10-28
+./run-vip-retention-user.sh 2015-10-28 2015-10-29
+#./run-vip-retention-user.sh 2015-10-29 2015-10-30
+./run-vip-retention-user.sh 2015-10-30 2015-10-31
+./run-vip-retention-user.sh 2015-10-31 2015-11-01
+./run-vip-retention-user.sh 2015-11-01 2015-11-02

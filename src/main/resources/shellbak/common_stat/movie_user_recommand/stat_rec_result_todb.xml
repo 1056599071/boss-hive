@@ -1,0 +1,42 @@
+<root>
+        <stat desc="导入看过电视剧、电影相关数据">
+                <ignore-exception>false</ignore-exception>
+                
+                <file2db desc="导入看过电视剧相关数据"> 
+                        <datasource>boss_online_rec</datasource>
+                        <filepath>/home/zhaochunlong/boss_stat/common_stat/movie_user_recommand/result_data/</filepath>
+                        <filedate>pid</filedate>
+                        <separator>\t</separator>
+                        <filename>pid_uid_phone_result</filename>
+                        <sql>
+                         <![CDATA[
+                                insert ignore  into recommend_user(uid,pid,phone,config_id,pop_count,create_time,update_time) values(?,?,?,?,0,now(),now())
+                        ]]>
+                        </sql>
+                </file2db>
+				
+				<file2db desc="导入看过电视剧相关数据,包含deviceid"> 
+                        <datasource>boss_online_rec</datasource>
+                        <filepath>/home/zhaochunlong/boss_stat/common_stat/movie_user_recommand/result_data/</filepath>
+                        <filedate>pid</filedate>
+                        <separator>\t</separator>
+                        <filename>pid_uid_deviceid_result</filename>
+                        <sql>
+                         <![CDATA[
+                                insert ignore into recommend_device(uid,pid,device_id,terminal,create_time,update_time) values(?,?,?,?,now(),now())
+                        ]]>
+                        </sql>
+                </file2db>
+		
+				
+				<delete desc="更新配置文件flag"> 
+                        <datasource>boss_online_rec</datasource>
+                        <input-param>pid</input-param>
+                        <sql>
+                         <![CDATA[
+                                update recommend_config set flag=1 where pid=?
+                        ]]>
+                        </sql>
+                </delete>
+        </stat>
+</root>

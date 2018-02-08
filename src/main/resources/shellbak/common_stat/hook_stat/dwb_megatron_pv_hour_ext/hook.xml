@@ -1,0 +1,17 @@
+<root>
+	<stat desc="埋点统计">
+	    <ignore-exception>true</ignore-exception>
+		<file2db desc="导入埋点数据到db"> 
+			<datasource>letv_boss_online</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/hook_stat/dwb_megatron_pv_hour_ext/data/</filepath>
+			<filedate>sdate</filedate>
+			<separator>\t</separator>
+			<filename>query_hook_data</filename>
+			<sql>
+			 <![CDATA[
+				insert into cashier_ref(date, terminal, ref, page_pv, page_uv, pay_pv, pay_uv, new_order_count, xufei_order_count, new_income, xufei_income) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+			]]>
+			</sql>
+		</file2db>
+	</stat>
+</root>

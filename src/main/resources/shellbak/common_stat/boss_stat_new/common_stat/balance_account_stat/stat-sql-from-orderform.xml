@@ -1,0 +1,52 @@
+<root>
+	<stat desc="统计活动页面数据">
+	    <ignore-exception>false</ignore-exception>
+         
+		<select desc="获取昨天日期">
+			<datasource>pay_order_online</datasource>
+			<output>sdate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select to_char(sysdate-1,'yyyy-MM-dd') from dual 
+ 			]]>
+			</sql>
+		</select>
+		 
+		 <select desc="获取今天日期">
+			<datasource>pay_order_online</datasource>
+			<output>edate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select to_char(sysdate,'yyyy-MM-dd') from dual 
+ 			]]>
+			</sql>
+		</select>
+				 
+		<delete desc="删除当天订单数据，防止数据重复"> 
+			<datasource>pay_order_online</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from balance_account_orderform where paymentdate>=to_date(?,'yyyy-MM-dd') and paymentdate<to_date(?,'yyyy-MM-dd')
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert>
+			<datasource>pay_order_online</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into balance_account_orderform(ordernumber,price,submitdate,paymentdate,status,paytype,transeq,deptid,productid,chargetype,productname,companyid,svip)
+					select ordernumber,price,submitdate,paymentdate,status,paytype,case when length(transeq)>250 then '47' when transeq is null then '0' else transeq end as transeq,deptid,productid,chargetype,productname,companyid,svip from orderform where  paymentdate>=to_date(?,'yyyy-MM-dd') and paymentdate<to_date(?,'yyyy-MM-dd')
+				]]>
+			</sql>
+		</insert>
+		
+		
+	</stat>
+</root>

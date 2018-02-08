@@ -1,0 +1,27 @@
+<root>
+	<stat desc="埋点统计">
+	    <ignore-exception>true</ignore-exception>
+                <delete desc="删除埋点某天数据，防止重复导入">
+                	<datasource>letv_boss_online</datasource>
+	                <input-param>sdate</input-param>
+        	        <sql>
+	                <![CDATA[
+        	        	delete from hook_stat_login where date=?
+	                ]]>
+        	        </sql>
+                </delete>
+		<file2db desc="导入埋点数据到db"> 
+			<datasource>letv_boss_online</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/hook_stat/dwb_megatron_action_hour_login/data/</filepath>
+			<filedate>sdate</filedate>
+			<separator>\t</separator>
+			<filename>query_hook_data</filename>
+			<sql>
+			 <![CDATA[
+				insert into hook_stat_login(date, popup_show, login_mode, login_succ, order_succ, hook, name) values(?,?,?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

@@ -1,0 +1,54 @@
+<root>
+	<stat desc="计算收银台付费率">
+	    <ignore-exception>false</ignore-exception>
+        
+		<select desc="获取时间">
+	    	<datasource>letv_boss_online</datasource>
+	    	<output>sdate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(date_sub(CURDATE(),interval 1 day),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+	    
+	    <select desc="获取时间">
+	    	<datasource>letv_boss_online</datasource>
+	    	<output>edate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(CURDATE(),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+		
+		<delete desc="删除当天站外带来影片收入"> 
+			<datasource>letv_boss_online</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+					delete from orderform where PAYMENTDATE>=? and PAYMENTDATE<?
+			]]>
+			</sql>
+	    </delete>
+		
+				
+		<file2db desc="导入收银台相关数据到db"> 
+			<datasource>letv_boss_online</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/boss_vip_day/data/</filepath>
+			<filedate>sdate</filedate>
+            <separator>#</separator>
+            <filename>boss_order</filename>
+			<sql>
+			 <![CDATA[
+				insert into orderform(ORDERNUMBER,USERNAME,PRICE,SUBMITDATE,PAYMENTDATE,STATUS,PAYTYPE,USERID,IP,MEMO,CORDERID,DEPTID,PRODUCTID,CHARGETYPE,PRODUCTNAME,COMPANYID,FRONTURL,BACKURL,SVIP,PRODUCTNUM,country,province,city,network) 
+				        values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

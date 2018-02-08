@@ -1,0 +1,121 @@
+
+Logging initialized using configuration in file:/letv/usr/local/apache-hive-1.2.1-bin/conf/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = boss_20180202165949_1f71a179-b035-4a8c-a9c2-f459022bd223
+Total jobs = 5
+Stage-3 is selected by condition resolver.
+Launching Job 1 out of 5
+Number of reduce tasks not specified. Estimated from input data size: 24
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1513599404024_429437, Tracking URL = http://letv-rm1:50030/proxy/application_1513599404024_429437/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1513599404024_429437
+Hadoop job information for Stage-3: number of mappers: 33; number of reducers: 24
+2018-02-02 17:00:00,799 Stage-3 map = 0%,  reduce = 0%
+2018-02-02 17:00:07,068 Stage-3 map = 3%,  reduce = 0%, Cumulative CPU 4.22 sec
+2018-02-02 17:00:08,103 Stage-3 map = 6%,  reduce = 0%, Cumulative CPU 11.55 sec
+2018-02-02 17:00:11,209 Stage-3 map = 12%,  reduce = 0%, Cumulative CPU 56.01 sec
+2018-02-02 17:00:12,242 Stage-3 map = 37%,  reduce = 0%, Cumulative CPU 329.08 sec
+2018-02-02 17:00:13,276 Stage-3 map = 48%,  reduce = 0%, Cumulative CPU 350.17 sec
+2018-02-02 17:00:14,312 Stage-3 map = 61%,  reduce = 0%, Cumulative CPU 382.37 sec
+2018-02-02 17:00:15,344 Stage-3 map = 79%,  reduce = 0%, Cumulative CPU 446.98 sec
+2018-02-02 17:00:16,376 Stage-3 map = 82%,  reduce = 0%, Cumulative CPU 451.03 sec
+2018-02-02 17:00:17,407 Stage-3 map = 86%,  reduce = 0%, Cumulative CPU 464.26 sec
+2018-02-02 17:00:18,444 Stage-3 map = 91%,  reduce = 6%, Cumulative CPU 485.89 sec
+2018-02-02 17:00:19,477 Stage-3 map = 96%,  reduce = 27%, Cumulative CPU 508.34 sec
+2018-02-02 17:00:20,509 Stage-3 map = 100%,  reduce = 27%, Cumulative CPU 516.37 sec
+2018-02-02 17:00:21,542 Stage-3 map = 100%,  reduce = 51%, Cumulative CPU 548.19 sec
+2018-02-02 17:00:22,573 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 621.85 sec
+MapReduce Total cumulative CPU time: 10 minutes 21 seconds 850 msec
+Ended Job = job_1513599404024_429437
+Launching Job 2 out of 5
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1513599404024_429438, Tracking URL = http://letv-rm1:50030/proxy/application_1513599404024_429438/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1513599404024_429438
+Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+2018-02-02 17:00:28,310 Stage-4 map = 0%,  reduce = 0%
+2018-02-02 17:00:34,493 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 5.01 sec
+2018-02-02 17:00:38,609 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 9.12 sec
+MapReduce Total cumulative CPU time: 9 seconds 120 msec
+Ended Job = job_1513599404024_429438
+Stage-10 is filtered out by condition resolver.
+Stage-1 is selected by condition resolver.
+Launching Job 3 out of 5
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1513599404024_429441, Tracking URL = http://letv-rm1:50030/proxy/application_1513599404024_429441/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1513599404024_429441
+Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+2018-02-02 17:00:46,261 Stage-1 map = 0%,  reduce = 0%
+2018-02-02 17:00:51,451 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 5.06 sec
+2018-02-02 17:00:52,483 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 10.58 sec
+2018-02-02 17:00:59,687 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 19.4 sec
+MapReduce Total cumulative CPU time: 19 seconds 400 msec
+Ended Job = job_1513599404024_429441
+Launching Job 4 out of 5
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1513599404024_429446, Tracking URL = http://letv-rm1:50030/proxy/application_1513599404024_429446/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1513599404024_429446
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2018-02-02 17:01:06,332 Stage-2 map = 0%,  reduce = 0%
+2018-02-02 17:01:14,579 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 6.82 sec
+2018-02-02 17:01:21,801 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 13.46 sec
+MapReduce Total cumulative CPU time: 13 seconds 460 msec
+Ended Job = job_1513599404024_429446
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 33  Reduce: 24   Cumulative CPU: 621.85 sec   HDFS Read: 6568301098 HDFS Write: 6989923 SUCCESS
+Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 9.12 sec   HDFS Read: 7000716 HDFS Write: 6987775 SUCCESS
+Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 19.4 sec   HDFS Read: 42752532 HDFS Write: 8130524 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 13.46 sec   HDFS Read: 8138446 HDFS Write: 1354 SUCCESS
+Total MapReduce CPU Time Spent: 11 minutes 3 seconds 830 msec
+OK
+Time taken: 93.602 seconds, Fetched: 161 row(s)
+2018-02-02 17:01:23 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20180201
+2018-02-02 17:01:23 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=stat-sql-external-channels-income.xml
+2018-02-02 17:01:23 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2018-02-02 17:01:23 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2018-02-02 17:01:23 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:stat-sql-external-channels-income.xml
+2018-02-02 17:01:23 [INFO ] com.celery.stat.core.Executor {Executor.java:18} - 异常节点将跳过，继续执行命令.
+2018-02-02 17:01:23 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:计算收银台付费率
+2018-02-02 17:01:23 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:64} - 开始USqlBean:删除收银台相关数据，防止重复导入
+2018-02-02 17:01:24 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:386} - 执行影响条数:161
+2018-02-02 17:01:24 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:388} - SQL语句执行结果:false
+2018-02-02 17:01:24 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:68} - 执行USqlBean影响的数目:161
+2018-02-02 17:01:24 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:69} - 执行完成，耗时:860millis
+2018-02-02 17:01:24 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2018-02-02 17:01:24 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：161
+2018-02-02 17:01:24 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:计算收银台付费率执行结束。
+2018-02-02 17:01:24 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:stat-sql-external-channels-income.xml
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2018-02-02 17:01:24 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread

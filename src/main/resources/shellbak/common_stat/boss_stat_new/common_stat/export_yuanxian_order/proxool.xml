@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<something-else-entirely>
+
+   <proxool>
+   <alias>yuanxian_order_old</alias>
+     <driver-url>jdbc:mysql://10.100.91.248:3929/vip_letv?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+
+ <proxool>
+   <alias>yuanxian_order_online1</alias>
+     <driver-url>jdbc:mysql://10.180.91.237:3929/vip_letv?characterEncoding=utf-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+  
+   <proxool>
+   <alias>yuanxian_order_online2</alias>
+     <driver-url>jdbc:mysql://10.180.91.238:3929/vip_letv?characterEncoding=utf-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+  
+   <proxool>
+   <alias>yuanxian_order_online3</alias>
+     <driver-url>jdbc:mysql://10.180.91.234:3929/vip_letv?characterEncoding=utf-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+  
+   <proxool>
+   <alias>yuanxian_order_online4</alias>
+     <driver-url>jdbc:mysql://10.180.91.236:3929/vip_letv?characterEncoding=utf-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+ 
+</something-else-entirely>

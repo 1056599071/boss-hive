@@ -1,0 +1,255 @@
+<root>
+	<stat desc="统计活动页面数据">
+	    <ignore-exception>false</ignore-exception>
+         
+		<select desc="获取昨天日期">
+			<datasource>letv_order_test</datasource>
+			<output>sdate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select  DATE_FORMAT(CURRENT_DATE-1,'%Y-%m-%d')
+ 			]]>
+			</sql>
+		</select>
+		 
+		 <select desc="获取今天日期">
+			<datasource>letv_order_test</datasource>
+			<output>edate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select  DATE_FORMAT(CURRENT_DATE,'%Y-%m-%d')
+ 			]]>
+			</sql>
+		</select>
+	 
+		<delete desc="删除指标d_00033-留存会员用户数，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00033' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00033">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00033',sum(zhibiao_value1),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00034-留存会员用户数cvuv，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00034' and create_date>=? and create_date<?  and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00034">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00034',sum(zhibiao_value3),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					]]>
+			</sql>
+		</insert>
+
+		<delete desc="删除指标d_00035-留存会员用户数付费cvuv，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00035' and create_date>=? and create_date<?  and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00035">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00035',sum(zhibiao_value3),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) and pay=1
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00036-留存会员用户数cv，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00036' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00036">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00036',sum(zhibiao_value2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00037-留存会员用户数付费cv，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00037' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00037">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00037',sum(zhibiao_value2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  and pay=1
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00038-留存人均播放时长，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00038' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00038">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00038',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00039-留存人均付费播放时长，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00039' and create_date>=? and create_date<? and zhibiao_type=0
+			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00039">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00039',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<? and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) and pay=1 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00040-留存会次均播放时长，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00040' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00040">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00040',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<?  and zhibiao_id='d_00018_6'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+
+					]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00041-留存会次均付费播放时长，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_retention_day where zhibiao_id='d_00041' and create_date>=? and create_date<? and zhibiao_type=0
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00041">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00041',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date from boss_vip_retention_temp
+					where create_date>=? and create_date<?  and zhibiao_id='d_00018_6' and pay=1  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+
+			]]>
+			</sql>
+		</insert>
+		
+	</stat>
+</root>

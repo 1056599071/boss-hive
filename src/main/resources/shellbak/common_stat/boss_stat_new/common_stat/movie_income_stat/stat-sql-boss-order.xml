@@ -1,0 +1,17 @@
+<root>
+	<stat desc="boss统计影片付费用户数需求">
+		<db2csv desc="导出订单数据到csv"> 
+			<datasource>vip_letv_order</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_movie_income/data/</filepath>
+			<filename>boss_order</filename>
+			<filedate>sdate</filedate>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				select * from T_NEW_ORDER_4_DATA where paytime>=? and paytime<? 
+			]]>
+			</sql>
+		</db2csv>
+	</stat>
+</root>

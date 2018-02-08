@@ -1,0 +1,1329 @@
+/home/zhaochunlong/boss_stat/common_stat/hook_stat
+正在导入20170508的埋点PV和UV数据
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = zhaochunlong_20170509102431_e3ff7105-2f55-4c46-ad46-caa05d4ed628
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_38544, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_38544/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_38544
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-05-09 10:25:11,032 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:25:38,048 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 7.47 sec
+2017-05-09 10:25:41,422 Stage-1 map = 2%,  reduce = 0%, Cumulative CPU 8.62 sec
+2017-05-09 10:25:43,526 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 9.67 sec
+2017-05-09 10:25:49,903 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 10.94 sec
+2017-05-09 10:25:56,258 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 12.5 sec
+2017-05-09 10:25:59,422 Stage-1 map = 8%,  reduce = 0%, Cumulative CPU 12.88 sec
+2017-05-09 10:26:02,596 Stage-1 map = 9%,  reduce = 0%, Cumulative CPU 13.67 sec
+2017-05-09 10:26:05,921 Stage-1 map = 10%,  reduce = 0%, Cumulative CPU 14.29 sec
+2017-05-09 10:26:09,072 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 15.16 sec
+2017-05-09 10:26:12,434 Stage-1 map = 14%,  reduce = 0%, Cumulative CPU 15.87 sec
+2017-05-09 10:26:15,649 Stage-1 map = 16%,  reduce = 0%, Cumulative CPU 16.44 sec
+2017-05-09 10:26:18,864 Stage-1 map = 18%,  reduce = 0%, Cumulative CPU 17.75 sec
+2017-05-09 10:26:22,060 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 18.48 sec
+2017-05-09 10:26:26,182 Stage-1 map = 20%,  reduce = 0%, Cumulative CPU 19.68 sec
+2017-05-09 10:26:28,274 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 20.37 sec
+2017-05-09 10:26:34,653 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 26.87 sec
+2017-05-09 10:26:37,790 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 27.37 sec
+2017-05-09 10:26:44,076 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 28.67 sec
+2017-05-09 10:26:50,410 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 30.55 sec
+2017-05-09 10:26:53,573 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 31.1 sec
+2017-05-09 10:26:56,754 Stage-1 map = 36%,  reduce = 0%, Cumulative CPU 31.88 sec
+2017-05-09 10:26:59,935 Stage-1 map = 38%,  reduce = 0%, Cumulative CPU 32.85 sec
+2017-05-09 10:27:03,161 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 33.55 sec
+2017-05-09 10:27:06,304 Stage-1 map = 42%,  reduce = 0%, Cumulative CPU 34.16 sec
+2017-05-09 10:27:09,444 Stage-1 map = 45%,  reduce = 0%, Cumulative CPU 34.7 sec
+2017-05-09 10:27:12,592 Stage-1 map = 46%,  reduce = 0%, Cumulative CPU 35.32 sec
+2017-05-09 10:27:15,735 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 36.17 sec
+2017-05-09 10:27:19,909 Stage-1 map = 49%,  reduce = 0%, Cumulative CPU 37.86 sec
+2017-05-09 10:27:24,095 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 38.95 sec
+2017-05-09 10:27:31,395 Stage-1 map = 51%,  reduce = 0%, Cumulative CPU 40.67 sec
+2017-05-09 10:27:34,530 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 40.67 sec
+2017-05-09 10:27:37,670 Stage-1 map = 53%,  reduce = 0%, Cumulative CPU 41.96 sec
+2017-05-09 10:27:40,794 Stage-1 map = 54%,  reduce = 0%, Cumulative CPU 41.96 sec
+2017-05-09 10:27:45,319 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 41.96 sec
+2017-05-09 10:27:46,466 Stage-1 map = 57%,  reduce = 0%, Cumulative CPU 42.24 sec
+2017-05-09 10:27:49,595 Stage-1 map = 59%,  reduce = 0%, Cumulative CPU 42.44 sec
+2017-05-09 10:27:55,870 Stage-1 map = 60%,  reduce = 0%, Cumulative CPU 42.84 sec
+2017-05-09 10:27:58,998 Stage-1 map = 61%,  reduce = 0%, Cumulative CPU 43.24 sec
+2017-05-09 10:28:04,248 Stage-1 map = 62%,  reduce = 0%, Cumulative CPU 43.55 sec
+2017-05-09 10:28:07,422 Stage-1 map = 64%,  reduce = 0%, Cumulative CPU 53.9 sec
+2017-05-09 10:28:10,584 Stage-1 map = 66%,  reduce = 0%, Cumulative CPU 54.29 sec
+2017-05-09 10:28:12,681 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 55.32 sec
+2017-05-09 10:28:20,016 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 58.53 sec
+MapReduce Total cumulative CPU time: 58 seconds 530 msec
+Ended Job = job_1494226772011_38544
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 58.53 sec   HDFS Read: 18882497 HDFS Write: 262 SUCCESS
+Total MapReduce CPU Time Spent: 58 seconds 530 msec
+OK
+Time taken: 230.161 seconds, Fetched: 19 row(s)
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = zhaochunlong_20170509102829_66f92082-fad7-42fd-95d5-1fb5da72e357
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_38711, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_38711/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_38711
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-05-09 10:28:54,366 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:29:14,410 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 10.07 sec
+2017-05-09 10:29:17,724 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 11.25 sec
+2017-05-09 10:29:21,577 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 13.19 sec
+2017-05-09 10:29:26,016 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 13.95 sec
+2017-05-09 10:29:27,553 Stage-1 map = 6%,  reduce = 0%, Cumulative CPU 14.93 sec
+2017-05-09 10:29:30,768 Stage-1 map = 8%,  reduce = 0%, Cumulative CPU 16.83 sec
+2017-05-09 10:29:34,396 Stage-1 map = 9%,  reduce = 0%, Cumulative CPU 17.84 sec
+2017-05-09 10:29:40,787 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 19.53 sec
+2017-05-09 10:29:44,136 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 19.85 sec
+2017-05-09 10:29:50,120 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 23.18 sec
+2017-05-09 10:29:53,345 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 23.56 sec
+2017-05-09 10:29:56,575 Stage-1 map = 16%,  reduce = 0%, Cumulative CPU 24.19 sec
+2017-05-09 10:30:00,007 Stage-1 map = 18%,  reduce = 0%, Cumulative CPU 24.75 sec
+2017-05-09 10:30:02,731 Stage-1 map = 20%,  reduce = 0%, Cumulative CPU 25.45 sec
+2017-05-09 10:30:06,213 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 25.83 sec
+2017-05-09 10:30:11,216 Stage-1 map = 23%,  reduce = 0%, Cumulative CPU 26.59 sec
+2017-05-09 10:30:13,182 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 27.85 sec
+2017-05-09 10:30:20,307 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 28.37 sec
+2017-05-09 10:30:23,703 Stage-1 map = 27%,  reduce = 0%, Cumulative CPU 28.9 sec
+2017-05-09 10:30:26,835 Stage-1 map = 28%,  reduce = 0%, Cumulative CPU 29.41 sec
+2017-05-09 10:30:32,366 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 29.75 sec
+2017-05-09 10:30:33,710 Stage-1 map = 31%,  reduce = 0%, Cumulative CPU 30.35 sec
+2017-05-09 10:30:36,585 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 30.65 sec
+2017-05-09 10:30:40,030 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 30.98 sec
+2017-05-09 10:30:42,213 Stage-1 map = 34%,  reduce = 0%, Cumulative CPU 30.98 sec
+2017-05-09 10:30:45,949 Stage-1 map = 36%,  reduce = 0%, Cumulative CPU 31.62 sec
+2017-05-09 10:30:49,998 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 31.69 sec
+2017-05-09 10:30:52,185 Stage-1 map = 38%,  reduce = 0%, Cumulative CPU 32.09 sec
+2017-05-09 10:30:55,582 Stage-1 map = 40%,  reduce = 0%, Cumulative CPU 32.6 sec
+2017-05-09 10:30:59,116 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 33.21 sec
+2017-05-09 10:31:04,748 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 34.05 sec
+2017-05-09 10:31:08,102 Stage-1 map = 45%,  reduce = 0%, Cumulative CPU 35.3 sec
+2017-05-09 10:31:11,977 Stage-1 map = 46%,  reduce = 0%, Cumulative CPU 35.55 sec
+2017-05-09 10:31:14,463 Stage-1 map = 47%,  reduce = 0%, Cumulative CPU 35.98 sec
+2017-05-09 10:31:18,127 Stage-1 map = 49%,  reduce = 0%, Cumulative CPU 36.57 sec
+2017-05-09 10:31:21,311 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 37.14 sec
+2017-05-09 10:31:24,456 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 37.97 sec
+2017-05-09 10:31:27,889 Stage-1 map = 53%,  reduce = 0%, Cumulative CPU 38.71 sec
+2017-05-09 10:31:31,089 Stage-1 map = 54%,  reduce = 0%, Cumulative CPU 39.16 sec
+2017-05-09 10:31:34,254 Stage-1 map = 55%,  reduce = 0%, Cumulative CPU 39.76 sec
+2017-05-09 10:31:36,355 Stage-1 map = 57%,  reduce = 0%, Cumulative CPU 40.64 sec
+2017-05-09 10:31:39,545 Stage-1 map = 59%,  reduce = 0%, Cumulative CPU 41.21 sec
+2017-05-09 10:31:42,817 Stage-1 map = 60%,  reduce = 0%, Cumulative CPU 41.57 sec
+2017-05-09 10:31:46,630 Stage-1 map = 61%,  reduce = 0%, Cumulative CPU 41.82 sec
+2017-05-09 10:31:48,722 Stage-1 map = 62%,  reduce = 0%, Cumulative CPU 42.07 sec
+2017-05-09 10:31:52,980 Stage-1 map = 64%,  reduce = 0%, Cumulative CPU 42.65 sec
+2017-05-09 10:31:58,659 Stage-1 map = 66%,  reduce = 0%, Cumulative CPU 43.32 sec
+2017-05-09 10:32:02,144 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 45.37 sec
+2017-05-09 10:32:23,594 Stage-1 map = 100%,  reduce = 70%, Cumulative CPU 51.81 sec
+2017-05-09 10:32:24,642 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 54.36 sec
+MapReduce Total cumulative CPU time: 54 seconds 360 msec
+Ended Job = job_1494226772011_38711
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 54.36 sec   HDFS Read: 18924162 HDFS Write: 1209 SUCCESS
+Total MapReduce CPU Time Spent: 54 seconds 360 msec
+OK
+Time taken: 236.392 seconds, Fetched: 143 row(s)
+2017-05-09 10:32:33 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=hook.xml
+2017-05-09 10:32:33 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20170508
+2017-05-09 10:32:34 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:32:34 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:32:34 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:hook.xml
+2017-05-09 10:32:35 [INFO ] com.celery.stat.core.Executor {Executor.java:20} - 异常节点不跳过，继续执行命令.
+2017-05-09 10:32:35 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:埋点统计
+2017-05-09 10:32:35 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:64} - 开始USqlBean:删除埋点某天数据，防止重复导入
+2017-05-09 10:32:42 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:386} - 执行影响条数:0
+2017-05-09 10:32:42 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:388} - SQL语句执行结果:false
+2017-05-09 10:32:42 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:68} - 执行USqlBean影响的数目:0
+2017-05-09 10:32:42 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:69} - 执行完成，耗时:6668millis
+2017-05-09 10:32:43 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2017-05-09 10:32:43 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：162
+2017-05-09 10:32:43 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:埋点统计执行结束。
+2017-05-09 10:32:43 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:hook.xml
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2017-05-09 10:32:43 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+/home/zhaochunlong/boss_stat/common_stat/hook_stat
+/home/zhaochunlong/boss_stat/common_stat/hook_stat
+正在导入20170508的埋点PV和UV数据
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = zhaochunlong_20170509103254_c3ba06ef-92ea-4c98-828b-4e0c90d9d414
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 49
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_38855, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_38855/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_38855
+Hadoop job information for Stage-1: number of mappers: 48; number of reducers: 49
+2017-05-09 10:33:17,615 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:33:33,022 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 84.41 sec
+2017-05-09 10:33:36,431 Stage-1 map = 2%,  reduce = 0%, Cumulative CPU 214.86 sec
+2017-05-09 10:33:53,890 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 1203.24 sec
+2017-05-09 10:34:00,325 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 1595.15 sec
+2017-05-09 10:34:01,422 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 1662.02 sec
+2017-05-09 10:34:08,088 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 1959.79 sec
+2017-05-09 10:34:09,143 Stage-1 map = 17%,  reduce = 0%, Cumulative CPU 1983.84 sec
+2017-05-09 10:34:11,251 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 2078.4 sec
+2017-05-09 10:34:16,837 Stage-1 map = 24%,  reduce = 1%, Cumulative CPU 2279.64 sec
+2017-05-09 10:34:22,968 Stage-1 map = 30%,  reduce = 5%, Cumulative CPU 2488.91 sec
+2017-05-09 10:34:25,078 Stage-1 map = 30%,  reduce = 6%, Cumulative CPU 2551.36 sec
+2017-05-09 10:34:26,128 Stage-1 map = 30%,  reduce = 7%, Cumulative CPU 2601.08 sec
+2017-05-09 10:34:27,181 Stage-1 map = 30%,  reduce = 8%, Cumulative CPU 2637.52 sec
+2017-05-09 10:34:28,243 Stage-1 map = 32%,  reduce = 9%, Cumulative CPU 2660.81 sec
+2017-05-09 10:34:29,300 Stage-1 map = 32%,  reduce = 10%, Cumulative CPU 2714.66 sec
+2017-05-09 10:34:36,305 Stage-1 map = 49%,  reduce = 13%, Cumulative CPU 2924.75 sec
+2017-05-09 10:34:37,359 Stage-1 map = 51%,  reduce = 14%, Cumulative CPU 2952.17 sec
+2017-05-09 10:34:38,416 Stage-1 map = 51%,  reduce = 15%, Cumulative CPU 2978.61 sec
+2017-05-09 10:34:39,655 Stage-1 map = 51%,  reduce = 16%, Cumulative CPU 3003.98 sec
+2017-05-09 10:34:41,889 Stage-1 map = 51%,  reduce = 17%, Cumulative CPU 3078.55 sec
+2017-05-09 10:34:42,946 Stage-1 map = 56%,  reduce = 17%, Cumulative CPU 3092.89 sec
+2017-05-09 10:34:45,047 Stage-1 map = 60%,  reduce = 18%, Cumulative CPU 3170.99 sec
+2017-05-09 10:34:46,142 Stage-1 map = 64%,  reduce = 18%, Cumulative CPU 3185.29 sec
+2017-05-09 10:34:47,195 Stage-1 map = 64%,  reduce = 19%, Cumulative CPU 3232.2 sec
+2017-05-09 10:34:48,609 Stage-1 map = 68%,  reduce = 20%, Cumulative CPU 3262.67 sec
+2017-05-09 10:34:49,661 Stage-1 map = 70%,  reduce = 21%, Cumulative CPU 3289.38 sec
+2017-05-09 10:34:50,712 Stage-1 map = 75%,  reduce = 21%, Cumulative CPU 3323.42 sec
+2017-05-09 10:34:51,760 Stage-1 map = 75%,  reduce = 22%, Cumulative CPU 3338.08 sec
+2017-05-09 10:34:52,855 Stage-1 map = 75%,  reduce = 23%, Cumulative CPU 3353.82 sec
+2017-05-09 10:34:53,906 Stage-1 map = 75%,  reduce = 24%, Cumulative CPU 3381.94 sec
+2017-05-09 10:34:54,950 Stage-1 map = 79%,  reduce = 25%, Cumulative CPU 3414.7 sec
+2017-05-09 10:34:57,059 Stage-1 map = 79%,  reduce = 26%, Cumulative CPU 3448.04 sec
+2017-05-09 10:35:00,300 Stage-1 map = 81%,  reduce = 26%, Cumulative CPU 3478.23 sec
+2017-05-09 10:35:01,368 Stage-1 map = 84%,  reduce = 27%, Cumulative CPU 3503.0 sec
+2017-05-09 10:35:02,448 Stage-1 map = 86%,  reduce = 27%, Cumulative CPU 3518.96 sec
+2017-05-09 10:35:04,574 Stage-1 map = 90%,  reduce = 28%, Cumulative CPU 3546.85 sec
+2017-05-09 10:35:06,964 Stage-1 map = 92%,  reduce = 29%, Cumulative CPU 3558.46 sec
+2017-05-09 10:35:08,260 Stage-1 map = 94%,  reduce = 30%, Cumulative CPU 3574.41 sec
+2017-05-09 10:35:09,328 Stage-1 map = 94%,  reduce = 31%, Cumulative CPU 3576.48 sec
+2017-05-09 10:35:10,431 Stage-1 map = 96%,  reduce = 31%, Cumulative CPU 3584.26 sec
+2017-05-09 10:35:12,535 Stage-1 map = 98%,  reduce = 31%, Cumulative CPU 3594.21 sec
+2017-05-09 10:35:13,740 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 3600.0 sec
+2017-05-09 10:35:14,791 Stage-1 map = 100%,  reduce = 39%, Cumulative CPU 3609.01 sec
+2017-05-09 10:35:15,834 Stage-1 map = 100%,  reduce = 53%, Cumulative CPU 3629.0 sec
+2017-05-09 10:35:16,889 Stage-1 map = 100%,  reduce = 77%, Cumulative CPU 3678.66 sec
+2017-05-09 10:35:18,215 Stage-1 map = 100%,  reduce = 95%, Cumulative CPU 3719.41 sec
+2017-05-09 10:35:19,281 Stage-1 map = 100%,  reduce = 98%, Cumulative CPU 3728.91 sec
+2017-05-09 10:35:20,336 Stage-1 map = 100%,  reduce = 99%, Cumulative CPU 3736.7 sec
+2017-05-09 10:35:23,476 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3741.66 sec
+MapReduce Total cumulative CPU time: 0 days 1 hours 2 minutes 21 seconds 660 msec
+Ended Job = job_1494226772011_38855
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 48  Reduce: 49   Cumulative CPU: 3742.5 sec   HDFS Read: 6213786788 HDFS Write: 7679 SUCCESS
+Total MapReduce CPU Time Spent: 0 days 1 hours 2 minutes 22 seconds 500 msec
+OK
+Time taken: 152.001 seconds, Fetched: 144 row(s)
+2017-05-09 10:35:29 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=hook.xml
+2017-05-09 10:35:29 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20170508
+2017-05-09 10:35:29 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:35:29 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:35:29 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:hook.xml
+2017-05-09 10:35:29 [INFO ] com.celery.stat.core.Executor {Executor.java:20} - 异常节点不跳过，继续执行命令.
+2017-05-09 10:35:29 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:埋点统计
+2017-05-09 10:35:31 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2017-05-09 10:35:31 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：144
+2017-05-09 10:35:31 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:埋点统计执行结束。
+2017-05-09 10:35:31 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:hook.xml
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2017-05-09 10:35:31 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+正在导入20170508的埋点PV和UV数据
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = zhaochunlong_20170509103539_52409246-a20a-40af-982f-154a547aac10
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 54
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_38943, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_38943/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_38943
+Hadoop job information for Stage-1: number of mappers: 60; number of reducers: 54
+2017-05-09 10:36:10,417 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:36:38,118 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 15.37 sec
+2017-05-09 10:36:39,196 Stage-1 map = 10%,  reduce = 0%, Cumulative CPU 98.99 sec
+2017-05-09 10:36:40,252 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 173.27 sec
+2017-05-09 10:36:41,866 Stage-1 map = 17%,  reduce = 0%, Cumulative CPU 206.78 sec
+2017-05-09 10:36:44,639 Stage-1 map = 30%,  reduce = 0%, Cumulative CPU 376.52 sec
+2017-05-09 10:36:45,696 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 420.22 sec
+2017-05-09 10:36:46,784 Stage-1 map = 34%,  reduce = 0%, Cumulative CPU 465.13 sec
+2017-05-09 10:36:47,844 Stage-1 map = 40%,  reduce = 0%, Cumulative CPU 499.11 sec
+2017-05-09 10:36:48,894 Stage-1 map = 42%,  reduce = 0%, Cumulative CPU 574.31 sec
+2017-05-09 10:36:49,943 Stage-1 map = 49%,  reduce = 0%, Cumulative CPU 617.02 sec
+2017-05-09 10:36:52,098 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 693.64 sec
+2017-05-09 10:36:53,144 Stage-1 map = 57%,  reduce = 0%, Cumulative CPU 720.79 sec
+2017-05-09 10:36:54,202 Stage-1 map = 59%,  reduce = 2%, Cumulative CPU 750.82 sec
+2017-05-09 10:36:55,260 Stage-1 map = 64%,  reduce = 4%, Cumulative CPU 777.77 sec
+2017-05-09 10:36:56,324 Stage-1 map = 71%,  reduce = 5%, Cumulative CPU 793.64 sec
+2017-05-09 10:36:57,437 Stage-1 map = 72%,  reduce = 7%, Cumulative CPU 812.89 sec
+2017-05-09 10:36:58,491 Stage-1 map = 74%,  reduce = 12%, Cumulative CPU 837.33 sec
+2017-05-09 10:36:59,547 Stage-1 map = 76%,  reduce = 14%, Cumulative CPU 847.24 sec
+2017-05-09 10:37:00,607 Stage-1 map = 84%,  reduce = 16%, Cumulative CPU 870.96 sec
+2017-05-09 10:37:01,662 Stage-1 map = 84%,  reduce = 20%, Cumulative CPU 893.4 sec
+2017-05-09 10:37:02,711 Stage-1 map = 84%,  reduce = 22%, Cumulative CPU 909.53 sec
+2017-05-09 10:37:03,765 Stage-1 map = 84%,  reduce = 24%, Cumulative CPU 922.26 sec
+2017-05-09 10:37:04,832 Stage-1 map = 86%,  reduce = 26%, Cumulative CPU 935.49 sec
+2017-05-09 10:37:05,884 Stage-1 map = 86%,  reduce = 27%, Cumulative CPU 946.31 sec
+2017-05-09 10:37:07,999 Stage-1 map = 88%,  reduce = 28%, Cumulative CPU 967.01 sec
+2017-05-09 10:37:09,043 Stage-1 map = 90%,  reduce = 28%, Cumulative CPU 977.22 sec
+2017-05-09 10:37:10,097 Stage-1 map = 93%,  reduce = 29%, Cumulative CPU 988.04 sec
+2017-05-09 10:37:11,158 Stage-1 map = 93%,  reduce = 30%, Cumulative CPU 993.46 sec
+2017-05-09 10:37:12,204 Stage-1 map = 95%,  reduce = 30%, Cumulative CPU 1013.1 sec
+2017-05-09 10:37:13,250 Stage-1 map = 95%,  reduce = 31%, Cumulative CPU 1019.37 sec
+2017-05-09 10:37:14,293 Stage-1 map = 96%,  reduce = 31%, Cumulative CPU 1013.58 sec
+2017-05-09 10:37:15,340 Stage-1 map = 96%,  reduce = 32%, Cumulative CPU 1021.36 sec
+2017-05-09 10:37:17,431 Stage-1 map = 98%,  reduce = 32%, Cumulative CPU 1032.85 sec
+2017-05-09 10:37:23,862 Stage-1 map = 98%,  reduce = 33%, Cumulative CPU 1065.86 sec
+2017-05-09 10:37:45,030 Stage-1 map = 99%,  reduce = 33%, Cumulative CPU 1229.17 sec
+2017-05-09 10:37:46,077 Stage-1 map = 100%,  reduce = 34%, Cumulative CPU 1233.02 sec
+2017-05-09 10:37:47,120 Stage-1 map = 100%,  reduce = 48%, Cumulative CPU 1248.08 sec
+2017-05-09 10:37:48,171 Stage-1 map = 100%,  reduce = 73%, Cumulative CPU 1301.26 sec
+2017-05-09 10:37:49,218 Stage-1 map = 100%,  reduce = 87%, Cumulative CPU 1343.98 sec
+2017-05-09 10:37:50,263 Stage-1 map = 100%,  reduce = 91%, Cumulative CPU 1357.74 sec
+2017-05-09 10:37:51,308 Stage-1 map = 100%,  reduce = 96%, Cumulative CPU 1375.91 sec
+2017-05-09 10:37:52,367 Stage-1 map = 100%,  reduce = 98%, Cumulative CPU 1379.95 sec
+2017-05-09 10:37:55,520 Stage-1 map = 100%,  reduce = 99%, Cumulative CPU 1390.62 sec
+2017-05-09 10:38:00,784 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1394.91 sec
+MapReduce Total cumulative CPU time: 23 minutes 14 seconds 910 msec
+Ended Job = job_1494226772011_38943
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 60  Reduce: 54   Cumulative CPU: 1394.91 sec   HDFS Read: 4978306884 HDFS Write: 503 SUCCESS
+Total MapReduce CPU Time Spent: 23 minutes 14 seconds 910 msec
+OK
+Time taken: 143.196 seconds, Fetched: 2 row(s)
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Query ID = zhaochunlong_20170509103820_6a3f768c-dcf0-4244-8b7a-bd8f5bc675d2
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 902
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39035, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39035/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39035
+Hadoop job information for Stage-1: number of mappers: 760; number of reducers: 902
+2017-05-09 10:38:44,466 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:39:32,312 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 124.86 sec
+2017-05-09 10:39:33,374 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 405.91 sec
+2017-05-09 10:39:34,745 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 419.34 sec
+2017-05-09 10:39:35,802 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 684.63 sec
+2017-05-09 10:39:36,874 Stage-1 map = 8%,  reduce = 0%, Cumulative CPU 831.69 sec
+2017-05-09 10:39:38,168 Stage-1 map = 9%,  reduce = 0%, Cumulative CPU 917.03 sec
+2017-05-09 10:39:39,433 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 1441.53 sec
+2017-05-09 10:39:40,494 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 1663.96 sec
+2017-05-09 10:39:41,549 Stage-1 map = 14%,  reduce = 0%, Cumulative CPU 1963.49 sec
+2017-05-09 10:39:42,695 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 2268.01 sec
+2017-05-09 10:39:43,756 Stage-1 map = 18%,  reduce = 0%, Cumulative CPU 2889.46 sec
+2017-05-09 10:39:44,889 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 3400.82 sec
+2017-05-09 10:39:45,952 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 3908.34 sec
+2017-05-09 10:39:47,049 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 4458.9 sec
+2017-05-09 10:39:48,131 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 5128.52 sec
+2017-05-09 10:39:49,204 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 5759.83 sec
+2017-05-09 10:39:50,276 Stage-1 map = 31%,  reduce = 0%, Cumulative CPU 6344.82 sec
+2017-05-09 10:39:51,341 Stage-1 map = 34%,  reduce = 1%, Cumulative CPU 7142.39 sec
+2017-05-09 10:39:52,417 Stage-1 map = 37%,  reduce = 1%, Cumulative CPU 7756.84 sec
+2017-05-09 10:39:53,492 Stage-1 map = 39%,  reduce = 1%, Cumulative CPU 8278.04 sec
+2017-05-09 10:39:54,613 Stage-1 map = 42%,  reduce = 2%, Cumulative CPU 8894.73 sec
+2017-05-09 10:39:55,693 Stage-1 map = 45%,  reduce = 2%, Cumulative CPU 9574.63 sec
+2017-05-09 10:39:56,758 Stage-1 map = 48%,  reduce = 3%, Cumulative CPU 10153.1 sec
+2017-05-09 10:40:00,133 Stage-1 map = 52%,  reduce = 4%, Cumulative CPU 10720.53 sec
+2017-05-09 10:40:01,207 Stage-1 map = 60%,  reduce = 7%, Cumulative CPU 12497.28 sec
+2017-05-09 10:40:02,275 Stage-1 map = 63%,  reduce = 7%, Cumulative CPU 12681.12 sec
+2017-05-09 10:40:03,353 Stage-1 map = 66%,  reduce = 9%, Cumulative CPU 13169.81 sec
+2017-05-09 10:40:04,412 Stage-1 map = 68%,  reduce = 10%, Cumulative CPU 13886.71 sec
+2017-05-09 10:40:05,500 Stage-1 map = 71%,  reduce = 11%, Cumulative CPU 14194.93 sec
+2017-05-09 10:40:06,560 Stage-1 map = 73%,  reduce = 12%, Cumulative CPU 14525.78 sec
+2017-05-09 10:40:07,620 Stage-1 map = 76%,  reduce = 13%, Cumulative CPU 15060.99 sec
+2017-05-09 10:40:08,675 Stage-1 map = 78%,  reduce = 14%, Cumulative CPU 15394.55 sec
+2017-05-09 10:40:09,733 Stage-1 map = 80%,  reduce = 15%, Cumulative CPU 15707.61 sec
+2017-05-09 10:40:10,795 Stage-1 map = 82%,  reduce = 16%, Cumulative CPU 16022.23 sec
+2017-05-09 10:40:11,859 Stage-1 map = 84%,  reduce = 17%, Cumulative CPU 16282.62 sec
+2017-05-09 10:40:12,914 Stage-1 map = 85%,  reduce = 18%, Cumulative CPU 16557.77 sec
+2017-05-09 10:40:13,971 Stage-1 map = 86%,  reduce = 19%, Cumulative CPU 16866.57 sec
+2017-05-09 10:40:15,029 Stage-1 map = 87%,  reduce = 20%, Cumulative CPU 17189.83 sec
+2017-05-09 10:40:16,096 Stage-1 map = 89%,  reduce = 21%, Cumulative CPU 17459.27 sec
+2017-05-09 10:40:17,173 Stage-1 map = 90%,  reduce = 22%, Cumulative CPU 17579.03 sec
+2017-05-09 10:40:18,273 Stage-1 map = 92%,  reduce = 24%, Cumulative CPU 18069.29 sec
+2017-05-09 10:40:19,332 Stage-1 map = 92%,  reduce = 25%, Cumulative CPU 18376.41 sec
+2017-05-09 10:40:20,459 Stage-1 map = 93%,  reduce = 25%, Cumulative CPU 18535.28 sec
+2017-05-09 10:40:21,534 Stage-1 map = 95%,  reduce = 26%, Cumulative CPU 18901.42 sec
+2017-05-09 10:40:22,594 Stage-1 map = 96%,  reduce = 27%, Cumulative CPU 19214.67 sec
+2017-05-09 10:40:23,653 Stage-1 map = 96%,  reduce = 28%, Cumulative CPU 19471.66 sec
+2017-05-09 10:40:24,743 Stage-1 map = 97%,  reduce = 29%, Cumulative CPU 19731.68 sec
+2017-05-09 10:40:25,956 Stage-1 map = 97%,  reduce = 30%, Cumulative CPU 19999.79 sec
+2017-05-09 10:40:27,192 Stage-1 map = 98%,  reduce = 30%, Cumulative CPU 20146.17 sec
+2017-05-09 10:40:28,794 Stage-1 map = 98%,  reduce = 31%, Cumulative CPU 20417.46 sec
+2017-05-09 10:40:30,965 Stage-1 map = 99%,  reduce = 32%, Cumulative CPU 20731.87 sec
+2017-05-09 10:40:34,156 Stage-1 map = 99%,  reduce = 33%, Cumulative CPU 21129.76 sec
+2017-05-09 10:40:58,543 Stage-1 map = 100%,  reduce = 35%, Cumulative CPU 22826.0 sec
+2017-05-09 10:40:59,623 Stage-1 map = 100%,  reduce = 46%, Cumulative CPU 23016.89 sec
+2017-05-09 10:41:00,746 Stage-1 map = 100%,  reduce = 56%, Cumulative CPU 23258.5 sec
+2017-05-09 10:41:01,829 Stage-1 map = 100%,  reduce = 71%, Cumulative CPU 23884.83 sec
+2017-05-09 10:41:02,903 Stage-1 map = 100%,  reduce = 85%, Cumulative CPU 24852.07 sec
+2017-05-09 10:41:03,975 Stage-1 map = 100%,  reduce = 93%, Cumulative CPU 25706.97 sec
+2017-05-09 10:41:05,106 Stage-1 map = 100%,  reduce = 97%, Cumulative CPU 26241.73 sec
+2017-05-09 10:41:06,172 Stage-1 map = 100%,  reduce = 99%, Cumulative CPU 26565.94 sec
+2017-05-09 10:41:15,145 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 26865.36 sec
+MapReduce Total cumulative CPU time: 0 days 7 hours 27 minutes 45 seconds 360 msec
+Ended Job = job_1494226772011_39035
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 760  Reduce: 902   Cumulative CPU: 26877.54 sec   HDFS Read: 73858620547 HDFS Write: 7304 SUCCESS
+Total MapReduce CPU Time Spent: 0 days 7 hours 27 minutes 57 seconds 540 msec
+OK
+Time taken: 187.42 seconds, Fetched: 2 row(s)
+2017-05-09 10:42:14 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=hook.xml
+2017-05-09 10:42:14 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20170508
+2017-05-09 10:42:14 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:42:14 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 10:42:14 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:hook.xml
+2017-05-09 10:42:14 [INFO ] com.celery.stat.core.Executor {Executor.java:20} - 异常节点不跳过，继续执行命令.
+2017-05-09 10:42:14 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:埋点统计
+2017-05-09 10:42:15 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2017-05-09 10:42:15 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：4
+2017-05-09 10:42:15 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:埋点统计执行结束。
+2017-05-09 10:42:15 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:hook.xml
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2017-05-09 10:42:15 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+正在导入20170508的埋点PV和UV数据
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Added [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar] to class path
+Added resources: [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar]
+OK
+Time taken: 1.778 seconds
+Query ID = zhaochunlong_20170509104225_f5a2f474-e8a1-43fb-a4e4-49f522f1bbcd
+Total jobs = 11
+Launching Job 1 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39175, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39175/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39175
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-05-09 10:43:15,719 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:43:36,158 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 7.5 sec
+2017-05-09 10:43:44,684 Stage-1 map = 2%,  reduce = 0%, Cumulative CPU 10.19 sec
+2017-05-09 10:43:47,988 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 10.88 sec
+2017-05-09 10:43:59,209 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 14.53 sec
+2017-05-09 10:44:12,104 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 18.27 sec
+2017-05-09 10:44:19,578 Stage-1 map = 6%,  reduce = 0%, Cumulative CPU 20.28 sec
+2017-05-09 10:44:26,127 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 21.05 sec
+2017-05-09 10:44:30,133 Stage-1 map = 9%,  reduce = 0%, Cumulative CPU 22.08 sec
+2017-05-09 10:44:33,322 Stage-1 map = 10%,  reduce = 0%, Cumulative CPU 23.05 sec
+2017-05-09 10:44:41,180 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 24.38 sec
+2017-05-09 10:44:47,667 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 25.71 sec
+2017-05-09 10:44:50,618 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 26.11 sec
+2017-05-09 10:44:57,595 Stage-1 map = 14%,  reduce = 0%, Cumulative CPU 34.07 sec
+2017-05-09 10:45:04,022 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 34.74 sec
+2017-05-09 10:45:07,480 Stage-1 map = 16%,  reduce = 0%, Cumulative CPU 35.45 sec
+2017-05-09 10:45:10,609 Stage-1 map = 17%,  reduce = 0%, Cumulative CPU 36.14 sec
+2017-05-09 10:45:20,384 Stage-1 map = 18%,  reduce = 0%, Cumulative CPU 37.52 sec
+2017-05-09 10:45:22,524 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 37.94 sec
+2017-05-09 10:45:29,181 Stage-1 map = 20%,  reduce = 0%, Cumulative CPU 38.69 sec
+2017-05-09 10:45:33,474 Stage-1 map = 21%,  reduce = 0%, Cumulative CPU 39.47 sec
+2017-05-09 10:45:35,561 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 40.02 sec
+2017-05-09 10:45:42,155 Stage-1 map = 23%,  reduce = 0%, Cumulative CPU 41.04 sec
+2017-05-09 10:45:49,631 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 41.46 sec
+2017-05-09 10:45:56,002 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 42.89 sec
+2017-05-09 10:45:59,152 Stage-1 map = 27%,  reduce = 0%, Cumulative CPU 43.5 sec
+2017-05-09 10:46:06,092 Stage-1 map = 28%,  reduce = 0%, Cumulative CPU 44.01 sec
+2017-05-09 10:46:09,236 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 44.79 sec
+2017-05-09 10:46:15,529 Stage-1 map = 30%,  reduce = 0%, Cumulative CPU 45.49 sec
+2017-05-09 10:46:21,809 Stage-1 map = 31%,  reduce = 0%, Cumulative CPU 46.94 sec
+2017-05-09 10:46:25,403 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 47.44 sec
+2017-05-09 10:46:38,568 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 49.35 sec
+2017-05-09 10:46:41,832 Stage-1 map = 34%,  reduce = 0%, Cumulative CPU 50.12 sec
+2017-05-09 10:46:51,399 Stage-1 map = 36%,  reduce = 0%, Cumulative CPU 51.44 sec
+2017-05-09 10:46:54,582 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 51.68 sec
+2017-05-09 10:46:59,862 Stage-1 map = 38%,  reduce = 0%, Cumulative CPU 52.57 sec
+2017-05-09 10:47:03,590 Stage-1 map = 40%,  reduce = 0%, Cumulative CPU 52.95 sec
+2017-05-09 10:47:06,763 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 53.29 sec
+2017-05-09 10:47:12,015 Stage-1 map = 42%,  reduce = 0%, Cumulative CPU 53.97 sec
+2017-05-09 10:47:18,943 Stage-1 map = 43%,  reduce = 0%, Cumulative CPU 54.29 sec
+2017-05-09 10:47:21,402 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 54.71 sec
+2017-05-09 10:47:24,607 Stage-1 map = 45%,  reduce = 0%, Cumulative CPU 55.34 sec
+2017-05-09 10:47:30,993 Stage-1 map = 46%,  reduce = 0%, Cumulative CPU 56.29 sec
+2017-05-09 10:47:35,208 Stage-1 map = 47%,  reduce = 0%, Cumulative CPU 66.45 sec
+2017-05-09 10:47:41,494 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 67.62 sec
+2017-05-09 10:47:44,609 Stage-1 map = 49%,  reduce = 0%, Cumulative CPU 67.8 sec
+2017-05-09 10:47:51,865 Stage-1 map = 50%,  reduce = 0%, Cumulative CPU 68.41 sec
+2017-05-09 10:47:55,034 Stage-1 map = 51%,  reduce = 0%, Cumulative CPU 68.88 sec
+2017-05-09 10:47:59,699 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 69.19 sec
+2017-05-09 10:48:06,109 Stage-1 map = 53%,  reduce = 0%, Cumulative CPU 69.9 sec
+2017-05-09 10:48:09,276 Stage-1 map = 54%,  reduce = 0%, Cumulative CPU 70.18 sec
+2017-05-09 10:48:18,349 Stage-1 map = 55%,  reduce = 0%, Cumulative CPU 71.0 sec
+2017-05-09 10:48:30,163 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 71.64 sec
+2017-05-09 10:48:36,459 Stage-1 map = 58%,  reduce = 0%, Cumulative CPU 72.1 sec
+2017-05-09 10:48:39,696 Stage-1 map = 59%,  reduce = 0%, Cumulative CPU 72.54 sec
+2017-05-09 10:48:43,100 Stage-1 map = 60%,  reduce = 0%, Cumulative CPU 72.86 sec
+2017-05-09 10:48:46,265 Stage-1 map = 61%,  reduce = 0%, Cumulative CPU 73.05 sec
+2017-05-09 10:48:49,504 Stage-1 map = 62%,  reduce = 0%, Cumulative CPU 73.44 sec
+2017-05-09 10:48:51,624 Stage-1 map = 63%,  reduce = 0%, Cumulative CPU 73.62 sec
+2017-05-09 10:48:55,273 Stage-1 map = 64%,  reduce = 0%, Cumulative CPU 73.95 sec
+2017-05-09 10:49:01,278 Stage-1 map = 66%,  reduce = 0%, Cumulative CPU 74.42 sec
+2017-05-09 10:49:04,402 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 76.34 sec
+2017-05-09 10:49:21,552 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 80.12 sec
+2017-05-09 10:49:22,711 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 83.43 sec
+MapReduce Total cumulative CPU time: 1 minutes 23 seconds 430 msec
+Ended Job = job_1494226772011_39175
+Launching Job 2 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39394, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39394/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39394
+Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+2017-05-09 10:49:45,432 Stage-4 map = 0%,  reduce = 0%
+2017-05-09 10:50:14,255 Stage-4 map = 1%,  reduce = 0%, Cumulative CPU 9.89 sec
+2017-05-09 10:50:20,553 Stage-4 map = 2%,  reduce = 0%, Cumulative CPU 12.9 sec
+2017-05-09 10:50:23,706 Stage-4 map = 3%,  reduce = 0%, Cumulative CPU 13.78 sec
+2017-05-09 10:50:26,836 Stage-4 map = 4%,  reduce = 0%, Cumulative CPU 14.54 sec
+2017-05-09 10:50:34,158 Stage-4 map = 5%,  reduce = 0%, Cumulative CPU 17.49 sec
+2017-05-09 10:50:37,324 Stage-4 map = 6%,  reduce = 0%, Cumulative CPU 18.2 sec
+2017-05-09 10:50:42,626 Stage-4 map = 7%,  reduce = 0%, Cumulative CPU 19.58 sec
+2017-05-09 10:50:45,787 Stage-4 map = 8%,  reduce = 0%, Cumulative CPU 23.55 sec
+2017-05-09 10:50:48,389 Stage-4 map = 10%,  reduce = 0%, Cumulative CPU 24.77 sec
+2017-05-09 10:50:54,659 Stage-4 map = 11%,  reduce = 0%, Cumulative CPU 26.73 sec
+2017-05-09 10:50:57,781 Stage-4 map = 12%,  reduce = 0%, Cumulative CPU 28.01 sec
+2017-05-09 10:51:04,047 Stage-4 map = 13%,  reduce = 0%, Cumulative CPU 29.43 sec
+2017-05-09 10:51:07,169 Stage-4 map = 14%,  reduce = 0%, Cumulative CPU 29.65 sec
+2017-05-09 10:51:10,298 Stage-4 map = 15%,  reduce = 0%, Cumulative CPU 30.31 sec
+2017-05-09 10:51:15,524 Stage-4 map = 17%,  reduce = 0%, Cumulative CPU 41.1 sec
+2017-05-09 10:51:21,786 Stage-4 map = 18%,  reduce = 0%, Cumulative CPU 42.49 sec
+2017-05-09 10:51:23,867 Stage-4 map = 19%,  reduce = 0%, Cumulative CPU 42.92 sec
+2017-05-09 10:51:28,019 Stage-4 map = 21%,  reduce = 0%, Cumulative CPU 43.85 sec
+2017-05-09 10:51:31,148 Stage-4 map = 22%,  reduce = 0%, Cumulative CPU 44.25 sec
+2017-05-09 10:51:34,274 Stage-4 map = 23%,  reduce = 0%, Cumulative CPU 44.86 sec
+2017-05-09 10:51:37,396 Stage-4 map = 24%,  reduce = 0%, Cumulative CPU 45.81 sec
+2017-05-09 10:51:39,475 Stage-4 map = 26%,  reduce = 0%, Cumulative CPU 46.36 sec
+2017-05-09 10:51:46,753 Stage-4 map = 27%,  reduce = 0%, Cumulative CPU 47.97 sec
+2017-05-09 10:51:49,866 Stage-4 map = 28%,  reduce = 0%, Cumulative CPU 48.31 sec
+2017-05-09 10:51:53,001 Stage-4 map = 29%,  reduce = 0%, Cumulative CPU 48.79 sec
+2017-05-09 10:51:56,184 Stage-4 map = 31%,  reduce = 0%, Cumulative CPU 49.39 sec
+2017-05-09 10:51:59,330 Stage-4 map = 32%,  reduce = 0%, Cumulative CPU 49.93 sec
+2017-05-09 10:52:01,448 Stage-4 map = 33%,  reduce = 0%, Cumulative CPU 50.41 sec
+2017-05-09 10:52:04,587 Stage-4 map = 34%,  reduce = 0%, Cumulative CPU 50.82 sec
+2017-05-09 10:52:07,697 Stage-4 map = 36%,  reduce = 0%, Cumulative CPU 51.44 sec
+2017-05-09 10:52:10,826 Stage-4 map = 37%,  reduce = 0%, Cumulative CPU 52.02 sec
+2017-05-09 10:52:13,947 Stage-4 map = 38%,  reduce = 0%, Cumulative CPU 52.53 sec
+2017-05-09 10:52:17,065 Stage-4 map = 40%,  reduce = 0%, Cumulative CPU 53.09 sec
+2017-05-09 10:52:20,175 Stage-4 map = 41%,  reduce = 0%, Cumulative CPU 53.37 sec
+2017-05-09 10:52:23,302 Stage-4 map = 42%,  reduce = 0%, Cumulative CPU 53.96 sec
+2017-05-09 10:52:26,417 Stage-4 map = 43%,  reduce = 0%, Cumulative CPU 54.45 sec
+2017-05-09 10:52:29,553 Stage-4 map = 45%,  reduce = 0%, Cumulative CPU 54.99 sec
+2017-05-09 10:52:32,679 Stage-4 map = 46%,  reduce = 0%, Cumulative CPU 55.52 sec
+2017-05-09 10:52:35,803 Stage-4 map = 47%,  reduce = 0%, Cumulative CPU 56.05 sec
+2017-05-09 10:52:42,063 Stage-4 map = 49%,  reduce = 0%, Cumulative CPU 57.12 sec
+2017-05-09 10:52:44,137 Stage-4 map = 50%,  reduce = 0%, Cumulative CPU 57.64 sec
+2017-05-09 10:52:47,250 Stage-4 map = 51%,  reduce = 0%, Cumulative CPU 58.11 sec
+2017-05-09 10:52:50,370 Stage-4 map = 52%,  reduce = 0%, Cumulative CPU 58.64 sec
+2017-05-09 10:52:53,485 Stage-4 map = 53%,  reduce = 0%, Cumulative CPU 59.04 sec
+2017-05-09 10:52:56,603 Stage-4 map = 54%,  reduce = 0%, Cumulative CPU 59.47 sec
+2017-05-09 10:53:02,868 Stage-4 map = 55%,  reduce = 0%, Cumulative CPU 60.83 sec
+2017-05-09 10:53:05,987 Stage-4 map = 56%,  reduce = 0%, Cumulative CPU 61.26 sec
+2017-05-09 10:53:09,108 Stage-4 map = 58%,  reduce = 0%, Cumulative CPU 70.6 sec
+2017-05-09 10:53:12,234 Stage-4 map = 59%,  reduce = 0%, Cumulative CPU 71.03 sec
+2017-05-09 10:53:15,381 Stage-4 map = 60%,  reduce = 0%, Cumulative CPU 71.5 sec
+2017-05-09 10:53:18,543 Stage-4 map = 61%,  reduce = 0%, Cumulative CPU 72.47 sec
+2017-05-09 10:53:21,695 Stage-4 map = 63%,  reduce = 0%, Cumulative CPU 73.36 sec
+2017-05-09 10:53:24,839 Stage-4 map = 64%,  reduce = 0%, Cumulative CPU 74.06 sec
+2017-05-09 10:53:27,954 Stage-4 map = 66%,  reduce = 0%, Cumulative CPU 74.78 sec
+2017-05-09 10:53:33,147 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 76.5 sec
+2017-05-09 10:53:47,700 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 81.73 sec
+MapReduce Total cumulative CPU time: 1 minutes 21 seconds 730 msec
+Ended Job = job_1494226772011_39394
+Launching Job 3 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39533, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39533/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39533
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2017-05-09 10:54:01,779 Stage-2 map = 0%,  reduce = 0%
+2017-05-09 10:54:15,289 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 5.08 sec
+2017-05-09 10:54:38,900 Stage-2 map = 100%,  reduce = 67%, Cumulative CPU 9.89 sec
+2017-05-09 10:54:42,052 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 16.25 sec
+MapReduce Total cumulative CPU time: 16 seconds 250 msec
+Ended Job = job_1494226772011_39533
+Launching Job 4 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39560, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39560/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39560
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 1
+2017-05-09 10:54:51,449 Stage-5 map = 0%,  reduce = 0%
+2017-05-09 10:55:08,086 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 5.73 sec
+2017-05-09 10:55:16,409 Stage-5 map = 100%,  reduce = 100%, Cumulative CPU 9.0 sec
+MapReduce Total cumulative CPU time: 9 seconds 0 msec
+Ended Job = job_1494226772011_39560
+Stage-16 is filtered out by condition resolver.
+Stage-17 is selected by condition resolver.
+Stage-6 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509104225_f5a2f474-e8a1-43fb-a4e4-49f522f1bbcd.log
+2017-05-09 10:55:25	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 10:55:28	Dump the side-table for tag: 0 with group count: 8205 into file: file:/tmp/zhaochunlong/3c814ceb-33a3-43c3-a874-c8a7f1acee10/hive_2017-05-09_10-42-25_213_5328788274182261270-1/-local-10015/HashTable-Stage-13/MapJoin-mapfile20--.hashtable
+2017-05-09 10:55:28	Uploaded 1 File to: file:/tmp/zhaochunlong/3c814ceb-33a3-43c3-a874-c8a7f1acee10/hive_2017-05-09_10-42-25_213_5328788274182261270-1/-local-10015/HashTable-Stage-13/MapJoin-mapfile20--.hashtable (401990 bytes)
+2017-05-09 10:55:28	End of local task; Time Taken: 2.914 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 6 out of 11
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1494226772011_39588, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39588/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39588
+Hadoop job information for Stage-13: number of mappers: 1; number of reducers: 0
+2017-05-09 10:55:53,471 Stage-13 map = 0%,  reduce = 0%
+2017-05-09 10:56:00,819 Stage-13 map = 100%,  reduce = 0%, Cumulative CPU 4.71 sec
+MapReduce Total cumulative CPU time: 4 seconds 710 msec
+Ended Job = job_1494226772011_39588
+Launching Job 7 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39610, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39610/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39610
+Hadoop job information for Stage-7: number of mappers: 1; number of reducers: 1
+2017-05-09 10:56:17,283 Stage-7 map = 0%,  reduce = 0%
+2017-05-09 10:56:23,549 Stage-7 map = 100%,  reduce = 0%, Cumulative CPU 2.35 sec
+2017-05-09 10:56:47,658 Stage-7 map = 100%,  reduce = 100%, Cumulative CPU 9.3 sec
+MapReduce Total cumulative CPU time: 9 seconds 300 msec
+Ended Job = job_1494226772011_39610
+Launching Job 8 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39637, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39637/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39637
+Hadoop job information for Stage-8: number of mappers: 1; number of reducers: 1
+2017-05-09 10:57:01,183 Stage-8 map = 0%,  reduce = 0%
+2017-05-09 10:57:07,542 Stage-8 map = 100%,  reduce = 0%, Cumulative CPU 1.65 sec
+2017-05-09 10:57:14,947 Stage-8 map = 100%,  reduce = 100%, Cumulative CPU 3.9 sec
+MapReduce Total cumulative CPU time: 3 seconds 900 msec
+Ended Job = job_1494226772011_39637
+Stage-15 is selected by condition resolver.
+Stage-3 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509104225_f5a2f474-e8a1-43fb-a4e4-49f522f1bbcd.log
+2017-05-09 10:57:33	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 10:57:34	Dump the side-table for tag: 1 with group count: 341 into file: file:/tmp/zhaochunlong/3c814ceb-33a3-43c3-a874-c8a7f1acee10/hive_2017-05-09_10-42-25_213_5328788274182261270-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable
+2017-05-09 10:57:35	Uploaded 1 File to: file:/tmp/zhaochunlong/3c814ceb-33a3-43c3-a874-c8a7f1acee10/hive_2017-05-09_10-42-25_213_5328788274182261270-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable (19568 bytes)
+2017-05-09 10:57:35	End of local task; Time Taken: 1.542 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 10 out of 11
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1494226772011_39674, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39674/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39674
+Hadoop job information for Stage-10: number of mappers: 1; number of reducers: 0
+2017-05-09 10:57:58,771 Stage-10 map = 0%,  reduce = 0%
+2017-05-09 10:58:10,851 Stage-10 map = 100%,  reduce = 0%, Cumulative CPU 11.87 sec
+MapReduce Total cumulative CPU time: 11 seconds 870 msec
+Ended Job = job_1494226772011_39674
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 83.43 sec   HDFS Read: 71813149 HDFS Write: 59710 SUCCESS
+Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 81.73 sec   HDFS Read: 59420311 HDFS Write: 443364 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 16.63 sec   HDFS Read: 64459 HDFS Write: 59710 SUCCESS
+Stage-Stage-5: Map: 1  Reduce: 1   Cumulative CPU: 9.0 sec   HDFS Read: 447482 HDFS Write: 443364 SUCCESS
+Stage-Stage-13: Map: 1   Cumulative CPU: 4.71 sec   HDFS Read: 44791830 HDFS Write: 179090 SUCCESS
+Stage-Stage-7: Map: 1  Reduce: 1   Cumulative CPU: 9.3 sec   HDFS Read: 186916 HDFS Write: 16514 SUCCESS
+Stage-Stage-8: Map: 1  Reduce: 1   Cumulative CPU: 3.9 sec   HDFS Read: 24973 HDFS Write: 19150 SUCCESS
+Stage-Stage-10: Map: 1   Cumulative CPU: 11.87 sec   HDFS Read: 66292 HDFS Write: 10304 SUCCESS
+Total MapReduce CPU Time Spent: 3 minutes 40 seconds 570 msec
+OK
+Time taken: 947.772 seconds, Fetched: 1551 row(s)
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Added [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar] to class path
+Added resources: [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar]
+OK
+Time taken: 1.731 seconds
+Query ID = zhaochunlong_20170509105825_6c48dacd-2a25-465c-8c63-0fb1346c27c5
+Total jobs = 11
+Launching Job 1 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39699, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39699/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39699
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2017-05-09 10:59:02,431 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 10:59:22,180 Stage-1 map = 1%,  reduce = 0%, Cumulative CPU 13.55 sec
+2017-05-09 10:59:25,342 Stage-1 map = 3%,  reduce = 0%, Cumulative CPU 16.11 sec
+2017-05-09 10:59:28,512 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 17.22 sec
+2017-05-09 10:59:32,786 Stage-1 map = 5%,  reduce = 0%, Cumulative CPU 19.28 sec
+2017-05-09 10:59:35,944 Stage-1 map = 6%,  reduce = 0%, Cumulative CPU 20.56 sec
+2017-05-09 10:59:39,103 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 21.34 sec
+2017-05-09 10:59:42,696 Stage-1 map = 8%,  reduce = 0%, Cumulative CPU 22.59 sec
+2017-05-09 10:59:49,211 Stage-1 map = 10%,  reduce = 0%, Cumulative CPU 41.66 sec
+2017-05-09 10:59:52,422 Stage-1 map = 12%,  reduce = 0%, Cumulative CPU 42.9 sec
+2017-05-09 10:59:55,574 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 43.96 sec
+2017-05-09 10:59:58,728 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 45.23 sec
+2017-05-09 11:00:02,000 Stage-1 map = 17%,  reduce = 0%, Cumulative CPU 45.98 sec
+2017-05-09 11:00:08,327 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 47.44 sec
+2017-05-09 11:00:11,519 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 48.67 sec
+2017-05-09 11:00:15,006 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 49.64 sec
+2017-05-09 11:00:17,089 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 50.21 sec
+2017-05-09 11:00:20,608 Stage-1 map = 28%,  reduce = 0%, Cumulative CPU 51.04 sec
+2017-05-09 11:00:24,817 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 52.71 sec
+2017-05-09 11:00:28,022 Stage-1 map = 31%,  reduce = 0%, Cumulative CPU 53.42 sec
+2017-05-09 11:00:31,172 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 54.21 sec
+2017-05-09 11:00:33,297 Stage-1 map = 34%,  reduce = 0%, Cumulative CPU 55.07 sec
+2017-05-09 11:00:39,660 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 56.07 sec
+2017-05-09 11:00:42,816 Stage-1 map = 39%,  reduce = 0%, Cumulative CPU 57.43 sec
+2017-05-09 11:00:46,012 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 58.86 sec
+2017-05-09 11:00:49,156 Stage-1 map = 42%,  reduce = 0%, Cumulative CPU 59.05 sec
+2017-05-09 11:00:53,496 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 59.92 sec
+2017-05-09 11:00:57,089 Stage-1 map = 47%,  reduce = 0%, Cumulative CPU 61.05 sec
+2017-05-09 11:01:04,413 Stage-1 map = 49%,  reduce = 0%, Cumulative CPU 62.69 sec
+2017-05-09 11:01:06,564 Stage-1 map = 51%,  reduce = 0%, Cumulative CPU 64.11 sec
+2017-05-09 11:01:11,527 Stage-1 map = 53%,  reduce = 0%, Cumulative CPU 64.63 sec
+2017-05-09 11:01:13,736 Stage-1 map = 54%,  reduce = 0%, Cumulative CPU 65.24 sec
+2017-05-09 11:01:16,909 Stage-1 map = 55%,  reduce = 0%, Cumulative CPU 65.65 sec
+2017-05-09 11:01:20,800 Stage-1 map = 58%,  reduce = 0%, Cumulative CPU 66.55 sec
+2017-05-09 11:01:22,896 Stage-1 map = 60%,  reduce = 0%, Cumulative CPU 67.17 sec
+2017-05-09 11:01:26,375 Stage-1 map = 62%,  reduce = 0%, Cumulative CPU 67.9 sec
+2017-05-09 11:01:29,558 Stage-1 map = 64%,  reduce = 0%, Cumulative CPU 68.73 sec
+2017-05-09 11:01:33,709 Stage-1 map = 65%,  reduce = 0%, Cumulative CPU 69.44 sec
+2017-05-09 11:01:36,296 Stage-1 map = 67%,  reduce = 0%, Cumulative CPU 69.99 sec
+2017-05-09 11:01:37,343 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 71.32 sec
+2017-05-09 11:01:59,152 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 76.99 sec
+MapReduce Total cumulative CPU time: 1 minutes 16 seconds 990 msec
+Ended Job = job_1494226772011_39699
+Launching Job 2 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39832, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39832/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39832
+Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+2017-05-09 11:02:28,209 Stage-4 map = 0%,  reduce = 0%
+2017-05-09 11:02:42,705 Stage-4 map = 1%,  reduce = 0%, Cumulative CPU 6.03 sec
+2017-05-09 11:02:44,910 Stage-4 map = 4%,  reduce = 0%, Cumulative CPU 8.93 sec
+2017-05-09 11:02:51,209 Stage-4 map = 5%,  reduce = 0%, Cumulative CPU 10.9 sec
+2017-05-09 11:02:54,340 Stage-4 map = 6%,  reduce = 0%, Cumulative CPU 11.3 sec
+2017-05-09 11:02:57,550 Stage-4 map = 7%,  reduce = 0%, Cumulative CPU 11.89 sec
+2017-05-09 11:03:03,253 Stage-4 map = 10%,  reduce = 0%, Cumulative CPU 31.03 sec
+2017-05-09 11:03:06,409 Stage-4 map = 12%,  reduce = 0%, Cumulative CPU 32.42 sec
+2017-05-09 11:03:09,574 Stage-4 map = 15%,  reduce = 0%, Cumulative CPU 33.21 sec
+2017-05-09 11:03:12,740 Stage-4 map = 17%,  reduce = 0%, Cumulative CPU 33.89 sec
+2017-05-09 11:03:15,897 Stage-4 map = 18%,  reduce = 0%, Cumulative CPU 34.58 sec
+2017-05-09 11:03:20,205 Stage-4 map = 19%,  reduce = 0%, Cumulative CPU 36.13 sec
+2017-05-09 11:03:23,332 Stage-4 map = 21%,  reduce = 0%, Cumulative CPU 37.3 sec
+2017-05-09 11:03:27,552 Stage-4 map = 23%,  reduce = 0%, Cumulative CPU 39.21 sec
+2017-05-09 11:03:30,684 Stage-4 map = 25%,  reduce = 0%, Cumulative CPU 40.4 sec
+2017-05-09 11:03:33,857 Stage-4 map = 27%,  reduce = 0%, Cumulative CPU 41.0 sec
+2017-05-09 11:03:37,075 Stage-4 map = 29%,  reduce = 0%, Cumulative CPU 41.6 sec
+2017-05-09 11:03:40,539 Stage-4 map = 31%,  reduce = 0%, Cumulative CPU 42.32 sec
+2017-05-09 11:03:43,690 Stage-4 map = 32%,  reduce = 0%, Cumulative CPU 50.91 sec
+2017-05-09 11:03:47,407 Stage-4 map = 34%,  reduce = 0%, Cumulative CPU 51.68 sec
+2017-05-09 11:03:49,509 Stage-4 map = 37%,  reduce = 0%, Cumulative CPU 52.41 sec
+2017-05-09 11:03:52,750 Stage-4 map = 38%,  reduce = 0%, Cumulative CPU 52.84 sec
+2017-05-09 11:03:55,885 Stage-4 map = 40%,  reduce = 0%, Cumulative CPU 53.61 sec
+2017-05-09 11:04:00,276 Stage-4 map = 43%,  reduce = 0%, Cumulative CPU 73.2 sec
+2017-05-09 11:04:03,420 Stage-4 map = 45%,  reduce = 0%, Cumulative CPU 74.25 sec
+2017-05-09 11:04:06,641 Stage-4 map = 46%,  reduce = 0%, Cumulative CPU 74.69 sec
+2017-05-09 11:04:09,777 Stage-4 map = 47%,  reduce = 0%, Cumulative CPU 75.49 sec
+2017-05-09 11:04:12,987 Stage-4 map = 49%,  reduce = 0%, Cumulative CPU 75.98 sec
+2017-05-09 11:04:16,120 Stage-4 map = 51%,  reduce = 0%, Cumulative CPU 76.37 sec
+2017-05-09 11:04:19,247 Stage-4 map = 52%,  reduce = 0%, Cumulative CPU 76.64 sec
+2017-05-09 11:04:22,533 Stage-4 map = 53%,  reduce = 0%, Cumulative CPU 77.74 sec
+2017-05-09 11:04:25,671 Stage-4 map = 54%,  reduce = 0%, Cumulative CPU 77.88 sec
+2017-05-09 11:04:27,769 Stage-4 map = 56%,  reduce = 0%, Cumulative CPU 77.88 sec
+2017-05-09 11:04:31,219 Stage-4 map = 59%,  reduce = 0%, Cumulative CPU 79.59 sec
+2017-05-09 11:04:34,358 Stage-4 map = 60%,  reduce = 0%, Cumulative CPU 80.16 sec
+2017-05-09 11:04:37,508 Stage-4 map = 63%,  reduce = 0%, Cumulative CPU 80.96 sec
+2017-05-09 11:04:40,631 Stage-4 map = 65%,  reduce = 0%, Cumulative CPU 81.69 sec
+2017-05-09 11:04:43,764 Stage-4 map = 67%,  reduce = 0%, Cumulative CPU 82.98 sec
+2017-05-09 11:04:44,807 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 85.2 sec
+2017-05-09 11:04:57,257 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 97.98 sec
+MapReduce Total cumulative CPU time: 1 minutes 37 seconds 980 msec
+Ended Job = job_1494226772011_39832
+Launching Job 3 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39929, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39929/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39929
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2017-05-09 11:05:14,684 Stage-2 map = 0%,  reduce = 0%
+2017-05-09 11:05:29,349 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 4.44 sec
+2017-05-09 11:05:45,433 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 7.23 sec
+MapReduce Total cumulative CPU time: 7 seconds 230 msec
+Ended Job = job_1494226772011_39929
+Launching Job 4 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_39958, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39958/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39958
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 1
+2017-05-09 11:06:10,319 Stage-5 map = 0%,  reduce = 0%
+2017-05-09 11:06:28,025 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 5.97 sec
+2017-05-09 11:06:36,407 Stage-5 map = 100%,  reduce = 100%, Cumulative CPU 9.53 sec
+MapReduce Total cumulative CPU time: 9 seconds 530 msec
+Ended Job = job_1494226772011_39958
+Stage-16 is filtered out by condition resolver.
+Stage-17 is selected by condition resolver.
+Stage-6 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509105825_6c48dacd-2a25-465c-8c63-0fb1346c27c5.log
+2017-05-09 11:06:45	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 11:06:47	Dump the side-table for tag: 0 with group count: 14820 into file: file:/tmp/zhaochunlong/7ed75da9-51f9-41f1-9574-cd122f0076de/hive_2017-05-09_10-58-25_687_7882230009912549058-1/-local-10015/HashTable-Stage-13/MapJoin-mapfile20--.hashtable
+2017-05-09 11:06:47	Uploaded 1 File to: file:/tmp/zhaochunlong/7ed75da9-51f9-41f1-9574-cd122f0076de/hive_2017-05-09_10-58-25_687_7882230009912549058-1/-local-10015/HashTable-Stage-13/MapJoin-mapfile20--.hashtable (633492 bytes)
+2017-05-09 11:06:47	End of local task; Time Taken: 2.739 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 6 out of 11
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1494226772011_39987, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_39987/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_39987
+Hadoop job information for Stage-13: number of mappers: 1; number of reducers: 0
+2017-05-09 11:07:02,960 Stage-13 map = 0%,  reduce = 0%
+2017-05-09 11:07:21,754 Stage-13 map = 100%,  reduce = 0%, Cumulative CPU 7.25 sec
+MapReduce Total cumulative CPU time: 7 seconds 250 msec
+Ended Job = job_1494226772011_39987
+Launching Job 7 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40010, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40010/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40010
+Hadoop job information for Stage-7: number of mappers: 1; number of reducers: 1
+2017-05-09 11:07:29,618 Stage-7 map = 0%,  reduce = 0%
+2017-05-09 11:07:41,153 Stage-7 map = 100%,  reduce = 0%, Cumulative CPU 3.97 sec
+2017-05-09 11:07:51,594 Stage-7 map = 100%,  reduce = 100%, Cumulative CPU 7.4 sec
+MapReduce Total cumulative CPU time: 7 seconds 400 msec
+Ended Job = job_1494226772011_40010
+Launching Job 8 out of 11
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40029, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40029/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40029
+Hadoop job information for Stage-8: number of mappers: 1; number of reducers: 1
+2017-05-09 11:08:05,385 Stage-8 map = 0%,  reduce = 0%
+2017-05-09 11:08:10,600 Stage-8 map = 100%,  reduce = 0%, Cumulative CPU 1.24 sec
+2017-05-09 11:08:28,556 Stage-8 map = 100%,  reduce = 100%, Cumulative CPU 6.83 sec
+MapReduce Total cumulative CPU time: 6 seconds 830 msec
+Ended Job = job_1494226772011_40029
+Stage-15 is selected by condition resolver.
+Stage-3 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509105825_6c48dacd-2a25-465c-8c63-0fb1346c27c5.log
+2017-05-09 11:08:49	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 11:08:50	Dump the side-table for tag: 1 with group count: 194 into file: file:/tmp/zhaochunlong/7ed75da9-51f9-41f1-9574-cd122f0076de/hive_2017-05-09_10-58-25_687_7882230009912549058-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable
+2017-05-09 11:08:50	Uploaded 1 File to: file:/tmp/zhaochunlong/7ed75da9-51f9-41f1-9574-cd122f0076de/hive_2017-05-09_10-58-25_687_7882230009912549058-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable (10986 bytes)
+2017-05-09 11:08:50	End of local task; Time Taken: 1.592 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 10 out of 11
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1494226772011_40073, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40073/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40073
+Hadoop job information for Stage-10: number of mappers: 1; number of reducers: 0
+2017-05-09 11:09:01,413 Stage-10 map = 0%,  reduce = 0%
+2017-05-09 11:09:11,298 Stage-10 map = 100%,  reduce = 0%, Cumulative CPU 2.63 sec
+MapReduce Total cumulative CPU time: 2 seconds 630 msec
+Ended Job = job_1494226772011_40073
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 76.99 sec   HDFS Read: 71813266 HDFS Write: 44411 SUCCESS
+Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 97.98 sec   HDFS Read: 59420426 HDFS Write: 658146 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 7.23 sec   HDFS Read: 49160 HDFS Write: 44411 SUCCESS
+Stage-Stage-5: Map: 1  Reduce: 1   Cumulative CPU: 9.53 sec   HDFS Read: 662264 HDFS Write: 658146 SUCCESS
+Stage-Stage-13: Map: 1   Cumulative CPU: 7.25 sec   HDFS Read: 44791830 HDFS Write: 180344 SUCCESS
+Stage-Stage-7: Map: 1  Reduce: 1   Cumulative CPU: 7.4 sec   HDFS Read: 188170 HDFS Write: 9183 SUCCESS
+Stage-Stage-8: Map: 1  Reduce: 1   Cumulative CPU: 6.83 sec   HDFS Read: 17642 HDFS Write: 10675 SUCCESS
+Stage-Stage-10: Map: 1   Cumulative CPU: 2.63 sec   HDFS Read: 50993 HDFS Write: 7985 SUCCESS
+Total MapReduce CPU Time Spent: 3 minutes 35 seconds 840 msec
+OK
+Time taken: 646.682 seconds, Fetched: 1182 row(s)
+2017-05-09 11:09:13 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=hook.xml
+2017-05-09 11:09:13 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20170508
+2017-05-09 11:09:13 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 11:09:13 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 11:09:13 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:hook.xml
+2017-05-09 11:09:14 [INFO ] com.celery.stat.core.Executor {Executor.java:20} - 异常节点不跳过，继续执行命令.
+2017-05-09 11:09:14 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:埋点统计
+2017-05-09 11:09:14 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:64} - 开始USqlBean:删除埋点某天数据，防止重复导入
+2017-05-09 11:09:15 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:386} - 执行影响条数:0
+2017-05-09 11:09:15 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:388} - SQL语句执行结果:false
+2017-05-09 11:09:15 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:68} - 执行USqlBean影响的数目:0
+2017-05-09 11:09:15 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:69} - 执行完成，耗时:1128millis
+2017-05-09 11:09:30 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2017-05-09 11:09:30 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：2733
+2017-05-09 11:09:30 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:埋点统计执行结束。
+2017-05-09 11:09:30 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:hook.xml
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2017-05-09 11:09:30 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+开始执行Hql语句，传入的参数为[LOAD DATA LOCAL INPATH '/home/zhaochunlong/boss-stat/boss-stat-script/shell/push/data/t_mmall_order_20170508.txt' OVERWRITE INTO TABLE dm_boss.t_mmall_order PARTITION (dt='20170508')]
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Loading data to table dm_boss.t_mmall_order partition (dt=20170508)
+Partition dm_boss.t_mmall_order{dt=20170508} stats: [numFiles=1, numRows=0, totalSize=2504077, rawDataSize=0]
+OK
+Time taken: 3.69 seconds
+执行Hql语句完成
+开始执行Hql语句，传入的参数为[LOAD DATA LOCAL INPATH '/home/zhaochunlong/boss-stat/boss-stat-script/shell/push/data/t_sku_vendor_mapping_20170508.txt' OVERWRITE INTO TABLE dm_boss.t_sku_vendor_mapping]
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Loading data to table dm_boss.t_sku_vendor_mapping
+Moved: 'hdfs://sdf-cluster/user/hive/warehouse/dm_boss.db/t_sku_vendor_mapping/t_sku_vendor_mapping_20170507.txt' to trash at: hdfs://sdf-cluster/user/zhaochunlong/.Trash/Current
+Table dm_boss.t_sku_vendor_mapping stats: [numFiles=1, numRows=0, totalSize=2640, rawDataSize=0]
+OK
+Time taken: 2.665 seconds
+执行Hql语句完成
+正在导入20170508的埋点PV和UV数据
+
+Logging initialized using configuration in jar:file:/letv/usr/local/apache-hive-1.2.1-bin/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Added [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar] to class path
+Added resources: [/home/zhaochunlong/boss_stat/common_stat/hook_stat/boss-hive-1.0-SNAPSHOT.jar]
+OK
+Time taken: 1.79 seconds
+Query ID = zhaochunlong_20170509111004_cf4923ba-f85f-4814-ab0d-24de54f65929
+Total jobs = 8
+Launching Job 1 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 439
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40123, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40123/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40123
+Hadoop job information for Stage-1: number of mappers: 393; number of reducers: 439
+2017-05-09 11:10:25,331 Stage-1 map = 0%,  reduce = 0%
+2017-05-09 11:10:47,076 Stage-1 map = 2%,  reduce = 0%, Cumulative CPU 395.74 sec
+2017-05-09 11:10:48,127 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 727.94 sec
+2017-05-09 11:10:49,183 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 1056.24 sec
+2017-05-09 11:10:50,238 Stage-1 map = 9%,  reduce = 0%, Cumulative CPU 1514.2 sec
+2017-05-09 11:10:51,288 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 2052.78 sec
+2017-05-09 11:10:52,502 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 2419.93 sec
+2017-05-09 11:10:55,977 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 4460.73 sec
+2017-05-09 11:10:57,028 Stage-1 map = 38%,  reduce = 0%, Cumulative CPU 4972.06 sec
+2017-05-09 11:10:58,083 Stage-1 map = 42%,  reduce = 0%, Cumulative CPU 5380.91 sec
+2017-05-09 11:10:59,138 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 5724.77 sec
+2017-05-09 11:11:00,188 Stage-1 map = 54%,  reduce = 0%, Cumulative CPU 5997.05 sec
+2017-05-09 11:11:01,251 Stage-1 map = 58%,  reduce = 0%, Cumulative CPU 6325.61 sec
+2017-05-09 11:11:02,298 Stage-1 map = 60%,  reduce = 0%, Cumulative CPU 6480.43 sec
+2017-05-09 11:11:03,351 Stage-1 map = 64%,  reduce = 0%, Cumulative CPU 6783.74 sec
+2017-05-09 11:11:04,409 Stage-1 map = 68%,  reduce = 2%, Cumulative CPU 7000.45 sec
+2017-05-09 11:11:05,486 Stage-1 map = 71%,  reduce = 4%, Cumulative CPU 7201.05 sec
+2017-05-09 11:11:06,542 Stage-1 map = 77%,  reduce = 5%, Cumulative CPU 7446.47 sec
+2017-05-09 11:11:07,595 Stage-1 map = 80%,  reduce = 7%, Cumulative CPU 7672.48 sec
+2017-05-09 11:11:08,646 Stage-1 map = 84%,  reduce = 10%, Cumulative CPU 7886.64 sec
+2017-05-09 11:11:09,689 Stage-1 map = 86%,  reduce = 13%, Cumulative CPU 8200.52 sec
+2017-05-09 11:11:10,740 Stage-1 map = 88%,  reduce = 17%, Cumulative CPU 8487.3 sec
+2017-05-09 11:11:11,792 Stage-1 map = 89%,  reduce = 20%, Cumulative CPU 8705.68 sec
+2017-05-09 11:11:13,908 Stage-1 map = 93%,  reduce = 24%, Cumulative CPU 9006.1 sec
+2017-05-09 11:11:14,956 Stage-1 map = 94%,  reduce = 27%, Cumulative CPU 9279.71 sec
+2017-05-09 11:11:16,001 Stage-1 map = 96%,  reduce = 28%, Cumulative CPU 9373.74 sec
+2017-05-09 11:11:17,056 Stage-1 map = 97%,  reduce = 29%, Cumulative CPU 9480.08 sec
+2017-05-09 11:11:18,102 Stage-1 map = 98%,  reduce = 30%, Cumulative CPU 9622.41 sec
+2017-05-09 11:11:19,154 Stage-1 map = 98%,  reduce = 31%, Cumulative CPU 9721.0 sec
+2017-05-09 11:11:20,207 Stage-1 map = 99%,  reduce = 32%, Cumulative CPU 9787.12 sec
+2017-05-09 11:11:22,301 Stage-1 map = 99%,  reduce = 33%, Cumulative CPU 9929.64 sec
+2017-05-09 11:11:31,799 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 10470.7 sec
+2017-05-09 11:11:32,859 Stage-1 map = 100%,  reduce = 34%, Cumulative CPU 10576.75 sec
+2017-05-09 11:11:33,920 Stage-1 map = 100%,  reduce = 49%, Cumulative CPU 10828.21 sec
+2017-05-09 11:11:34,977 Stage-1 map = 100%,  reduce = 64%, Cumulative CPU 11236.02 sec
+2017-05-09 11:11:36,035 Stage-1 map = 100%,  reduce = 78%, Cumulative CPU 11669.65 sec
+2017-05-09 11:11:37,099 Stage-1 map = 100%,  reduce = 87%, Cumulative CPU 11901.89 sec
+2017-05-09 11:11:38,153 Stage-1 map = 100%,  reduce = 93%, Cumulative CPU 12082.19 sec
+2017-05-09 11:11:39,197 Stage-1 map = 100%,  reduce = 96%, Cumulative CPU 12162.56 sec
+2017-05-09 11:11:40,250 Stage-1 map = 100%,  reduce = 97%, Cumulative CPU 12210.0 sec
+2017-05-09 11:11:41,298 Stage-1 map = 100%,  reduce = 98%, Cumulative CPU 12252.1 sec
+2017-05-09 11:11:42,347 Stage-1 map = 100%,  reduce = 99%, Cumulative CPU 12271.01 sec
+2017-05-09 11:11:44,584 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12309.34 sec
+MapReduce Total cumulative CPU time: 0 days 3 hours 25 minutes 9 seconds 340 msec
+Ended Job = job_1494226772011_40123
+Launching Job 2 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 439
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40164, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40164/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40164
+Hadoop job information for Stage-4: number of mappers: 393; number of reducers: 439
+2017-05-09 11:12:12,096 Stage-4 map = 0%,  reduce = 0%
+2017-05-09 11:12:40,927 Stage-4 map = 1%,  reduce = 0%, Cumulative CPU 396.78 sec
+2017-05-09 11:12:42,000 Stage-4 map = 2%,  reduce = 0%, Cumulative CPU 625.57 sec
+2017-05-09 11:12:43,052 Stage-4 map = 4%,  reduce = 0%, Cumulative CPU 794.92 sec
+2017-05-09 11:12:44,101 Stage-4 map = 8%,  reduce = 0%, Cumulative CPU 1252.42 sec
+2017-05-09 11:12:45,151 Stage-4 map = 11%,  reduce = 0%, Cumulative CPU 1651.27 sec
+2017-05-09 11:12:46,202 Stage-4 map = 15%,  reduce = 0%, Cumulative CPU 2112.74 sec
+2017-05-09 11:12:47,450 Stage-4 map = 17%,  reduce = 0%, Cumulative CPU 2241.52 sec
+2017-05-09 11:12:51,142 Stage-4 map = 44%,  reduce = 0%, Cumulative CPU 4466.19 sec
+2017-05-09 11:12:52,211 Stage-4 map = 48%,  reduce = 0%, Cumulative CPU 4805.77 sec
+2017-05-09 11:12:53,268 Stage-4 map = 52%,  reduce = 0%, Cumulative CPU 5129.09 sec
+2017-05-09 11:12:54,346 Stage-4 map = 59%,  reduce = 0%, Cumulative CPU 5374.2 sec
+2017-05-09 11:12:55,413 Stage-4 map = 64%,  reduce = 0%, Cumulative CPU 5607.9 sec
+2017-05-09 11:12:56,487 Stage-4 map = 68%,  reduce = 0%, Cumulative CPU 5872.86 sec
+2017-05-09 11:12:57,550 Stage-4 map = 73%,  reduce = 0%, Cumulative CPU 6093.81 sec
+2017-05-09 11:12:58,606 Stage-4 map = 78%,  reduce = 2%, Cumulative CPU 6310.53 sec
+2017-05-09 11:12:59,658 Stage-4 map = 81%,  reduce = 8%, Cumulative CPU 6578.49 sec
+2017-05-09 11:13:00,724 Stage-4 map = 83%,  reduce = 12%, Cumulative CPU 6840.48 sec
+2017-05-09 11:13:01,819 Stage-4 map = 86%,  reduce = 16%, Cumulative CPU 7054.8 sec
+2017-05-09 11:13:02,877 Stage-4 map = 88%,  reduce = 19%, Cumulative CPU 7268.24 sec
+2017-05-09 11:13:03,926 Stage-4 map = 90%,  reduce = 22%, Cumulative CPU 7474.8 sec
+2017-05-09 11:13:04,976 Stage-4 map = 93%,  reduce = 25%, Cumulative CPU 7650.81 sec
+2017-05-09 11:13:06,034 Stage-4 map = 94%,  reduce = 27%, Cumulative CPU 7796.4 sec
+2017-05-09 11:13:07,081 Stage-4 map = 95%,  reduce = 29%, Cumulative CPU 7931.12 sec
+2017-05-09 11:13:08,128 Stage-4 map = 96%,  reduce = 30%, Cumulative CPU 8030.53 sec
+2017-05-09 11:13:09,172 Stage-4 map = 97%,  reduce = 31%, Cumulative CPU 8149.48 sec
+2017-05-09 11:13:10,225 Stage-4 map = 98%,  reduce = 31%, Cumulative CPU 8225.3 sec
+2017-05-09 11:13:11,274 Stage-4 map = 99%,  reduce = 32%, Cumulative CPU 8297.49 sec
+2017-05-09 11:13:14,581 Stage-4 map = 99%,  reduce = 33%, Cumulative CPU 8433.73 sec
+2017-05-09 11:13:34,917 Stage-4 map = 100%,  reduce = 33%, Cumulative CPU 9929.19 sec
+2017-05-09 11:13:38,055 Stage-4 map = 100%,  reduce = 34%, Cumulative CPU 10065.84 sec
+2017-05-09 11:13:39,107 Stage-4 map = 100%,  reduce = 40%, Cumulative CPU 10144.37 sec
+2017-05-09 11:13:40,156 Stage-4 map = 100%,  reduce = 51%, Cumulative CPU 10300.03 sec
+2017-05-09 11:13:41,201 Stage-4 map = 100%,  reduce = 76%, Cumulative CPU 10605.04 sec
+2017-05-09 11:13:42,248 Stage-4 map = 100%,  reduce = 83%, Cumulative CPU 10751.98 sec
+2017-05-09 11:13:43,292 Stage-4 map = 100%,  reduce = 89%, Cumulative CPU 10864.66 sec
+2017-05-09 11:13:44,342 Stage-4 map = 100%,  reduce = 90%, Cumulative CPU 10903.75 sec
+2017-05-09 11:13:45,390 Stage-4 map = 100%,  reduce = 91%, Cumulative CPU 10926.58 sec
+2017-05-09 11:13:47,477 Stage-4 map = 100%,  reduce = 92%, Cumulative CPU 10944.96 sec
+2017-05-09 11:13:48,524 Stage-4 map = 100%,  reduce = 96%, Cumulative CPU 10984.45 sec
+2017-05-09 11:13:49,569 Stage-4 map = 100%,  reduce = 97%, Cumulative CPU 11007.48 sec
+2017-05-09 11:13:50,621 Stage-4 map = 100%,  reduce = 99%, Cumulative CPU 11045.45 sec
+2017-05-09 11:13:56,902 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 11068.39 sec
+MapReduce Total cumulative CPU time: 0 days 3 hours 4 minutes 28 seconds 390 msec
+Ended Job = job_1494226772011_40164
+Launching Job 3 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40227, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40227/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40227
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2017-05-09 11:14:18,047 Stage-2 map = 0%,  reduce = 0%
+2017-05-09 11:14:30,728 Stage-2 map = 11%,  reduce = 0%, Cumulative CPU 3.18 sec
+2017-05-09 11:14:33,894 Stage-2 map = 26%,  reduce = 0%, Cumulative CPU 5.25 sec
+2017-05-09 11:14:37,019 Stage-2 map = 30%,  reduce = 0%, Cumulative CPU 6.51 sec
+2017-05-09 11:14:41,191 Stage-2 map = 54%,  reduce = 0%, Cumulative CPU 8.91 sec
+2017-05-09 11:14:42,232 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 9.53 sec
+2017-05-09 11:14:50,569 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 11.42 sec
+MapReduce Total cumulative CPU time: 11 seconds 420 msec
+Ended Job = job_1494226772011_40227
+Launching Job 4 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40253, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40253/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40253
+Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 1
+2017-05-09 11:14:59,088 Stage-5 map = 0%,  reduce = 0%
+2017-05-09 11:15:11,808 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 6.8 sec
+2017-05-09 11:15:25,425 Stage-5 map = 100%,  reduce = 100%, Cumulative CPU 12.91 sec
+MapReduce Total cumulative CPU time: 12 seconds 910 msec
+Ended Job = job_1494226772011_40253
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509111004_cf4923ba-f85f-4814-ab0d-24de54f65929.log
+2017-05-09 11:15:32	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 11:15:35	Dump the side-table for tag: 1 with group count: 310 into file: file:/tmp/zhaochunlong/a1687771-ee92-4f28-9cc7-c3919bac1972/hive_2017-05-09_11-10-04_720_8943375421050789180-1/-local-10013/HashTable-Stage-7/MapJoin-mapfile11--.hashtable
+2017-05-09 11:15:35	Uploaded 1 File to: file:/tmp/zhaochunlong/a1687771-ee92-4f28-9cc7-c3919bac1972/hive_2017-05-09_11-10-04_720_8943375421050789180-1/-local-10013/HashTable-Stage-7/MapJoin-mapfile11--.hashtable (13888 bytes)
+2017-05-09 11:15:35	End of local task; Time Taken: 3.217 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 5 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40291, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40291/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40291
+Hadoop job information for Stage-7: number of mappers: 1; number of reducers: 1
+2017-05-09 11:15:52,160 Stage-7 map = 0%,  reduce = 0%
+2017-05-09 11:16:13,114 Stage-7 map = 100%,  reduce = 0%, Cumulative CPU 2.65 sec
+2017-05-09 11:16:26,966 Stage-7 map = 100%,  reduce = 100%, Cumulative CPU 21.17 sec
+MapReduce Total cumulative CPU time: 21 seconds 170 msec
+Ended Job = job_1494226772011_40291
+Launching Job 6 out of 8
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1494226772011_40321, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40321/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40321
+Hadoop job information for Stage-8: number of mappers: 1; number of reducers: 1
+2017-05-09 11:16:53,541 Stage-8 map = 0%,  reduce = 0%
+2017-05-09 11:17:03,186 Stage-8 map = 100%,  reduce = 0%, Cumulative CPU 1.94 sec
+2017-05-09 11:17:15,793 Stage-8 map = 100%,  reduce = 67%, Cumulative CPU 15.36 sec
+2017-05-09 11:17:17,887 Stage-8 map = 100%,  reduce = 100%, Cumulative CPU 17.22 sec
+MapReduce Total cumulative CPU time: 17 seconds 220 msec
+Ended Job = job_1494226772011_40321
+Stage-13 is selected by condition resolver.
+Stage-3 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/letv/usr/local/tez-0.8.4-minimal/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/letv/usr/local/hadoop-2.7.2/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Execution log at: /tmp/zhaochunlong/zhaochunlong_20170509111004_cf4923ba-f85f-4814-ab0d-24de54f65929.log
+2017-05-09 11:17:24	Starting to launch local task to process map join;	maximum memory = 1013645312
+2017-05-09 11:17:25	Dump the side-table for tag: 1 with group count: 7 into file: file:/tmp/zhaochunlong/a1687771-ee92-4f28-9cc7-c3919bac1972/hive_2017-05-09_11-10-04_720_8943375421050789180-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable
+2017-05-09 11:17:25	Uploaded 1 File to: file:/tmp/zhaochunlong/a1687771-ee92-4f28-9cc7-c3919bac1972/hive_2017-05-09_11-10-04_720_8943375421050789180-1/-local-10011/HashTable-Stage-10/MapJoin-mapfile01--.hashtable (616 bytes)
+2017-05-09 11:17:25	End of local task; Time Taken: 1.346 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 8 out of 8
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1494226772011_40359, Tracking URL = http://sdf-resourcemanager1:50030/proxy/application_1494226772011_40359/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1494226772011_40359
+Hadoop job information for Stage-10: number of mappers: 1; number of reducers: 0
+2017-05-09 11:17:40,544 Stage-10 map = 0%,  reduce = 0%
+2017-05-09 11:17:48,613 Stage-10 map = 100%,  reduce = 0%, Cumulative CPU 2.25 sec
+MapReduce Total cumulative CPU time: 2 seconds 250 msec
+Ended Job = job_1494226772011_40359
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 393  Reduce: 439   Cumulative CPU: 12310.2 sec   HDFS Read: 100312756229 HDFS Write: 42572 SUCCESS
+Stage-Stage-4: Map: 393  Reduce: 439   Cumulative CPU: 11087.78 sec   HDFS Read: 100312739154 HDFS Write: 1254466 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 11.42 sec   HDFS Read: 162260 HDFS Write: 524 SUCCESS
+Stage-Stage-5: Map: 1  Reduce: 1   Cumulative CPU: 12.91 sec   HDFS Read: 1373699 HDFS Write: 1151327 SUCCESS
+Stage-Stage-7: Map: 1  Reduce: 1   Cumulative CPU: 21.17 sec   HDFS Read: 1167770 HDFS Write: 442 SUCCESS
+Stage-Stage-8: Map: 1  Reduce: 1   Cumulative CPU: 17.22 sec   HDFS Read: 7355 HDFS Write: 442 SUCCESS
+Stage-Stage-10: Map: 1   Cumulative CPU: 2.25 sec   HDFS Read: 7054 HDFS Write: 206 SUCCESS
+Total MapReduce CPU Time Spent: 0 days 6 hours 31 minutes 2 seconds 950 msec
+OK
+Time taken: 463.929 seconds, Fetched: 9 row(s)
+2017-05-09 11:17:49 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:file=hook.xml
+2017-05-09 11:17:49 [INFO ] com.celery.stat.core.Context {Context.java:15} - 往作用域添加变量:sdate=20170508
+2017-05-09 11:17:49 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 11:17:49 [INFO ] org.logicalcobwebs.proxool.ProxoolFacade {ProxoolFacade.java:86} - Proxool 0.9.1 (23-Aug-2008 11:10)
+2017-05-09 11:17:49 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:40} - 执行传入参数文件:hook.xml
+2017-05-09 11:17:49 [INFO ] com.celery.stat.core.Executor {Executor.java:20} - 异常节点不跳过，继续执行命令.
+2017-05-09 11:17:49 [INFO ] com.celery.stat.core.Executor {Executor.java:22} - 开始执行文件命令:埋点统计
+2017-05-09 11:17:49 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:64} - 开始USqlBean:删除埋点某天数据，防止重复导入
+2017-05-09 11:17:51 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:386} - 执行影响条数:0
+2017-05-09 11:17:51 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:388} - SQL语句执行结果:false
+2017-05-09 11:17:51 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:68} - 执行USqlBean影响的数目:0
+2017-05-09 11:17:51 [INFO ] com.celery.stat.function.USqlBean {USqlBean.java:69} - 执行完成，耗时:1101millis
+2017-05-09 11:17:51 [INFO ] com.celery.stat.core.DBHelper {DBHelper.java:279} - 插入数据成功
+2017-05-09 11:17:51 [INFO ] com.celery.stat.function.CsvToDBBean {CsvToDBBean.java:152} - 插入数据rows：9
+2017-05-09 11:17:51 [INFO ] com.celery.stat.core.Executor {Executor.java:36} - 命令:埋点统计执行结束。
+2017-05-09 11:17:51 [INFO ] com.celery.stat.main.CeleryMain {CeleryMain.java:42} - 执行传入参数文件结束:hook.xml
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.boss_online_activity {ConnectionPool.java:484} - Shutting down 'boss_online_activity' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_order_test {ConnectionPool.java:484} - Shutting down 'letv_order_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_boss_test {ConnectionPool.java:484} - Shutting down 'letv_boss_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.letv_boss_online {ConnectionPool.java:484} - Shutting down 'letv_boss_online' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.boss_online_rec_test {ConnectionPool.java:484} - Shutting down 'boss_online_rec_test' pool immediately [Shutdown Hook]
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.PrototyperController {PrototyperController.java:100} - Stopping Prototyper thread
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread
+2017-05-09 11:17:51 [INFO ] org.logicalcobwebs.proxool.HouseKeeperController {HouseKeeperController.java:107} - Stopping HouseKeeper thread

@@ -1,0 +1,51 @@
+<root>
+	<stat desc="指标计算">
+		
+		<select desc="获取时间">
+	    	<datasource>letv_order_test</datasource>
+	    	<output>sdate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(date_sub(CURDATE(),interval 1 day),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+	    
+	    <select desc="获取时间">
+	    	<datasource>letv_order_test</datasource>
+	    	<output>edate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(CURDATE(),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+		
+		
+		<db2csv desc="导出订单数据到csv">
+			<datasource>pay_order_online</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/boss_vip_day/data/</filepath>
+			<filename>boss_order</filename>
+			<filedate>sdate</filedate>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<iscovert>true</iscovert>
+			<convert>
+				<class-name>com.celery.stat.util.impl.IptoString</class-name>
+				<seq-num>1</seq-num>
+			</convert>
+			<sql>
+                <![CDATA[
+                       select ORDERNUMBER||'#'||USERNAME||'#'||PRICE||'#'||to_char(SUBMITDATE,'yyyy-MM-dd hh24:mi:ss')||'#'||to_char(PAYMENTDATE,'yyyy-MM-dd hh24:mi:ss')||'#'||STATUS||'#'||PAYTYPE||'#'||USERID||'#'||IP||'#'||MEMO||'#'||CORDERID||'#'||DEPTID||'#'||PRODUCTID||'#'||CHARGETYPE||'#'||PRODUCTNAME||'#'||COMPANYID||'#'||replace(FRONTURL,'#','@')||'#'||replace(BACKURL,'#','@')||'#'||SVIP||'#'||PRODUCTNUM||'#md',IP from orderform where paymentdate>=to_date(?,'yyyy-MM-dd') and paymentdate<to_date(?,'yyyy-MM-dd')
+               ]]>
+			</sql>
+		</db2csv>
+		
+		
+		
+		
+		
+	</stat>
+</root>

@@ -1,0 +1,90 @@
+#读入环境变量
+#source /etc/profile;
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+
+sdate=`date -d "1 days ago" +"%Y-%m-%d"`
+
+if [ "$#" -eq 1 ]; then
+  sdate=$1
+fi
+
+ssdate=${sdate//-/}
+
+################PC MZ TV活跃会员用户数########################
+hive -e "select count(distinct t3.userid),t4.product,t3.orderpaytype,'d_00005',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,product from data_raw.tbl_pv_hour where dt='20150820' and ilu='0' and uid!='-' and (product='1' or product='2' or (product='0' and p2='04'))) t4 
+on(t3.userid=t4.uid)
+group by t4.product,t3.orderpaytype" > ./data/activity_user_data.20150820
+
+#############客户端android ipad ios##################
+hive -e "select count(distinct t3.userid),t4.p3,t3.orderpaytype,'d_00005',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select distinct uid,dt,p3 from data_raw.tbl_action_hour where dt='20150820' and ilu='0' and uid!='-' and product='0' and p2='00' and p3 in ('001','002','004')) t4
+on(t3.userid=t4.uid) 
+group by t4.p3,t3.orderpaytype" >> ./data/activity_user_data.20150820
+
+
+#############会员访问视频UVCV#########################
+hive -e "select count(distinct t3.userid),count(vid),t4.p1,t3.orderpaytype,'d_00006',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='2015-09-27' and status=1 and dt<='20150927' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='2015-09-27' and status=1 and dt<='20150927')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join 
+(select distinct uid,vid,p1,dt from data_raw.boss_play_day where dt='20150927' and (p1='1' or p1='2' or (p1='0' and p2='04')) and ilu='0' and uid!='-') t4
+on(t3.userid = t4.uid)
+group by t4.p1,t3.orderpaytype" > ./data/activity_cvuv_data.20150927
+
+
+###############会员访问付费视频UVCV#########################
+hive -e "select count(distinct t3.userid),count(vid),t4.p1,t4.p2,t4.p3,t3.orderpaytype,'d_00007',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and dt<='${ssdate}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and dt<='${ssdate}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join 
+(select distinct uid,vid,p1,p2,p3,dt from data_raw.boss_play_day where dt='${ssdate}' and ilu='0' and uid!='-' and p1 in (0,1,2) and property['pay']='1') t4
+on(t3.userid = t4.uid)
+group by t4.p1,t4.p2,t4.p3,t3.orderpaytype" >> ./data/activity_cvuv_data.${ssdate}
+
+
+##############人均播放时长#########################
+hive -e "select sum(t4.pt)/count(distinct t3.userid),t4.p1,t4.p2,t4.p3,t3.orderpaytype,'d_00010',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and dt<='${ssdate}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and dt<='${ssdate}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3 
+join 
+(select uid,pt,p1,p2,p3,dt from data_raw.boss_play_day where dt='${ssdate}' and ilu='0' and act='time' and uid!='-' and pt!='-' and p1 in (0,1,2)) t4
+on(t3.userid = t4.uid)
+group by t4.p1,t4.p2,t4.p3,t3.orderpaytype" >  ./data/activity_avgtime_data.${ssdate}
+
+
+##############次均播放时长##################
+hive -e "hive -e "select sum(t4.pt)/count(t4.vid),t4.p1,t4.p2,t4.p3,t3.orderpaytype,'d_00011',max(t4.dt) from 
+(select t1.userid,t2.orderpaytype from
+(select userid,min(canceltime) as canceltime  from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime from data_raw.t_new_order_4_data where canceltime>='2015-08-20' and status=1 and dt<='20150820')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3 
+join 
+(select count(distinct vid) as vid,sum(pt) as pt,uid,p1,p2,p3,max(dt) as dt from data_raw.boss_play_day where dt='20150820' and ilu='0' and act='time' and uid!='-' and pt!='-' group by uid,p1,p2,p3) t4
+on(t3.userid = t4.uid)
+group by t4.p1,t4.p2,t4.p3,t3.orderpaytype" >>/data/activity_avgtime_data.${ssdate}
