@@ -1,0 +1,16 @@
+./export_play_to_bossplay.sh 20150820
+./export_play_to_bossplay.sh 20150821
+./export_play_to_bossplay.sh 20150822
+./export_play_to_bossplay.sh 20150823
+./export_play_to_bossplay.sh 20150824
+./export_play_to_bossplay.sh 20150825
+./export_play_to_bossplay.sh 20150826
+./export_play_to_bossplay.sh 20150827
+./export_play_to_bossplay.sh 20150828
+./export_play_to_bossplay.sh 20150829
+./export_play_to_bossplay.sh 20150830
+./export_play_to_bossplay.sh 20150831
+./export_play_to_bossplay.sh 20150912
+./export_play_to_bossplay.sh 20150913
+./export_play_to_bossplay.sh 20150914
+./export_play_to_bossplay.sh 20150915

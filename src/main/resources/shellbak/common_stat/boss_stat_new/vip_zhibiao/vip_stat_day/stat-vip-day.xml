@@ -1,0 +1,122 @@
+<root>
+	<stat desc="统计活动页面数据">
+	    <ignore-exception>false</ignore-exception>
+         
+		<select desc="获取昨天日期">
+			<datasource>letv_order_test</datasource>
+			<output>sdate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select  DATE_FORMAT(CURRENT_DATE-1,'%Y-%m-%d')
+ 			]]>
+			</sql>
+		</select>
+		 
+		 <select desc="获取今天日期">
+			<datasource>letv_order_test</datasource>
+			<output>edate</output>
+			<single>true</single>
+			<sql>
+			 <![CDATA[
+				select  DATE_FORMAT(CURRENT_DATE,'%Y-%m-%d')
+ 			]]>
+			</sql>
+		</select>
+	 
+		<delete desc="删除指标d_00001-收入金额-分端，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_day where zhibiao_id='d_00001' and create_date>=? and create_date<?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00001">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_day(terminal,zhibiao_id,zhibiao_value,create_date)
+					select terminal,'d_00001',sum(case when payChannel in(31,34,35) then money*0.7 when payChannel=40 then money*0.6 else money end),paytime from T_NEW_ORDER_4_DATA where status=1 and orderpaytype=2 and paytime>=? and paytime<? group by paytime,terminal
+
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00002-付费用户数-分端，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_day where zhibiao_id='d_00002' and create_date>=? and create_date<?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00002，付费用户数-分端">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_day(terminal,zhibiao_id,zhibiao_value,create_date) 
+					select terminal,'d_00002',count(distinct userid),paytime from T_NEW_ORDER_4_DATA where status=1 and orderpaytype=2 and paytime>=? and paytime<? group by paytime,terminal
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00003-总的付费用户数（去重）-未分端，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_day where zhibiao_id='d_00003' and create_date>=? and create_date<?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00003，总的付费用户数（去重）">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_day(terminal,zhibiao_id,zhibiao_value,create_date) 
+					select '000','d_00003',count(distinct userid),paytime from T_NEW_ORDER_4_DATA where status=1 and orderpaytype=2 and paytime>=? and paytime<? group by paytime
+				]]>
+			</sql>
+		</insert>
+		
+		<delete desc="删除指标d_00004-新增收入，防止数据重复"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_day where zhibiao_id='d_00004' and create_date>=? and create_date<?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<insert desc="插入指标d_00004，新增收入">
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+				 <![CDATA[
+					insert into boss_vip_day(terminal,zhibiao_id,zhibiao_value,create_date) 
+					select '000','d_00004',sum(money),paytime from T_NEW_ORDER_4_DATA where status=1 and orderpaytype=2 and  paytime>=? and paytime<? and neworxufei=0 group by paytime
+				]]>
+			</sql>
+		</insert>
+		
+		
+	</stat>
+</root>

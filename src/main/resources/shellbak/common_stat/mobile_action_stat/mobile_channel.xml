@@ -1,0 +1,29 @@
+<root>
+    <stat desc="移动端流量统计">
+        <ignore-exception>false</ignore-exception>
+        <delete desc="删除当日无用数据">
+            <datasource>letv_order_test</datasource>
+            <input-param>sdate</input-param>
+            <sql>
+                <![CDATA[
+                    delete from mobile_channel where stat_date=?
+                ]]>
+            </sql>
+        </delete>
+
+        <file2db desc="导入数据到88机器mobile_channel中">
+            <datasource>letv_order_test</datasource>
+            <filepath>/home/zhaochunlong/boss_stat/common_stat/mobile_action_stat/data/</filepath>
+            <filedate>sdate</filedate>
+            <charset>utf-8</charset>
+            <separator>\t</separator>
+            <filename>mobile_channel</filename>
+            <sql>
+                <![CDATA[
+                    insert into mobile_channel(act_code,act_fl,act_fragid,act_scid,act_name,act_pageid,act_wz,device,pv,uv,neworxufei,money,orders,type,stat_date)
+                     values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                ]]>
+            </sql>
+        </file2db>
+    </stat>
+</root>

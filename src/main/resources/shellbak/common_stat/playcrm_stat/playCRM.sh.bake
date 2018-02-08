@@ -1,0 +1,53 @@
+#!/bin/bash
+source ~/.bashrc
+
+name=boss_w  
+passwd=454bce2f998e80a
+host=117.121.54.241
+port=3839
+database=share
+
+today=`date +%Y-%m-%d`
+yesterday=`date -d last-day +%Y%m%d`
+if [ "$#" -eq 2 ]; then
+   yesterday=$1
+   today=$2
+fi
+
+yesterdayFormate=`date -d "$yesterday" +%Y-%m-%d`
+
+#yesterday=`date -d last-day +%Y%m%d`
+#yesterdayFormate=`date -d last-day +%Y-%m-%d`
+log_path=/home/membership02/playcrm/cpm_log.log
+echo "start-------------------------------- $today" >> $log_path 
+echo $yesterdayFormate
+
+filepath='/home/membership02/playcrm/albumId.txt'
+mysql --default-character-set=utf8  -P $port -h $host -u $name -p$passwd $database -e "select distinct spc.album_id from share_pay_config spc where spc.pay_begin_time<='$yesterdayFormate' and spc.pay_end_time>='$yesterdayFormate'" > $filepath
+
+
+
+##drop table album_id;create table IF NOT EXISTS album_id (albumId string) comment 'movie id'  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+hive -e "drop table album_id;create table IF NOT EXISTS album_id (albumId string) comment 'movie id'  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' STORED AS TEXTFILE;load data local inpath '/home/membership02/playcrm/albumId.txt' overwrite into table album_id ;";
+
+#hive查询
+datafile=/home/membership02/playcrm/playcrm-$yesterday.txt
+hive -e "select dt,uid,pid,sum(pt) alltimes,product from (select * from data_raw.tbl_play_hour where dt='$yesterday'  and uid!='-' and (property like '%pay=1%' or p1=2 )) p join album_id a on p.pid=a.albumId group by uid,product,dt,pid having alltimes>0;" > $datafile
+
+
+#查询结果导入到mysql表
+mysqlIp=10.110.94.162
+mysqlUser=bosstdy_w
+mysqlPassword=4f0aedbb8955ce8
+mysqlDatabase=bosstdy
+echo ${datafile}
+
+mysql --default-character-set=utf8  -P 3306 -h 10.154.156.104 -u boss -pbossmini bosstdy -s -N --local-infile=1 -e "load data local infile '$datafile' IGNORE into table play_crm fields terminated by '\t' (times,user_id,pid,alltimes,product_id);"
+mysql --default-character-set=utf8  -P 3829 -h $mysqlIp -u $mysqlUser -p$mysqlPassword $mysqlDatabase -s -N --local-infile=1 -e "load data local infile '$datafile' IGNORE into table play_crm fields terminated by '\t' (times,user_id,pid,alltimes,product_id);"
+
+
+#跑完数据后添加标示
+#mysql --default-character-set=utf8  -P 3306 -h 10.154.156.104 -u boss -pbossmini share -s -N -e "insert into play_crm_flag(times) values('${today}');"
+mysql --default-character-set=utf8  -P 3839 -h 117.121.54.241 -u boss_w -p454bce2f998e80a share -s -N -e "insert into play_crm_flag(times) values('${today}');"
+
+

@@ -1,0 +1,80 @@
+<root>
+	<stat desc="统计活跃类指标">
+	    <ignore-exception>false</ignore-exception>
+           
+                <!-- 
+		<delete desc="删除会员活跃数"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_temp where create_date=? and zhibiao_id='d_00005'
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="插入会员活跃数"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/vip_day_fromhive/activity_user_zhibiao/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>\t</separator>
+            <filename>activity_user_data</filename>
+			<sql>
+			 <![CDATA[
+				insert into boss_vip_temp(zhibiao_value1,p1,paytype,zhibiao_id,create_date) values(?,?,?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		-->
+
+		<delete desc="删除会员CVUV"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_temp where create_date=? and zhibiao_id in ('d_00007')
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="插入会员CVUV"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/vip_day_fromhive/activity_user_zhibiao/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>\t</separator>
+            <filename>activity_cvuv_data1</filename>
+			<sql>
+			 <![CDATA[
+				insert into boss_vip_temp(zhibiao_value1,zhibiao_value2,p1,p2,p3,paytype,zhibiao_id,create_date) values(?,?,?,?,left(?,10),?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+		
+		<delete desc="删除会员平均播放时长，次均播放时长"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from boss_vip_temp where create_date=? and zhibiao_id  in ('d_00010')
+ 			]]>
+			</sql>
+		</delete>
+		
+		<file2db desc="插入会员活跃数"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/vip_day_fromhive/activity_user_zhibiao/data/</filepath>
+			<filedate>sdate</filedate>
+			 <charset>utf-8</charset>
+            <separator>\t</separator>
+            <filename>activity_avgtime_data1</filename>
+			<sql>
+			 <![CDATA[
+				insert into boss_vip_temp(zhibiao_value1,p1,p2,p3,paytype,zhibiao_id,create_date) values(?,?,?,left(?,10),?,?,?)
+             ]]>
+			</sql>
+		</file2db>
+
+	</stat>
+</root>

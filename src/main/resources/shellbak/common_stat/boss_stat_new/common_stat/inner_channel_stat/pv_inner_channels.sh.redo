@@ -1,0 +1,32 @@
+#!/bin/sh
+#计算由播放页带来的付费转化率
+
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+yesterday=`date -d "1 days ago" +"%Y%m%d"`
+
+today=`date +"%Y%m%d"`
+
+if [ "$#" -eq 2 ]; then
+  yesterday=$1
+  today=$2
+fi
+
+#hive -e "add jar /home/membership02/boss_stat/inner_channels_rate/boss_filter_url.jar;
+#create temporary function filter_ref as 'com.letv.boss.stat.hive.FilterUrlUDF';
+#select t.dt,t.cur_url_ref,count(t.letv_cookie),count(distinct t.letv_cookie),113 from 
+# (select uid,letv_cookie,filter_ref(cur_url) as cur_url_ref,dt from data_raw.tbl_pv_hour where dt='$yesterday' and product='0' and p2 in ('04','05','06'))t 
+# where t.cur_url_ref is not null group by t.cur_url_ref,t.dt;" > ./data/mz_inner_channels_pv.$yesterday
+
+mysql --default-character-set=utf8 -P 3829 -h 117.121.54.134 -u bosstdy_w -p4f0aedbb8955ce8 bosstdy -s -N --local-infile=1 -e "load data local infile './data/mz_inner_channels_pv.$yesterday' IGNORE into table t_inner_channel_pv fields terminated by  '\t'(date,channelParameter,pv,uv,terminal);"
+
+#hive -e "add jar /home/membership02/boss_stat/inner_channels_rate/boss_filter_url.jar;
+#create temporary function filter_ref as 'com.letv.boss.stat.hive.FilterUrlUDF';
+#select t.dt,t.cur_url_ref,count(t.letv_cookie),count(distinct t.letv_cookie),112 from 
+# (select uid,letv_cookie,filter_ref(cur_url) as cur_url_ref,dt from data_raw.tbl_pv_hour where dt='$yesterday' and product='1')t 
+# where t.cur_url_ref is not null group by t.cur_url_ref,t.dt;" > ./data/pc_inner_channels_pv.$yesterday
+
+
+mysql --default-character-set=utf8 -P 3829 -h 117.121.54.134 -u bosstdy_w -p4f0aedbb8955ce8 bosstdy -s -N --local-infile=1 -e "load data local infile './data/pc_inner_channels_pv.$yesterday' IGNORE into table t_inner_channel_pv fields terminated by  '\t'(date,channelParameter,pv,uv,terminal);"

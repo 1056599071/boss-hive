@@ -1,0 +1,42 @@
+<root>
+	<stat desc="计算收银台付费率">
+	    <ignore-exception>false</ignore-exception>
+        
+		<select desc="获取时间">
+	    	<datasource>letv_order_test</datasource>
+	    	<output>sdate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(date_sub(CURDATE(),interval 1 day),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+	    
+	    <select desc="获取时间">
+	    	<datasource>letv_order_test</datasource>
+	    	<output>edate</output>
+	    	<single>true</single>
+	    	<sql>
+	    		<![CDATA[
+					select date_format(CURDATE(),'%Y-%m-%d')  from dual
+				]]>
+	    	</sql>
+	    </select>
+				
+		<file2db desc="导入收银台相关数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat_new/vip_zhibiao/boss_vip_day/data/</filepath>
+			<filedate>sdate</filedate>
+            <separator>#</separator>
+            <filename>boss_order_fail</filename>
+			<sql>
+			 <![CDATA[
+				insert into ORDERFORM_UNPAY(ORDERNUMBER,USERNAME,PRICE,SUBMITDATE,STATUS,PAYTYPE,USERID,IP,MEMO,CORDERID,DEPTID,PRODUCTID,CHARGETYPE,PRODUCTNAME,COMPANYID,FRONTURL,BACKURL,SVIP,PRODUCTNUM,country,province,city,network) 
+				        values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

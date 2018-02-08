@@ -1,0 +1,11 @@
+./run-vip-retention-order.sh 2015-10-10 2015-10-11
+./run-vip-retention-order.sh 2015-10-11 2015-10-12
+./run-vip-retention-order.sh 2015-10-12 2015-10-13
+./run-vip-retention-order.sh 2015-10-13 2015-10-14
+./run-vip-retention-order.sh 2015-10-14 2015-10-15
+./run-vip-retention-order.sh 2015-10-15 2015-10-16
+./run-vip-retention-order.sh 2015-10-16 2015-10-17
+./run-vip-retention-order.sh 2015-10-17 2015-10-18
+./run-vip-retention-order.sh 2015-10-18 2015-10-19
+./run-vip-retention-order.sh 2015-10-19 2015-10-20
+./run-vip-retention-order.sh 2015-10-20 2015-10-21

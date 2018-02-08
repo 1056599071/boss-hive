@@ -1,0 +1,35 @@
+#读入环境变量
+#source /etc/profile;
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+edate=`date -d "1 days ago" +"%Y-%m-%d"`
+
+if [ "$#" -eq 1 ]; then
+  edate=$1
+fi
+
+sdate_7=`date -d "${edate} 6 days ago" +"%Y-%m-%d"`
+sdate_15=`date -d "${edate} 14 days ago" +"%Y-%m-%d"`
+sdate_30=`date -d "${edate}  29 days ago" +"%Y-%m-%d"`
+
+			
+######日期范围太大 没法执行
+
+for sdate in $sdate_7 $sdate_15 
+#for sdate in $sdate_2
+do
+	echo $sdate
+	day=$(((`date +%s -d ${edate}`-`date +%s -d ${sdate}`)/86400))
+	hive -e "select count(distinct t5.uid),t5.p1,t5.p2,t5.p3,t3.orderpaytype,t3.neworxufei,'d_00060',${sdate//-/} from
+		(select t1.userid,t2.orderpaytype,t2.neworxufei,t1.canceltime from
+		(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${edate//-/}' group by userid)t1 
+		join
+		(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${edate//-/}')t2
+		on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+		join
+		(select distinct uid,p1,p2,p3 from data_sum.sum_user_uuid_play_day where dt>='${sdate//-/}' and dt<='${edate//-/}' and uid!='-')t5
+		on(t3.userid=t5.uid)
+		group by t5.p1,t5.p2,t5.p3,t3.orderpaytype,t3.neworxufei" > ./data/activity_uv_data_range_${day}.${sdate//-/}
+done 

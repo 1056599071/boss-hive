@@ -1,0 +1,92 @@
+#读入环境变量
+#source /etc/profile;
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+
+sdate_1=`date -d "1 days ago" +"%Y-%m-%d"`
+sdate_3=`date -d "3 days ago" +"%Y-%m-%d"`
+sdate_7=`date -d "7 days ago" +"%Y-%m-%d"`
+sdate_15=`date -d "15 days ago" +"%Y-%m-%d"`
+sdate_30=`date -d "30 days ago" +"%Y-%m-%d"`
+
+if [ "$#" -eq 1 ]; then
+  sdate=$1
+fi
+
+ssdate_1=${sdate_1//-/}
+ssdate_3=${sdate_3//-/}
+ssdate_7=${sdate_7//-/}
+ssdate_15=${sdate_15//-/}
+ssdate_30=${sdate_30//-/}
+
+################PC MZ TV 7日活跃会员用户数########################
+echo $sdate_1 $sdate_3 $sdate_7 $sdate_15 $sdate_30
+hive -e "select count(distinct t3.userid),t4.p1,t4.p2,t3.orderpaytype,'d_00012',t3.neworxufei,${ssdate_7} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_7}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_7}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p2 from data_sum.sum_user_pv_day where dt>='${ssdate_7}' and dt<='${ssdate_1}' and product in ('pc','mh5','tv') and uid!='-' and  ((p1='1' and p2 in('10','11')) or (p1='2' and p2='21') or (p1='0' and p2 in ('04','05','06')))) t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p2,t3.orderpaytype,t3.neworxufei " > ./data/retention_user_data_7.${ssdate_7}
+####app
+hive -e "select count(distinct t3.userid),t4.p1,t4.p3,t3.orderpaytype,'d_00014',t3.neworxufei,${sdate_7} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_7}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_7}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p3 from data_sum.sum_user_act_day where dt>='${ssdate_7}' and dt<='${ssdate_1}' and product='mobile_cli' and p1='0' and p2='00' and uid!='-') t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p3,t3.orderpaytype,t3.neworxufei ">> ./data/retention_user_data_7.${ssdate_7}
+
+################PC MZ TV 15日活跃会员用户数########################
+hive -e "select count(distinct t3.userid),t4.p1,t4.p2,t3.orderpaytype,'d_00013',t3.neworxufei,${ssdate_15} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_15}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_15}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p2 from data_sum.sum_user_pv_day where dt>='${ssdate_7}' and dt<='${ssdate_1}' and product in ('pc','mh5','tv') and uid!='-' and  ((p1='1' and p2 in('10','11')) or (p1='2' and p2='21') or (p1='0' and p2 in ('04','05','06')))) t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p2,t3.orderpaytype,t3.neworxufei " > ./data/retention_user_data_15.${ssdate_15}
+####app
+hive -e "select count(distinct t3.userid),t4.p1,t4.p3,t3.orderpaytype,'d_00014',t3.neworxufei,${ssdate_15} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_15}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_15}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p3 from data_sum.sum_user_act_day where dt>='${ssdate_15}' and dt<='${ssdate_1}' and product='mobile_cli' and p1='0' and p2='00' and uid!='-') t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p3,t3.orderpaytype,t3.neworxufei ">> ./data/retention_user_data_15.${ssdate_15}
+
+################PC MZ TV 30日活跃会员用户数########################
+hive -e "select count(distinct t3.userid),t4.p1,t4.p2,t3.orderpaytype,'d_00014',t3.neworxufei,${ssdate_30} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_30}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_30}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p2 from data_sum.sum_user_pv_day where dt>='${ssdate_30}' and dt<='${ssdate_1}' and product in ('pc','mh5','tv') and uid!='-' and  ((p1='1' and p2 in('10','11')) or (p1='2' and p2='21') or (p1='0' and p2 in ('04','05','06')))) t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p2,t3.orderpaytype,t3.neworxufei " > ./data/retention_user_data_30.${ssdate_30}
+####app
+hive -e "select count(distinct t3.userid),t4.p1,t4.p3,t3.orderpaytype,'d_00014',t3.neworxufei,${ssdate_30} from 
+(select t1.userid,t2.orderpaytype,t2.neworxufei from
+(select userid,min(canceltime) as canceltime from data_raw.t_new_order_4_data where canceltime>='${sdate_30}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}' group by userid)t1 
+join
+(select userid,orderpaytype,canceltime,neworxufei from data_raw.t_new_order_4_data where canceltime>='${sdate_30}' and status=1 and ordertype!='1001' and viptype!='-1' and dt<='${ssdate_1}')t2
+on(t1.userid=t2.userid and t1.canceltime=t2.canceltime))t3
+join
+(select uid,dt,p1,p3 from data_sum.sum_user_act_day where dt>='${ssdate_30}' and dt<='${ssdate_1}' and product='mobile_cli' and p1='0' and p2='00' and uid!='-') t4 
+on(t3.userid=t4.uid)
+group by t4.p1,t4.p3,t3.orderpaytype,t3.neworxufei ">> ./data/retention_user_data_30.${ssdate_30}

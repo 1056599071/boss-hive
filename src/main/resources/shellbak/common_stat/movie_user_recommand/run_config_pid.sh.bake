@@ -1,0 +1,44 @@
+#tr="hello,world,i,like,you,babalala"  
+#str=`more ./config_data/rec_config_20150518.csv`
+#arr=(${str//,/ })  
+  
+#for i in ${arr[@]}  
+#do  
+#    echo $i  
+#done
+
+
+
+#!/bin/sh
+
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+yesterday=`date -d "1 days ago" +"%Y%m%d"`
+
+
+if [ "$#" -eq 1 ]; then
+  yesterday=$1
+fi
+
+#count=0 ;
+
+for line in `sed '/^[ \t]*$/d' config_data/rec_config_pid_$yesterday.csv |awk -F, '{print "\x27"$1"\x27"",""\x27"$2"\x27"}'`
+do
+    #((count++))
+    arr=(${line//,/ })
+    #echo $arr
+    #echo $line
+    pid=`echo $line | awk -F"'" '{print $2}'`
+    #echo "insert overwrite local directory '/home/membership02/boss_stat/play_record_user/data/pid_uid_$pid.$yesterday' select distinct uid,$arr from dm_boss.tbl_play_record_all where dt='$yesterday' and pid in ($line)"
+    hive -e "select distinct uid,$arr from dm_boss.tbl_play_record_all where dt='$yesterday' and pid in ($line)" > ./result_data/pid_uid.$pid
+    
+    hive -e "select max(uid),$arr,deviceid,max(product) from dm_boss.tbl_play_record_all where dt='$yesterday' and pid in ($line) and deviceid!='-' and product in ("0","2") group by deviceid" > ./result_data/pid_uid_deviceid.$pid
+    awk '{if($1 ~ /^[0-9]+$/) print $0;}' result_data/pid_uid.$pid > result_data/pid_uid_result.$pid
+    awk '{if($1 ~ /^[0-9]+$/) print $0;}' result_data/pid_uid_deviceid.$pid > result_data/pid_uid_deviceid_result.$pid
+    awk '{if($1 ~ /^[0-9]+$/) print $1;}' result_data/pid_uid.$pid > result_data/pid_uid_phone.$pid
+    python getinfobyuserid.sh $pid
+done 
+
+

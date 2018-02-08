@@ -1,0 +1,29 @@
+<root>
+	<stat desc="计算播放页导入收银台付费率">
+	        <ignore-exception>false</ignore-exception>
+                
+
+		<select-rs desc="查询付费率"> 
+		    <datasource>letv_order_test</datasource>
+		    <output>rs</output>
+		    <input-param>sdate</input-param>
+		    <sql>
+		    <![CDATA[
+			 select '错误报警' from t_pay_page_rate where paytime=?
+		    ]]>
+		   </sql>
+         	</select-rs>
+		<mail desc="发送付费率邮件">
+			<host>mail.letv.com</host>
+			<charset>utf-8</charset>
+			<username>zhangyouxing</username>
+			<password>fancy851012!@#$</password>
+			<from>zhangyouxing@letv.com</from>
+			<to>zhaochunlong@letv.com</to>
+			<subject>错误报警</subject>
+			<input-param>rs</input-param>
+		</mail>
+		
+               
+	</stat>
+</root>

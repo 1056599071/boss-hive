@@ -1,0 +1,67 @@
+<root>
+	<stat desc="计算收银台付费率">
+	    <ignore-exception>false</ignore-exception>
+		
+		<delete desc="删除当天站外带来影片收入"> 
+			<datasource>letv_boss_online</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+					delete from t_inner_channel_stat where date=?
+			]]>
+			</sql>
+	         </delete>
+		
+		<file2db desc="导入pc内部渠道收入"> 
+		<datasource>letv_boss_online</datasource>
+		<filepath>/home/zhaochunlong/boss_stat/common_stat/inner_channel_stat/data/</filepath>
+		<filedate>sdate</filedate>
+                <separator>\t</separator>
+                <filename>inner_channels_income</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_inner_channel_stat(date,channelParameter,neworxufei,page_uv,pay_uv,terminal) values(?,?,?,?,?,112)
+			]]>
+			</sql>
+		</file2db>
+		
+		
+		<file2db desc="导入mz内部渠道收入"> 
+		<datasource>letv_boss_online</datasource>
+		<filepath>/home/zhaochunlong/boss_stat/common_stat/inner_channel_stat/data/</filepath>
+	        <filedate>sdate</filedate>
+                <separator>\t</separator>
+                <filename>mz_inner_channels_income</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_inner_channel_stat(date,channelParameter,neworxufei,page_uv,pay_uv,terminal) values(?,?,?,?,?,113)
+			]]>
+			</sql>
+		</file2db>
+		
+		
+		<delete desc="删除当天站外带来影片收入"> 
+			<datasource>letv_boss_online</datasource>
+			<input-param>sdate</input-param>
+			<sql>
+			 <![CDATA[
+					delete from t_inner_channel_pv where date=?
+			]]>
+			</sql>
+	         </delete>
+		
+		<file2db desc="导入tv内部渠道收入"> 
+		<datasource>letv_boss_online</datasource>
+		<filepath>/home/zhaochunlong/boss_stat/common_stat/inner_channel_stat/data/</filepath>
+	        <filedate>sdate</filedate>
+                <separator>\t</separator>
+                <filename>tv_inner_channels_pv</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_inner_channel_pv(date,channelParameter,pv,uv,terminal) values(?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

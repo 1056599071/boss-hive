@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<something-else-entirely>
+  <proxool>
+  <alias>letv_order_test</alias>
+  <driver-url>jdbc:mysql://10.150.140.88:3307/boss_stat?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+  <driver-class>com.mysql.jdbc.Driver</driver-class>
+  <driver-properties>
+   <property name="user" value="infobright"/>
+   <property name="password" value="infobright"/>
+  </driver-properties>  
+  <maximum-connection-count>50</maximum-connection-count>
+  <minimum-connection-count>1</minimum-connection-count>
+  <maximum-active-time>3600000</maximum-active-time>
+  <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+ </proxool>
+ 
+ <proxool>
+  <alias>letv_boss_online</alias>
+  <driver-url>jdbc:mysql://117.121.54.134:3829/bosstdy?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+  <driver-class>com.mysql.jdbc.Driver</driver-class>
+  <driver-properties>
+   <property name="user" value="bosstdy_w"/>
+   <property name="password" value="4f0aedbb8955ce8"/>
+  </driver-properties>  
+  <maximum-connection-count>50</maximum-connection-count>
+  <minimum-connection-count>1</minimum-connection-count>
+  <maximum-active-time>3600000</maximum-active-time>
+  <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+ </proxool>
+ 
+ <proxool>
+   <alias>boss_online_rec</alias>
+     <driver-url>jdbc:mysql://117.121.54.241:3839/letv_boss?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="boss_w"/>
+     <property name="password" value="454bce2f998e80a"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+  
+  <proxool>
+   <alias>boss_online_activity</alias>
+     <driver-url>jdbc:mysql://117.121.54.241:3842/activity?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="activity_w"/>
+     <property name="password" value="MjQyN2VlMmQzMGU"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+
+ <proxool>
+   <alias>boss_online_rec_test</alias>
+     <driver-url>jdbc:mysql://10.154.156.104:3306/letv_boss?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="boss"/>
+     <property name="password" value="bossmini"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+ 
+<!-- 
+  <proxool>
+   <alias>boss_online_yuanxian</alias>
+     <driver-url>jdbc:mysql://117.121.54.249:3309/vip_letv?useUnicode=true&amp;characterEncoding=GBK&amp;useOldAliasMetadataBehavior=true</driver-url>
+     <driver-class>com.mysql.jdbc.Driver</driver-class>
+     <driver-properties>
+            <property name="user" value="vip_letvuser"/>
+     <property name="password" value="5iyw9DdOF2jKoBHDRZq5"/>
+     </driver-properties>
+     <maximum-connection-count>50</maximum-connection-count>
+     <minimum-connection-count>2</minimum-connection-count>
+     <maximum-active-time>14400000</maximum-active-time>
+     <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+  </proxool> 
+  -->
+  <!--
+  <proxool>
+	 <alias>pay_order_bake</alias>
+	  <driver-url>jdbc:oracle:thin:@117.121.54.241:1521:boss</driver-url>
+	  <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+	  <driver-properties>
+	   <property name="user" value="boss_writer"/>
+	   <property name="password" value="pEk9ocOIMB9yR7Zw8wWL"/>
+	  </driver-properties>  
+	  <maximum-connection-count>10</maximum-connection-count>
+	  <minimum-connection-count>5</minimum-connection-count>
+	  <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+ </proxool> 
+ -->
+
+
+ <proxool>
+	 <alias>pay_order_online</alias>
+	  <driver-url>jdbc:oracle:thin:@10.100.91.242:1521:letv</driver-url>
+	  <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+	  <driver-properties>
+	   <property name="user" value="boss_writer"/>
+	   <property name="password" value="NDVkMDI4NjcwYzc123ABC"/>
+	  </driver-properties>  
+	  <maximum-connection-count>10</maximum-connection-count>
+	  <minimum-connection-count>2</minimum-connection-count>
+	  <maximum-active-time>3600000</maximum-active-time>
+	  <house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+ </proxool> 
+
+ 
+</something-else-entirely>

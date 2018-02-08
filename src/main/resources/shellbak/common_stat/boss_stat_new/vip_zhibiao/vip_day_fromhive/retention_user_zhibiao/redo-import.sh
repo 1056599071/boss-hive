@@ -1,0 +1,10 @@
+./import_retention_user_todb.sh 2015-10-20
+./import_retention_user_todb.sh 2015-10-21
+./import_retention_user_todb.sh 2015-10-22
+./import_retention_user_todb.sh 2015-10-23
+./import_retention_user_todb.sh 2015-10-24
+./import_retention_user_todb.sh 2015-10-25
+./import_retention_user_todb.sh 2015-10-26
+./import_retention_user_todb.sh 2015-10-27
+./import_retention_user_todb.sh 2015-10-28
+./import_retention_user_todb.sh 2015-10-29

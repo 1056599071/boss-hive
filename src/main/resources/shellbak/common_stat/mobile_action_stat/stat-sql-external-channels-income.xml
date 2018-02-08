@@ -1,0 +1,19 @@
+<root>
+	<stat desc="计算收银台付费率">
+	        <ignore-exception>false</ignore-exception>
+                
+		<file2db desc="导入收银台相关数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/external_channels_income/data/</filepath>
+			<filedate>sdate</filedate>
+                        <separator>\t</separator>
+                        <filename>external_channels_income</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_channel_stat(date,channelParameter,pay_uv,page_uv,income) values(?,?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	
+	</stat>
+</root>

@@ -1,0 +1,16 @@
+./run_tv_activity.sh 2016-02-02
+./run_tv_activity.sh 2016-02-03
+./run_tv_activity.sh 2016-02-04
+./run_tv_activity.sh 2016-02-05
+./run_tv_activity.sh 2016-02-06
+./run_tv_activity.sh 2016-02-07
+./run_tv_activity.sh 2016-02-08
+./run_tv_activity.sh 2016-02-09
+./run_tv_activity.sh 2016-02-10
+./run_tv_activity.sh 2016-02-11
+./run_tv_activity.sh 2016-02-12
+./run_tv_activity.sh 2016-02-13
+./run_tv_activity.sh 2016-02-14
+./run_tv_activity.sh 2016-02-15
+./run_tv_activity.sh 2016-02-16
+./run_tv_activity.sh 2016-02-17

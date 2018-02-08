@@ -1,0 +1,20 @@
+./run-cvuv-order.sh 2015-10-10
+./run-cvuv-order.sh 2015-10-11
+./run-cvuv-order.sh 2015-10-12
+./run-cvuv-order.sh 2015-10-13
+./run-cvuv-order.sh 2015-10-14
+./run-cvuv-order.sh 2015-10-15
+./run-cvuv-order.sh 2015-10-16
+./run-cvuv-order.sh 2015-10-17
+./run-cvuv-order.sh 2015-10-18
+./run-cvuv-order.sh 2015-10-19
+
+./run-cvuv-order.sh 2015-10-01
+./run-cvuv-order.sh 2015-10-02
+./run-cvuv-order.sh 2015-10-03
+./run-cvuv-order.sh 2015-10-04
+./run-cvuv-order.sh 2015-10-05
+./run-cvuv-order.sh 2015-10-06
+./run-cvuv-order.sh 2015-10-07
+./run-cvuv-order.sh 2015-10-08
+./run-cvuv-order.sh 2015-10-09

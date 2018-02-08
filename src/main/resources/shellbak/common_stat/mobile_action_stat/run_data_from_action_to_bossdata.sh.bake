@@ -1,0 +1,21 @@
+#!/bin/sh
+
+source ~/.bash_profile;
+BASEDIR=`dirname $0`
+cd $BASEDIR
+
+yesterday=`date -d "1 days ago" +"%Y%m%d"`
+
+
+if [ "$#" -eq 1 ]; then
+  yesterday=$1
+fi
+
+hive -e "
+set hive.exec.compress.output=true;  
+set mapred.output.compress=true;  
+set mapred.output.compression.codec=org.apache.hadoop.io.compress.GzipCodec;  
+set io.compression.codecs=org.apache.hadoop.io.compress.GzipCodec; 
+insert overwrite table data_boss.boss_action_day_bake partition(dt='${yesterday}',product='0')
+select * from data_boss.tbl_action_boss
+ where dt = '${yesterday}' and product='0'"

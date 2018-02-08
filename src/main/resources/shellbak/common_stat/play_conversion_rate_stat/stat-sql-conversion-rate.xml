@@ -1,0 +1,41 @@
+<root>
+	<stat desc="计算播放页导入收银台付费率">
+	        <ignore-exception>false</ignore-exception>
+                
+		<file2db desc="导入收银台相关数据到db"> 
+			<datasource>letv_order_test</datasource>
+			<filepath>/home/zhaochunlong/boss_stat/common_stat/play_conversion_rate_stat/data/</filepath>
+			<filedate>sdate</filedate>
+                        <filename>pay_page_rate</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_pay_page_rate(pay_page_uv,order_cnt,order_success_cnt,paytime) values(?,?,?,?)
+			]]>
+			</sql>
+		</file2db>
+               
+
+		<select-rs desc="查询付费率"> 
+		    <datasource>letv_order_test</datasource>
+		    <output>rs</output>
+		    <input-param>sdate</input-param>
+		    <sql>
+		    <![CDATA[
+			 select paytime as '时间',order_cnt as '订单数',order_success_cnt as '支付成功订单数',pay_page_uv as '收银台uv',round(order_success_cnt/pay_page_uv*100,2) as '付费率(%)' from t_pay_page_rate where paytime=?
+		    ]]>
+		   </sql>
+         	</select-rs>
+		<mail desc="发送付费率邮件">
+			<host>mail.letv.com</host>
+			<charset>utf-8</charset>
+			<username>zhangyouxing</username>
+			<password>fancy851012!@#$</password>
+			<from>zhangyouxing@letv.com</from>
+			<to>zhaochunlong@letv.com</to>
+			<subject>通过播放页带来的付费转化率</subject>
+			<input-param>rs</input-param>
+		</mail>
+		
+               
+	</stat>
+</root>

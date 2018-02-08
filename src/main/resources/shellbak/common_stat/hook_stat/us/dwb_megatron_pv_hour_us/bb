@@ -1,0 +1,6 @@
+#!/bin/sh
+dataDir=./data
+if [ ! -d $dataDir ]; then
+   mkdir -p $dataDir
+fi
+

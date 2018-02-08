@@ -1,0 +1,19 @@
+<root>
+	<stat desc="boss统计影片付费用户数需求">
+		<db2csv desc="导出订单数据到csv"> 
+			<datasource>vip_letv_order</datasource>
+			<filepath>/home/membership02/boss_movie_income/data/</filepath>
+			<filename>boss_order</filename>
+			<filedate>sdate</filedate>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+			   select orderid,money,status,createtime,case when orderfrom in(13,14) then date_add(paytime,interval ordertype*30 day) else canceltime end as canceltime,ordertype,aid,orderfrom,aid2,runningnumber,
+			         videoid,paytype,paytime,paytime_hour,userip,pakbuycount,paychannel,suborderfrom,model,userid,terminal,terminal2,viptype,orderpaytype,orderpaytype1,neworxufei
+			         from T_NEW_ORDER_4_DATA where  paytime>=? and paytime<? 
+			]]>
+			</sql>
+		</db2csv>
+	</stat>
+</root>

@@ -1,0 +1,14 @@
+<root>
+	<stat desc="boss导入付费收入数据岛db">
+		<file2db desc="导入付费用户数"> 
+			<datasource>vip_letv_order</datasource>
+			<filepath>/home/boss/shell/hive/common_stat/boss_stat/play_movie_income_coversion_rate/</filepath>
+			<filename>a.csv</filename>
+			<sql>
+			 <![CDATA[
+				insert into t_pay_page_rate(order_cnt,order_zt_cnt,pay_page_uv) values(?,?,?)
+			]]>
+			</sql>
+		</file2db>
+	</stat>
+</root>

@@ -1,0 +1,3 @@
+hive -e "add jar /home/membership02/boss_stat/inner_channels_rate/boss_filter_url.jar;
+         create temporary function filter_ref as 'com.letv.boss.stat.hive.FilterUrlUDF'; 
+         select count(distinct letv_cookie),cur_url_ref from (select letv_cookie,filter_ref(cur_url) as cur_url_ref from data_raw.tbl_pv_hour where dt='20141204' and  product='1')t where  cur_url_ref is not null group by cur_url_ref" > ./a.txt

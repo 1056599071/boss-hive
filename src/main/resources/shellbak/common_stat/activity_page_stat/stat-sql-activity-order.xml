@@ -1,0 +1,96 @@
+<root>
+	<stat desc="统计活动页面数据">
+	    <ignore-exception>false</ignore-exception>
+         
+		 <select desc="获取时间">
+                <datasource>letv_order_test</datasource>
+                <output>sdate</output>
+                <single>true</single>
+                <sql>
+                        <![CDATA[
+                                        select date_format(date_sub(CURDATE(),interval 1 day),'%Y-%m-%d')  from dual
+                                ]]>
+                </sql>
+            </select>
+            
+            <select desc="获取时间">
+                <datasource>letv_order_test</datasource>
+                <output>edate</output>
+                <single>true</single>
+                <sql>
+                        <![CDATA[
+                                        select date_format(CURDATE(),'%Y-%m-%d')  from dual
+                                ]]>
+                </sql>
+            </select>
+				 
+		<delete desc="删除活动页面数据"> 
+			<datasource>letv_order_test</datasource>
+			<sql>
+			 <![CDATA[
+				delete from x_event_type
+ 			]]>
+			</sql>
+		</delete>
+		
+		
+		<si-sql desc="导入活动页面数据"> 
+			<sourceDataSource>boss_online_activity</sourceDataSource>
+			<targetDataSource>letv_order_test</targetDataSource>
+			<select-sql>
+			 <![CDATA[
+				select id,concat(activity_name,'-',activity_desc),begin_time,end_time,activity_desc,user_type from x_event_type
+             ]]>
+			</select-sql>
+			<insert-sql>
+			 <![CDATA[
+				insert into x_event_type(id,activity_name,begin_time,end_time,activity_desc,user_type) values(?,?,?,?,?,?)
+             ]]>
+			</insert-sql>
+		</si-sql>
+		
+		<delete desc="删除活动页面数据"> 
+			<datasource>letv_order_test</datasource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<sql>
+			 <![CDATA[
+				delete from x_event where add_time>=? and add_time<?
+ 			]]>
+			</sql>
+		</delete>
+		
+		<si-sql desc="导入活动页面数据"> 
+			<sourceDataSource>boss_online_activity</sourceDataSource>
+			<targetDataSource>letv_order_test</targetDataSource>
+			<input-param>sdate</input-param>
+			<input-param>edate</input-param>
+			<select-sql>
+			 <![CDATA[
+				select id,user_id,event_type,meta,add_time,orderid,note_status from x_event where add_time>=? and add_time<?
+             ]]>
+			</select-sql>
+			<insert-sql>
+			 <![CDATA[
+			    insert into x_event(id,user_id,event_type,meta,add_time,orderid,note_status) values(?,?,?,?,?,?,?)
+             ]]>
+			</insert-sql>
+		</si-sql>
+		
+	
+                <!--	
+		<db2csv desc="导出订单数据到csv"> 
+			<datasource>boss_online_activity</datasource>
+			<filepath>/home/membership02/boss_stat_new/common_stat/activity_page_stat/data/</filepath>
+			<charset>utf8</charset>
+			<filename>activity_order</filename>
+			<filedate>sdate</filedate>
+			<sql>
+			 <![CDATA[
+					select id,activity_name,begin_time,end_time,activity_desc,user_type from x_event_type
+			]]>
+			</sql>
+		</db2csv>
+		-->
+	</stat>
+</root>
