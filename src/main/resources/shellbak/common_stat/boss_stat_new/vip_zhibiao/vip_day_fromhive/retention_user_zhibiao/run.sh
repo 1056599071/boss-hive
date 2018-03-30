@@ -39,13 +39,15 @@ do
 	t3.orderpaytype,
 	'd_00012_${day}',
 	t3.neworxufei,
-	${sdate//-/}
+	${sdate//-/},
+	t3.viptype
 FROM
 	(
 		SELECT
 			t1.userid,
 			t2.orderpaytype,
-			t2.neworxufei
+			t2.neworxufei,
+			t2.viptype
 		FROM
 			(
 				SELECT
@@ -67,7 +69,8 @@ FROM
 				userid,
 				orderpaytype,
 				canceltime,
-				neworxufei
+				neworxufei,
+				viptype
 			FROM
 				dm_boss.t_new_order_4_data
 			WHERE
@@ -104,7 +107,8 @@ GROUP BY
 	t4.p1,
 	t4.p2,
 	t3.orderpaytype,
-	t3.neworxufei " > ./data/retention_user_data_${day}.${sdate//-/}
+	t3.neworxufei,
+	t3.viptype " > ./data/retention_user_data_${day}.${sdate//-/}
 ####app
 	hive -e "set hive.optimize.skewjoin=false;
 		     set hive.groupby.skewindata=false;
@@ -115,13 +119,15 @@ GROUP BY
 	t3.orderpaytype,
 	'd_00012_${day}',
 	t3.neworxufei,
-	${sdate//-/}
+	${sdate//-/},
+	t3.viptype
 FROM
 	(
 		SELECT
 			t1.userid,
 			t2.orderpaytype,
-			t2.neworxufei
+			t2.neworxufei,
+			t2.viptype
 		FROM
 			(
 				SELECT
@@ -143,7 +149,8 @@ FROM
 				userid,
 				orderpaytype,
 				canceltime,
-				neworxufei
+				neworxufei,
+				viptype
 			FROM
 				dm_boss.t_new_order_4_data
 			WHERE
@@ -177,5 +184,6 @@ GROUP BY
 	t4.p1,
 	t4.p3,
 	t3.orderpaytype,
-	t3.neworxufei ">> ./data/retention_user_data_${day}.${sdate//-/}
+	t3.neworxufei,
+	t3.viptype ">> ./data/retention_user_data_${day}.${sdate//-/}
 done

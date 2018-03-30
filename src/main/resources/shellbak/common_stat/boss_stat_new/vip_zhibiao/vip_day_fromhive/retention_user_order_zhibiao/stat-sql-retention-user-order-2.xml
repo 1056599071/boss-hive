@@ -22,7 +22,7 @@
             <filename>retention_order_cvuv_data_2</filename>
 			<sql>
 			 <![CDATA[
-				insert into boss_vip_retention_temp(zhibiao_value1,zhibiao_value2,zhibiao_value3,zhibiao_value4,p1,p2,p3,paytype,isnew,pay,expire,zhibiao_id,create_date) values(?,?,?,?,?,left(?,10),left(?,10),?,?,?,?,?,?)
+				insert into boss_vip_retention_temp(zhibiao_value1,zhibiao_value2,zhibiao_value3,zhibiao_value4,p1,p2,p3,paytype,isnew,pay,expire,zhibiao_id,create_date,viptype) values(?,?,?,?,?,left(?,10),left(?,10),?,?,?,?,?,?,?)
              ]]>
 			</sql>
 		</file2db>
