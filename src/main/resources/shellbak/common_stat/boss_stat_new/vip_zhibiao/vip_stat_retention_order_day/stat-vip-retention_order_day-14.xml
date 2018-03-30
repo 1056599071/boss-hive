@@ -41,10 +41,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00042',sum(zhibiao_value1),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00042',sum(zhibiao_value1),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) 
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 				]]>
 			</sql>
 		</insert>
@@ -66,10 +66,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00043',sum(zhibiao_value3),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00043',sum(zhibiao_value3),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 					]]>
 			</sql>
 		</insert>
@@ -91,10 +91,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00044',sum(zhibiao_value3),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00044',sum(zhibiao_value3),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) and pay=1
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 					]]>
 			</sql>
 		</insert>
@@ -116,10 +116,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00045',sum(zhibiao_value2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00045',sum(zhibiao_value2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 				]]>
 			</sql>
 		</insert>
@@ -141,10 +141,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00046',sum(zhibiao_value2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00046',sum(zhibiao_value2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  and pay=1
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 				]]>
 			</sql>
 		</insert>
@@ -166,10 +166,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00047',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00047',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 
 					]]>
 			</sql>
@@ -192,10 +192,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00048',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00048',round(sum(zhibiao_value4)/sum(zhibiao_value1)/60,2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<? and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04')) and pay=1 
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 
 					]]>
 			</sql>
@@ -218,10 +218,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00049',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00049',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<?  and zhibiao_id='d_00018_14'  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 
 					]]>
 			</sql>
@@ -244,10 +244,10 @@
 			<input-param>edate</input-param>
 			<sql>
 				 <![CDATA[
-					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date)
-					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00050',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date from boss_vip_retention_temp
+					insert into boss_vip_retention_day(zhibiao_type,terminal,device,isnew,paytype,expire,zhibiao_id,zhibiao_value,create_date,viptype)
+					select 0, case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3  when p1='0' and p2='04' then '04' when p1='1'  then p2 end ,isnew,paytype,expire,'d_00050',round(sum(zhibiao_value4)/sum(zhibiao_value2)/60,2),create_date,viptype from boss_vip_retention_temp
 					where create_date>=? and create_date<?  and zhibiao_id='d_00018_14' and pay=1  and ((p1='0' and p2='00' and p3 in ('001','002','003','004','005','006','007','008')) or (p1='1' and p2 in ('10','11')) or (p1='2' and p2='21') or (p1='0' and p2='04'))  
-					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire 
+					group by case when p1='0' and p2='04' then '113' else p1 end,case when p1='2' and p2='21' then '21' when p1='0' and p2='00' then p3 when p1='0' and p2='04' then '04' when p1='1'  then p2  end,isnew,paytype,expire,viptype
 
 			]]>
 			</sql>

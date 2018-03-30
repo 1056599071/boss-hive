@@ -73,14 +73,16 @@ ELSE
 	1
 END,
  'd_00018_${day}',
- ${sdate//-/}
+ ${sdate//-/},
+ t1.viptype
 FROM
 	(
 		SELECT
 			userid,
 			orderpaytype,
 			canceltime,
-			neworxufei
+			neworxufei,
+			viptype
 		FROM
 			dm_boss.t_new_order_4_data
 		WHERE
@@ -128,5 +130,6 @@ WHEN t1.canceltime < '${sdate_1}' THEN
 	0
 ELSE
 	1
-END" > ./data/retention_order_cvuv_data_${day}.${sdate//-/}
+END,
+t1.viptype" > ./data/retention_order_cvuv_data_${day}.${sdate//-/}
 done

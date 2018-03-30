@@ -46,14 +46,16 @@ SELECT
 	t3.neworxufei,
 	t5.pay,
 	'd_00005_1',
-	${sdate//-/}
+	${sdate//-/},
+	t3.viptype
 FROM
 	(
 		SELECT
 			t1.userid,
 			t2.orderpaytype,
 			t2.neworxufei,
-			t1.canceltime
+			t1.canceltime,
+			t2.viptype
 		FROM
 			(
 				SELECT
@@ -75,7 +77,8 @@ FROM
 				userid,
 				orderpaytype,
 				canceltime,
-				neworxufei
+				neworxufei,
+				viptype
 			FROM
 				dm_boss.t_new_order_4_data
 			WHERE
@@ -113,4 +116,5 @@ GROUP BY
 	t5.p3,
 	t3.orderpaytype,
 	t3.neworxufei,
-	t5.pay" > ./data/activity_user_data_uuid.${sdate//-/}
+	t5.pay,
+	t3.viptype" > ./data/activity_user_data_uuid.${sdate//-/}
